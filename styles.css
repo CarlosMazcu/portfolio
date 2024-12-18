@@ -38,7 +38,7 @@ header nav a {
 /* Efecto hover sobre los enlaces */
 header nav a:hover {
   color: #FFD700; /* Amarillo brillante al pasar el cursor */
-  transform: scale(1.1); /* Efecto de agrandar al pasar el cursor */
+  transform: scale(1.5); /* Efecto de agrandar al pasar el cursor */
 }
 /* Secciones */
 section {
@@ -80,6 +80,7 @@ section {
   background-image: url('./img/975991.png');
 }
 
+
  #contact {
   position: relative;
   overflow: hidden;
@@ -109,60 +110,98 @@ section h2 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
+ul{
+  list-style-type: none; /* Elimina los puntos de lista */
+}
+
 /* Lista de proyectos */
-ul li {
+ ul li {
   margin: 20px auto;
-  padding: 15px;
-  max-width: 600px;
-  background: rgba(255, 255, 255, 0.8);
-  color: #333;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-ul li:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Formulario de contacto */
-form {
-  background: rgba(255, 255, 255, 0.9);
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: inline-block;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.9); /* Fondo más suave */
+  color: #333;
+  border-radius: 12px; /* Bordes más redondeados */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease; /* Transición suave */
 }
 
-form label {
+ul li.video-container {
+  padding: 0; /* Eliminamos cualquier padding adicional */
+  margin: 20px auto; /* Centrado automático con margen superior e inferior */
+  max-width: 620px; /* Mismo ancho que los demás <li> */
+  background: none; /* Aseguramos que no haya fondo blanco */
+  border: none; /* Sin bordes adicionales */
+}
+
+/* Video (iframe) */
+ul li.video-container iframe {
+  width: 100%; /* Ocupar todo el ancho del contenedor */
+  aspect-ratio: 16 / 9; /* Mantener proporción 16:9 */
+  display: block; /* Elimina el espacio en línea que puede generar <iframe> */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra elegante */
+  margin: 0; /* Sin márgenes dentro del iframe */
+}
+ul li:hover {
+  transform: translateY(-2px); /* Movimiento más notorio */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra más prominente */
+  background-color: rgba(255, 255, 255, 1); /* Fondo más blanco al hacer hover */
+}
+
+/* Estilo de los elementos dentro de la lista */
+ul li h3 {
+  font-size: 1.2rem;
   font-weight: bold;
+  margin-bottom: 10px;
+  color: #4CAF50; /* Color verde para los títulos */
 }
 
-form input, form textarea {
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-form button {
-  background-color: #007BFF;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+ul li p {
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  color: #555; /* Color de texto más suave */
 }
 
-form button:hover {
-  background-color: #0056b3;
+ul li a {
+  text-decoration: none;
+  color: #007BFF; /* Enlace azul */
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
- footer {
+ul li a:hover {
+  color: #004085; /* Azul más oscuro al pasar el cursor */
+  transform: translateX(5px); /* Movimiento sutil al pasar el cursor */
+
+}
+
+/* Estilos solo para los enlaces de contacto dentro de la sección #contact */
+
+#contact ul li a {
+  text-decoration: none;
+  color: #333; /* Color del texto */
+  font-size: 18px; /* Tamaño de la fuente */
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#contact ul li a:hover {
+  color: #007BFF; /* Color al pasar el cursor */
+  transform: translateX(5px); /* Movimiento sutil al pasar el cursor */
+}
+
+#contact ul li i {
+  margin-right: 10px; /* Espacio entre el icono y el texto */
+  font-size: 24px; /* Tamaño del ícono */
+  transition: color 0.3s ease;
+}
+
+#contact ul li a:hover i {
+  color: #007BFF; /* Color del ícono al pasar el cursor */
+}
+
+footer {
   text-align: center;
   padding: 30px 20px; /* Añadido un poco más de espacio */
   background: linear-gradient(135deg, #FFC0CB, #9B59B6, #F39C12); /* Gradiente suave con colores pastel */
@@ -181,7 +220,7 @@ footer a {
 
 footer a:hover {
   color: #FFD700; /* Amarillo brillante al pasar el cursor */
-  transform: scale(1.1); /* Efecto de agrandar */
+  transform: scale(1.5); /* Efecto de agrandar */
 }
 
 /* Para el texto de derechos de autor o información adicional */
