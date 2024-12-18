@@ -11,29 +11,6 @@ html {
   scroll-padding-top: 100px; /* Ajusta la altura de tu header */
 }
 /* Encabezado */
-/* header {
-  background: linear-gradient(90deg, #007BFF, #4CAF50);
-  color: white;
-  text-align: center;
-  padding: 40px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-header nav a {
-  color: white;
-  margin: 0 15px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-header nav a:hover {
-  color: #ddd;
-} */
-/* Encabezado */
 header {
   background: linear-gradient(90deg, #FFC0CB, #9B59B6, #8E44AD, #F39C12); /* Gradiente con rosa, morado y amarillo */
   color: white;
@@ -81,9 +58,6 @@ section {
   position: relative; /* Para poder usar posicionamiento absoluto dentro de la sección */
 }
 
-/* #about {
-
-} */
 
 #about .content {
   position: relative;
@@ -106,10 +80,6 @@ section {
   background-image: url('./img/975991.png');
 }
 
-/* #contact {
-  background-image: url('./img/donut-moewalls.com.mp4');
-}
- */
  #contact {
   position: relative;
   overflow: hidden;
@@ -192,24 +162,11 @@ form button:hover {
   background-color: #0056b3;
 }
 
-/* Footer */
-/* footer {
-  text-align: center;
-  padding: 20px;
-  background: #6e9aac;
-  color: white;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
- */
-
  footer {
   text-align: center;
   padding: 30px 20px; /* Añadido un poco más de espacio */
   background: linear-gradient(135deg, #FFC0CB, #9B59B6, #F39C12); /* Gradiente suave con colores pastel */
   color: white;
-/*   border-top-left-radius: 15px; /* Bordes más suaves */
-/*   border-top-right-radius: 15px;  *//* Bordes más suaves */
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave en la parte superior */
   font-family: 'Arial', sans-serif;
   letter-spacing: 1px; /* Espaciado entre letras para hacerlo más legible */
