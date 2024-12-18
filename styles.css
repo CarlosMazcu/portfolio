@@ -1,0 +1,246 @@
+/* General */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+html {
+  scroll-padding-top: 100px; /* Ajusta la altura de tu header */
+}
+/* Encabezado */
+/* header {
+  background: linear-gradient(90deg, #007BFF, #4CAF50);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header nav a {
+  color: white;
+  margin: 0 15px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: #ddd;
+} */
+/* Encabezado */
+header {
+  background: linear-gradient(90deg, #FFC0CB, #9B59B6, #8E44AD, #F39C12); /* Gradiente con rosa, morado y amarillo */
+  color: white;
+  text-align: center;
+  padding: /* 40px  */20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.3); /* Sutil borde para un toque elegante */
+}
+
+/* Estilo de los enlaces de navegación */
+header nav a {
+  color: white;
+  margin: 0 15px;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase; /* Para que los enlaces se vean más estilizados */
+  font-size: 18px;
+  transition: color 0.3s ease, transform 0.3s ease; /* Agregar animación suave */
+}
+
+/* Efecto hover sobre los enlaces */
+header nav a:hover {
+  color: #FFD700; /* Amarillo brillante al pasar el cursor */
+  transform: scale(1.1); /* Efecto de agrandar al pasar el cursor */
+}
+/* Secciones */
+section {
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#about {
+  background-image: url('./img/975991.png');
+  /*background-image: url('./img/wp11327275-arts-4k-hd-wallpapers.png');*/
+  
+  position: relative; /* Para poder usar posicionamiento absoluto dentro de la sección */
+}
+
+/* #about {
+
+} */
+
+#about .content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 20px;
+}
+
+#about .background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Fondo negro con opacidad de 0.4 */
+  z-index: 1;
+}
+
+#projects {
+  background-image: url('./img/975991.png');
+}
+
+/* #contact {
+  background-image: url('./img/donut-moewalls.com.mp4');
+}
+ */
+ #contact {
+  position: relative;
+  overflow: hidden;
+  height: 100vh; /* Altura completa de la ventana */
+}
+
+#background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+.content {
+  position: relative;
+  z-index: 1; /* Asegura que el contenido esté encima del video */
+  color: white; /* Asegúrate de que el texto sea legible */
+  padding: 20px;
+}
+/* Títulos de sección */
+section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Lista de proyectos */
+ul li {
+  margin: 20px auto;
+  padding: 15px;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+ul li:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Formulario de contacto */
+form {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form input, form textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+form button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Footer */
+/* footer {
+  text-align: center;
+  padding: 20px;
+  background: #6e9aac;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+ */
+
+ footer {
+  text-align: center;
+  padding: 30px 20px; /* Añadido un poco más de espacio */
+  background: linear-gradient(135deg, #FFC0CB, #9B59B6, #F39C12); /* Gradiente suave con colores pastel */
+  color: white;
+/*   border-top-left-radius: 15px; /* Bordes más suaves */
+/*   border-top-right-radius: 15px;  *//* Bordes más suaves */
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave en la parte superior */
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 1px; /* Espaciado entre letras para hacerlo más legible */
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease; /* Animación suave */
+}
+
+footer a:hover {
+  color: #FFD700; /* Amarillo brillante al pasar el cursor */
+  transform: scale(1.1); /* Efecto de agrandar */
+}
+
+/* Para el texto de derechos de autor o información adicional */
+footer p {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #f0f0f0; /* Gris claro para el texto secundario */
+}
+/* Responsivo */
+@media (max-width: 768px) {
+  header nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  ul li {
+    padding: 10px;
+  }
+}
