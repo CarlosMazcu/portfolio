@@ -35,16 +35,7 @@ document.querySelectorAll("header nav a").forEach((anchor) => {
   });
 });
 
-// Efecto Parallax para las imágenes de fondo
-/* window.addEventListener("scroll", function () {
-  const sections = document.querySelectorAll("section");
 
-  sections.forEach((section) => {
-    const speed = 0.09; // Velocidad más baja para un efecto más sutil
-    const offset = window.scrollY * speed;
-    section.style.backgroundPositionY = `${offset}px`;
-  });
-}); */
 window.addEventListener("scroll", function () {
   const sections = document.querySelectorAll("section");
 
@@ -56,4 +47,18 @@ window.addEventListener("scroll", function () {
       section.style.backgroundPositionY = `${offset}px`;
     }
   });
+});
+
+// Seleccionar el header
+const header = document.querySelector("header");
+
+// Escuchar el evento de scroll
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    // Si haces scroll, añadimos la clase 'compact'
+    header.classList.add("compact");
+  } else {
+    // Si vuelves a la parte superior, quitamos la clase 'compact'
+    header.classList.remove("compact");
+  }
 });

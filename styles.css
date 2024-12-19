@@ -22,6 +22,7 @@ header {
   z-index: 1000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
 }
 
 /* Estilo del texto del header */
@@ -52,16 +53,23 @@ header nav a:hover {
 }
 
 
-/* Secciones */
-/* section {
-  padding: 60px 20px;
-  text-align: center;
-  color: white;
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-} */
+/* Ocultamos el texto del título y subtítulo en el header compacto */
+header.compact h1,
+header.compact p {
+  display: none;
+  /* Esconde el título y subtítulo */
+}
+
+/* Header compacto */
+header.compact {
+  padding: 5px 20px;
+  /* Más pequeño */
+  background: rgba(0, 0, 0, 0.9);
+  /* Fondo ligeramente más oscuro */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* Sombra más sutil */
+}
+
 section {
   position: relative;
   padding: 100px 20px; /* Asegura suficiente espacio vertical */
