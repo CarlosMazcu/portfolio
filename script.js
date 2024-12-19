@@ -36,14 +36,24 @@ document.querySelectorAll("header nav a").forEach((anchor) => {
 });
 
 // Efecto Parallax para las imágenes de fondo
+/* window.addEventListener("scroll", function () {
+  const sections = document.querySelectorAll("section");
+
+  sections.forEach((section) => {
+    const speed = 0.09; // Velocidad más baja para un efecto más sutil
+    const offset = window.scrollY * speed;
+    section.style.backgroundPositionY = `${offset}px`;
+  });
+}); */
 window.addEventListener("scroll", function () {
   const sections = document.querySelectorAll("section");
 
   sections.forEach((section) => {
-    const speed = 0.5; // Velocidad del parallax
-    const offset = window.scrollY * speed;
-    section.style.backgroundPositionY = `${offset}px`;
+    const speed = 0.09; // Velocidad del parallax (ajustable)
+    const rect = section.getBoundingClientRect(); // Posición relativa al viewport
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      const offset = (window.scrollY - section.offsetTop) * speed;
+      section.style.backgroundPositionY = `${offset}px`;
+    }
   });
 });
-
-

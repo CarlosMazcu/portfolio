@@ -10,38 +10,50 @@ body {
 html {
   scroll-padding-top: 100px; /* Ajusta la altura de tu header */
 }
-/* Encabezado */
+
+ /* Header general */
 header {
-  background: linear-gradient(90deg, #FFC0CB, #9B59B6, #8E44AD, #F39C12); /* Gradiente con rosa, morado y amarillo */
+  background:  linear-gradient(90deg, #FFC0CB, #9B59B6, #8E44AD, #F39C12);
   color: white;
   text-align: center;
-  padding: /* 40px  */20px;
+  padding: 20px; /* Menos espacio vertical por defecto */
   position: sticky;
   top: 0;
   z-index: 1000;
-  
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-bottom: 3px solid rgba(255, 255, 255, 0.3); /* Sutil borde para un toque elegante */
+  border-bottom: 3px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Estilo de los enlaces de navegación */
+/* Estilo del texto del header */
+header h1 {
+  font-size: 2rem; /* Tamaño de fuente más manejable */
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1rem; /* Subtítulo más pequeño */
+  margin-bottom: 10px;
+}
+
+/* Navegación del header */
 header nav a {
   color: white;
   margin: 0 15px;
   font-weight: bold;
   text-decoration: none;
-  text-transform: uppercase; /* Para que los enlaces se vean más estilizados */
+  text-transform: uppercase;
   font-size: 18px;
-  transition: color 0.3s ease, transform 0.3s ease; /* Agregar animación suave */
+  transition: color 0.3s ease, transform 0.3s ease;  
 }
 
-/* Efecto hover sobre los enlaces */
 header nav a:hover {
-  color: #FFD700; /* Amarillo brillante al pasar el cursor */
-  transform: scale(1.5); /* Efecto de agrandar al pasar el cursor */
+  color: #FFD700; 
+  transform: scale(1.5); 
 }
+
+
 /* Secciones */
-section {
+/* section {
   padding: 60px 20px;
   text-align: center;
   color: white;
@@ -49,7 +61,19 @@ section {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+} */
+section {
+  position: relative;
+  padding: 100px 20px; /* Asegura suficiente espacio vertical */
+  text-align: center;
+  color: white;
+  background-attachment: fixed; /* Parallax */
+  background-size: cover; /* La imagen cubre todo el contenedor */
+  background-repeat: no-repeat;
+  background-position: center top; /* Siempre comienza en la parte superior */
+  min-height: 100vh; /* Cada sección ocupa al menos la altura de la ventana */
 }
+
 
 #about {
   background-image: url('./img/975991.png');
@@ -128,6 +152,7 @@ ul{
 
 ul li.video-container {
   padding: 0; /* Eliminamos cualquier padding adicional */
+  height: auto;
   margin: 20px auto; /* Centrado automático con margen superior e inferior */
   max-width: 620px; /* Mismo ancho que los demás <li> */
   background: none; /* Aseguramos que no haya fondo blanco */
@@ -229,8 +254,19 @@ footer p {
   margin-top: 10px;
   color: #f0f0f0; /* Gris claro para el texto secundario */
 }
+
 /* Responsivo */
 @media (max-width: 768px) {
+  header {
+    padding: 5px; /* Reducimos el espacio vertical */
+  }
+  header h1 {
+    font-size: 1.2rem; /* Texto principal más pequeño */
+  }
+
+  header p {
+    font-size: 0.8rem; /* Subtítulo más compacto */
+  }
   header nav a {
     display: block;
     margin: 10px 0;
@@ -240,3 +276,4 @@ footer p {
     padding: 10px;
   }
 }
+
