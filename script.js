@@ -40,25 +40,66 @@ window.addEventListener("scroll", function () {
   const sections = document.querySelectorAll("section");
 
   sections.forEach((section) => {
-    const speed = 0.09; // Velocidad del parallax (ajustable)
-    const rect = section.getBoundingClientRect(); // Posición relativa al viewport
+    const speed = 0.1; // Velocidad del parallax (ajustable)
+    const rect = section.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) {
       const offset = (window.scrollY - section.offsetTop) * speed;
-      section.style.backgroundPositionY = `${offset}px`;
+      section.style.backgroundPositionY = `${-50 + offset}px`; // Ajustar la imagen de fondo dinámicamente
     }
   });
 });
 
-// Seleccionar el header
 const header = document.querySelector("header");
 
-// Escuchar el evento de scroll
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 50) {
-    // Si haces scroll, añadimos la clase 'compact'
+// Estado del header
+let isCompact = false;
+let debounceTimeout;
+let lastKnownScrollY = 0;
+
+// Umbrales
+const thresholdCompact = 50;
+const thresholdExpand = 100;
+
+// Manejo del header
+function handleHeader() {
+  if (lastKnownScrollY > thresholdCompact && !isCompact) {
     header.classList.add("compact");
-  } else {
-    // Si vuelves a la parte superior, quitamos la clase 'compact'
+    isCompact = true;
+  } else if (lastKnownScrollY <= thresholdExpand && isCompact) {
     header.classList.remove("compact");
+    isCompact = false;
   }
+}
+
+// Evento de scroll con debouncing
+window.addEventListener("scroll", () => {
+  lastKnownScrollY = window.scrollY || document.documentElement.scrollTop;
+  clearTimeout(debounceTimeout);
+  debounceTimeout = setTimeout(handleHeader, 50); // Ajusta si es necesario
 });
+
+// Slider functionality
+const sliderWrapper = document.querySelector(".slider-wrapper");
+const images = document.querySelectorAll(".slider img");
+const prevButton = document.querySelector(".prev");
+const nextButton = document.querySelector(".next");
+
+let currentIndex = 0;
+
+function updateSlider() {
+  const slideWidth = images[0].clientWidth;
+  sliderWrapper.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+}
+
+nextButton.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
+  updateSlider();
+});
+
+prevButton.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop to the last image
+  updateSlider();
+});
+
+// Adjust slider on window resize
+window.addEventListener("resize", updateSlider);

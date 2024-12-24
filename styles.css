@@ -11,6 +11,8 @@ html {
   scroll-padding-top: 100px; /* Ajusta la altura de tu header */
 }
 
+
+
  /* Header general */
 header {
   background:  linear-gradient(90deg, #FFC0CB, #9B59B6, #8E44AD, #F39C12);
@@ -22,7 +24,9 @@ header {
   z-index: 1000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-bottom: 3px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.3s ease;
+  transition: all 0.8s ease;
+
+  
 }
 
 /* Estilo del texto del header */
@@ -68,6 +72,7 @@ header.compact {
   /* Fondo ligeramente más oscuro */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   /* Sombra más sutil */
+  
 }
 
 section {
@@ -75,10 +80,9 @@ section {
   padding: 100px 20px; /* Asegura suficiente espacio vertical */
   text-align: center;
   color: white;
-  background-attachment: fixed; /* Parallax */
+  background-attachment: scroll; /* Parallax */
   background-size: cover; /* La imagen cubre todo el contenedor */
   background-repeat: no-repeat;
-  background-position: center top; /* Siempre comienza en la parte superior */
   min-height: 100vh; /* Cada sección ocupa al menos la altura de la ventana */
 }
 
@@ -86,8 +90,16 @@ section {
 #about {
   background-image: url('./img/975991.png');
   /*background-image: url('./img/wp11327275-arts-4k-hd-wallpapers.png');*/
-  
+  background-position: center top - 150px;
+    /* Siempre comienza en la parte superior */
   position: relative; /* Para poder usar posicionamiento absoluto dentro de la sección */
+}
+.background-wrapper {
+  background-image: url('./img/975991.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 
@@ -110,6 +122,8 @@ section {
 
 #projects {
   background-image: url('./img/975991.png');
+  background-position: center top - 150px;
+    /* Siempre comienza en la parte superior */
 }
 
 
@@ -135,6 +149,55 @@ section {
   color: white; /* Asegúrate de que el texto sea legible */
   padding: 20px;
 }
+
+/* Slider */
+.slider {
+  position: relative;
+  width: 80%;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+
+button.prev:hover,
+button.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+/*finish slider styles*/
 /* Títulos de sección */
 section h2 {
   font-size: 2.5rem;
