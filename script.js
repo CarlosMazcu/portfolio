@@ -49,28 +49,28 @@ window.addEventListener("scroll", function () {
   });
 });
 
-const header = document.querySelector("header");
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projects = document.querySelectorAll("#projects ul li");
 
-// Estado del header
-let isCompact = false;
-let debounceTimeout;
-let lastKnownScrollY = 0;
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const category = button.getAttribute("data-category");
 
-// Umbrales
-const thresholdCompact = 50;
-const thresholdExpand = 100;
+    // Resaltar el botón activo
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
+    button.classList.add("active");
 
-// Manejo del header
-function handleHeader() {
-  if (lastKnownScrollY > thresholdCompact && !isCompact) {
-    header.classList.add("compact");
-    isCompact = true;
-  } else if (lastKnownScrollY <= thresholdExpand && isCompact) {
-    header.classList.remove("compact");
-    isCompact = false;
-  }
-}
-
+    // Mostrar/Ocultar proyectos
+    projects.forEach((project) => {
+      if (category === "all" || project.getAttribute("data-category") === category) {
+        project.style.display = "block"; // Mostrar
+      } else {
+        project.style.display = "none"; // Ocultar
+      }
+    });
+  });
+});
+ 
 // Evento de scroll con debouncing
 window.addEventListener("scroll", () => {
   lastKnownScrollY = window.scrollY || document.documentElement.scrollTop;

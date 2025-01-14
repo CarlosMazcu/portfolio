@@ -14,33 +14,25 @@ html {
 
 
  /* Header general */
-header {
+/* header {
   background:  linear-gradient(90deg, #FFC0CB, #9B59B6, #8E44AD, #F39C12);
-  color: white;
+
+
+ /* Estilo para el header */
+header {
+  padding: 5px 20px; /* Márgenes internos más pequeños */
+  /*background: rgba(0, 0, 0, 0.9); /* Fondo semitransparente */
+  background:  linear-gradient(90deg, #FFC0CB, #9B59B6, #8E44AD, #F39C12);
   text-align: center;
-  padding: 20px; /* Menos espacio vertical por defecto */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-bottom: 3px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.8s ease;
-
-  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+  position: sticky; /* Hace que el header sea fijo al hacer scroll */
+  top: 0; /* Se "pega" al borde superior */
+  z-index: 1000; /* Se asegura de estar por encima de otros elementos */
+  border-bottom: 3px solid rgba(255, 255, 255, 0.3); /* Línea inferior */
+  transition: all 0.8s ease; /* Transiciones suaves */
 }
 
-/* Estilo del texto del header */
-header h1 {
-  font-size: 2rem; /* Tamaño de fuente más manejable */
-  margin-bottom: 10px;
-}
-
-header p {
-  font-size: 1rem; /* Subtítulo más pequeño */
-  margin-bottom: 10px;
-}
-
-/* Navegación del header */
+/* Navegación dentro del header */
 header nav a {
   color: white;
   margin: 0 15px;
@@ -52,28 +44,19 @@ header nav a {
 }
 
 header nav a:hover {
-  color: #FFD700; 
-  transform: scale(1.5); 
+  color: #FFD700; /* Cambio a dorado al pasar el mouse */
+  transform: scale(1.5); /* Efecto de ampliación */
 }
 
-
-/* Ocultamos el texto del título y subtítulo en el header compacto */
-header.compact h1,
-header.compact p {
+/* Ocultar elementos específicos dentro del header */
+header h1,
+header p {
   display: none;
-  /* Esconde el título y subtítulo */
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
-/* Header compacto */
-header.compact {
-  padding: 5px 20px;
-  /* Más pequeño */
-  background: rgba(0, 0, 0, 0.9);
-  /* Fondo ligeramente más oscuro */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  /* Sombra más sutil */
-  
-}
+
 
 section {
   position: relative;
@@ -83,9 +66,70 @@ section {
   background-attachment: scroll; /* Parallax */
   background-size: cover; /* La imagen cubre todo el contenedor */
   background-repeat: no-repeat;
-  min-height: 100vh; /* Cada sección ocupa al menos la altura de la ventana */
+  /* min-height: 50vh;  *//* Cada sección ocupa al menos la altura de la ventana */
 }
 
+
+/* #project-filters {
+  text-align: center;
+  margin-bottom: 20px;
+}
+ */
+/* .filter-btn {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  color: black;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1.05);
+}
+
+.filter-btn.active {
+  background: #DA70D6;
+  color: white; 
+} */
+
+#project-filters {
+  display: flex; /* Usamos flexbox para centrar */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; 
+  flex-wrap: wrap; 
+  gap: 10px; 
+  margin-bottom: 20px; 
+  padding-left: 35px; /* Desplazamos el contenido hacia la derecha */
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  color: black;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1.03);
+}
+
+.filter-btn.active {
+  background: #DA70D6; /* Púrpura claro */
+  color: white;
+  box-shadow: 0 0 10px rgba(218, 112, 214, 0.6);
+}
 
 #about {
   background-image: url('./img/975991.png');

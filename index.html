@@ -14,8 +14,6 @@
 <body>
   <!-- Encabezado -->
   <header>
-    <h1>Hello! I am Carlos Mazcuñán Blanes</h1>
-    <p>Student of HND in Video Game Programming at ESAT</p>
     <nav>
       <a href="#about">About me</a>
       <a href="#projects">Projects</a>
@@ -29,7 +27,7 @@
       <div class="content">
         <h2>About Me</h2>
         <p>
-          I am currently studying an <strong>HND in Videogame Programming</strong> at ESAT, where I am learning to
+          My name is Carlos Mazcuñán Blanes, I´m from Spain and I am currently studying an <strong>HND in Videogame Programming</strong> at ESAT, where I am learning to
           program video games and develop interactive simulations.
         </p>
         <p>
@@ -78,25 +76,32 @@
     <!-- Sección "Proyectos" -->
     <section id="projects">
       <h2>Projects</h2>
+      <div id="project-filters">
+        <button class="filter-btn" data-category="all"><strong>All</strong></button>
+        <button class="filter-btn" data-category="c/cpp"><strong>C/C++</strong></button>
+        <button class="filter-btn" data-category="unreal"><strong>Unreal Engine</strong></button>
+        <button class="filter-btn" data-category="unity"><strong>Unity3D</strong></button>
+        <button class="filter-btn" data-category="assembler"><strong>Assembler</strong></button>
+      </div>
       <ul>
-        <li>
+        <li data-category="c/cpp">
           <strong>Atari Asteroids:</strong> First academic project of larger scale. A small vector drawing arcade game
           made in C.
           <a href="https://github.com/CarlosMazcu/asteroids" target="_blank">View on GitHub</a>
         </li>
-        <li class="video-container">
+        <li class="video-container" data-category="c/cpp">
           <iframe width="560" height="315"
-            src="https://www.youtube.com/embed/qMY05K6whAw?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&loop=1&playlist=qMY05K6whAw"
+            src="https://www.youtube.com/embed/qMY05K6whAw?si=OJLfcZT6Fmu9vjDl?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&loop=1"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
         </li>
-        <li>
+        <li data-category="c/cpp">
           <strong>Database Manager:</strong> Database Manager to do SQL queries and view and edit tables of databases.
           <a href="https://github.com/CarlosMazcu/database_manager" target="_blank">View on GitHub</a>
         </li>
-        <li class="video-container">
+        <li class="video-container" data-category="c/cpp">
           <iframe width="560" height="315"
             src="https://www.youtube.com/embed/p9TouPLQ1p8?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&loop=1&playlist=p9TouPLQ1p8"
             title="YouTube video player"
@@ -104,27 +109,27 @@
             allowfullscreen>
           </iframe>
         </li>
-        <li>
+        <li data-category="c/cpp">
           <strong>Graphic API:</strong> Graphic API based in OpenGL made in C++ (now in development).
           <a href="https://github.com/Marc433/3PVG_PMG_24_mazcunyabla_folgadoba.git" target="_blank">View on GitHub</a>
         </li>
-        <li>
+        <li data-category="c/cpp">
           <strong>IA project:</strong> IA project pathfinding research made in C++.
           <a href="https://github.com/Marc433/3PVG_IA_24_mazcunyabla_folgadoba.git" target="_blank">View on GitHub</a>
         </li>
-        <li>
+        <li data-category="unity">
           <strong>Andorid Tower Defense:</strong> Videogame style Tower Defense made in Unity2D for Android.
           <a href="https://goldsolace9995.itch.io/magic-defense" target="_blank">View on Itch.io</a>
         </li>
-        <li>
+        <li data-category="c/cpp">
           <strong>Data Struct API:</strong> Creation of my own data structures along with their respective functions.
           <a href="https://github.com/CarlosMazcu/2ALG_MA_mazcunyanbla_calatayudbri.git" target="_blank">View on
             GitHub</a>
         </li>
-        <li>
+        <li data-category="c/cpp">
           <strong>Algorithmic Abstract Art:</strong> Abstract art image generator based in fractals and Perlin noise.
           <a href="https://github.com/CarlosMazcu/AbstractArt.git" target="_blank">View on GitHub</a>
-          <div class="slider">
+          <div class="slider" data-category="c/cpp">
             <button class="prev">&lt;</button>
             <div class="slider-wrapper">
               <img src="./img/abstractart/mandelbrot_20241223_193400.png" alt="Fractal Mandelbrot 2">
