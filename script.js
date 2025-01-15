@@ -78,28 +78,29 @@ window.addEventListener("scroll", () => {
   debounceTimeout = setTimeout(handleHeader, 50); // Ajusta si es necesario
 });
 
-// Slider functionality
-const sliderWrapper = document.querySelector(".slider-wrapper");
-const images = document.querySelectorAll(".slider img");
-const prevButton = document.querySelector(".prev");
-const nextButton = document.querySelector(".next");
+// Slider functionality for multiple sliders
+document.querySelectorAll(".slider").forEach((sliderContainer) => {
+  const sliderWrapper = sliderContainer.querySelector(".slider-wrapper");
+  const images = sliderContainer.querySelectorAll(".slider img");
+  const prevButton = sliderContainer.querySelector(".prev");
+  const nextButton = sliderContainer.querySelector(".next");
 
-let currentIndex = 0;
+  let currentIndex = 0;
 
-function updateSlider() {
-  const slideWidth = images[0].clientWidth;
-  sliderWrapper.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-}
+  function updateSlider() {
+    const slideWidth = images[0].clientWidth;
+    sliderWrapper.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  }
 
-nextButton.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
-  updateSlider();
+  nextButton.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
+    updateSlider();
+  });
+
+  prevButton.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop to the last image
+    updateSlider();
+  });
 });
-
-prevButton.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop to the last image
-  updateSlider();
-});
-
 // Adjust slider on window resize
 window.addEventListener("resize", updateSlider);

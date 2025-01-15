@@ -15,9 +15,9 @@
   <!-- Encabezado -->
   <header>
     <nav>
-      <a href="#about">About me</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <a href="#about1">About me</a>
+      <a href="#projects1">Projects</a>
+      <a href="#contact1">Contact</a>
     </nav>
   </header>
   <!-- Sección "Sobre mí" -->
@@ -25,8 +25,8 @@
     <section id="about">
       <div class="background-overlay"></div>
       <div class="content">
-        <h2>About Me</h2>
-        <p>
+        <h2 id="about1">About Me</h2>
+        <p> 
           My name is Carlos Mazcuñán Blanes, I´m from Spain and I am currently studying an <strong>HND in Videogame Programming</strong> at ESAT, where I am learning to
           program video games and develop interactive simulations.
         </p>
@@ -75,7 +75,7 @@
     <!--   <div style = "margin-bottom: 200px;"> -->
     <!-- Sección "Proyectos" -->
     <section id="projects">
-      <h2>Projects</h2>
+      <h2 id="projects1">Projects</h2>
       <div id="project-filters">
         <button class="filter-btn" data-category="all"><strong>All</strong></button>
         <button class="filter-btn" data-category="c/cpp"><strong>C/C++</strong></button>
@@ -164,6 +164,21 @@
             <img src="./img/landscape.png" alt="landscape" width="560" height="315">
         </li>
 
+        <li data-category="assembler">
+          <strong>Assembler algorithm for GBA:</strong> Academic exercise. Algorithms implemented in assembler for GBA cartridges.
+          <a href="https://github.com/CarlosMazcu/gba_assembler.git" target="_blank">View on GitHub</a>
+          <div class="slider" data-category="assembler">
+            <button class="prev">&lt;</button>
+            <div class="slider-wrapper">
+              <img src="./img/updatesnake.png" alt="Assembler Code">
+              <img src="./img/snake.png" alt="Snake">
+              <img src="./img/sand.png" alt="Sand">
+              <img src="./img/bitfields.png" alt="Bitfield">
+            </div>
+            <button class="next">&gt;</button>
+          </div>
+        </li>
+
       </ul>
     </section>
   </div>
@@ -173,7 +188,7 @@
       <source src="./img/donut-moewalls.com.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <h2>Contact</h2>
+    <h2 id="contact1">Contact</h2>
     <p>Find me in:</p>
     <ul>
       <li><a href="https://github.com/CarlosMazcu" target="_blank"><i class="fab fa-github"></i>GitHub</a></li>
