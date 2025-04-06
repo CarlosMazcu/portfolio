@@ -1,106 +1,203 @@
-// Resaltar enlace activo en el menú
-document.addEventListener("scroll", function () {
+// Add event listeners when the DOM content is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize elements
+  initNavigation();
+  initProjectFilters();
+  initScrollAnimations();
+  initSliders();
+});
+
+// Handle header appearance on scroll
+function initScrollAnimations() {
+  const header = document.getElementById('header');
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  function handleHeaderAppearance() {
+    if (window.scrollY > 100) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    lastScrollY = window.scrollY;
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        handleHeaderAppearance();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // Add scroll highlighting for active navigation sections
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll("header nav a");
 
-  let currentSection = "";
+  function highlightActiveSection() {
+    let currentSection = "";
+    let scrollY = window.pageYOffset;
 
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop;
-    if (pageYOffset >= sectionTop - 60) {
-      currentSection = section.getAttribute("id");
-    }
-  });
+    // Find the current section based on scroll position
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 100;
+      const sectionHeight = section.offsetHeight;
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        currentSection = section.getAttribute("id");
+      }
+    });
+
+    // Update active class on navigation links
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${currentSection}`) {
+        link.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", highlightActiveSection);
+
+  // Initial check for active section
+  highlightActiveSection();
+}
+
+// Smooth scrolling for navigation links
+function initNavigation() {
+  const navLinks = document.querySelectorAll("header nav a");
 
   navLinks.forEach((link) => {
-    link.classList.remove("active");
-    if (link.getAttribute("href").includes(currentSection)) {
-      link.classList.add("active");
-    }
-  });
-});
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href");
+      const targetSection = document.querySelector(targetId);
 
-// Scroll suave
-document.querySelectorAll("header nav a").forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    const targetId = this.getAttribute("href").slice(1);
-    const targetSection = document.getElementById(targetId);
-
-    targetSection.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  });
-});
-
-
-window.addEventListener("scroll", function () {
-  const sections = document.querySelectorAll("section");
-
-  sections.forEach((section) => {
-    const speed = 0.1; // Velocidad del parallax (ajustable)
-    const rect = section.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      const offset = (window.scrollY - section.offsetTop) * speed;
-      section.style.backgroundPositionY = `${-50 + offset}px`; // Ajustar la imagen de fondo dinámicamente
-    }
-  });
-});
-
-const filterButtons = document.querySelectorAll(".filter-btn");
-const projects = document.querySelectorAll("#projects ul li");
-
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const category = button.getAttribute("data-category");
-
-    // Resaltar el botón activo
-    filterButtons.forEach((btn) => btn.classList.remove("active"));
-    button.classList.add("active");
-
-    // Mostrar/Ocultar proyectos
-    projects.forEach((project) => {
-      if (category === "all" || project.getAttribute("data-category") === category) {
-        project.style.display = "block"; // Mostrar
-      } else {
-        project.style.display = "none"; // Ocultar
+      if (targetSection) {
+        window.scrollTo({
+          top: targetSection.offsetTop - 80,
+          behavior: "smooth"
+        });
       }
     });
   });
-});
- 
-// Evento de scroll con debouncing
-window.addEventListener("scroll", () => {
-  lastKnownScrollY = window.scrollY || document.documentElement.scrollTop;
-  clearTimeout(debounceTimeout);
-  debounceTimeout = setTimeout(handleHeader, 50); // Ajusta si es necesario
-});
+}
 
-// Slider functionality for multiple sliders
-document.querySelectorAll(".slider").forEach((sliderContainer) => {
-  const sliderWrapper = sliderContainer.querySelector(".slider-wrapper");
-  const images = sliderContainer.querySelectorAll(".slider img");
-  const prevButton = sliderContainer.querySelector(".prev");
-  const nextButton = sliderContainer.querySelector(".next");
+// Project filtering functionality
+function initProjectFilters() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+  const featuredProjects = document.querySelectorAll('.featured-project');
 
-  let currentIndex = 0;
+  // Combine all filterable projects
+  const allProjects = [...projectCards, ...featuredProjects];
 
-  function updateSlider() {
-    const slideWidth = images[0].clientWidth;
-    sliderWrapper.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-  }
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Get selected category
+      const category = button.getAttribute('data-category');
 
-  nextButton.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
-    updateSlider();
+      // Update active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      // Filter projects
+      allProjects.forEach(project => {
+        const projectCategory = project.getAttribute('data-category');
+
+        if (category === 'all' || projectCategory === category) {
+          project.style.display = ''; // Show project
+          // Add animation when showing
+          project.classList.add('fade-in');
+          // Remove animation class after transition
+          setTimeout(() => {
+            project.classList.remove('fade-in');
+          }, 500);
+        } else {
+          project.style.display = 'none'; // Hide project
+        }
+      });
+    });
   });
+}
 
-  prevButton.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop to the last image
-    updateSlider();
+// Image slider functionality
+function initSliders() {
+  const sliders = document.querySelectorAll('.slider');
+
+  sliders.forEach(slider => {
+    const sliderWrapper = slider.querySelector('.slider-wrapper');
+    const images = slider.querySelectorAll('img');
+    const prevBtn = slider.querySelector('.prev');
+    const nextBtn = slider.querySelector('.next');
+
+    if (!sliderWrapper || !images.length || !prevBtn || !nextBtn) return;
+
+    let currentIndex = 0;
+    const imgCount = images.length;
+
+    // Set initial position
+    updateSliderPosition(slider, currentIndex);
+
+    // Previous button click
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + imgCount) % imgCount;
+      updateSliderPosition(slider, currentIndex);
+    });
+
+    // Next button click
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % imgCount;
+      updateSliderPosition(slider, currentIndex);
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      updateSliderPosition(slider, currentIndex);
+    });
+
+    // Auto-advance every 5 seconds
+    let slideInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % imgCount;
+      updateSliderPosition(slider, currentIndex);
+    }, 5000);
+
+    // Pause auto-advance when hovering
+    slider.addEventListener('mouseenter', () => {
+      clearInterval(slideInterval);
+    });
+
+    // Resume auto-advance when mouse leaves
+    slider.addEventListener('mouseleave', () => {
+      slideInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % imgCount;
+        updateSliderPosition(slider, currentIndex);
+      }, 5000);
+    });
+  });
+}
+
+// Intersection Observer for scroll animations
+document.addEventListener('DOMContentLoaded', () => {
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe project cards for animation on scroll
+  document.querySelectorAll('.project-card, .featured-project').forEach(item => {
+    observer.observe(item);
   });
 });
-// Adjust slider on window resize
-window.addEventListener("resize", updateSlider);
