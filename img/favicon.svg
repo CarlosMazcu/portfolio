@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background -->
+  <rect width="100" height="100" rx="10" fill="#0a192f"/>
+  
+  <!-- Border accent -->
+  <rect x="4" y="4" width="92" height="92" rx="8" fill="none" stroke="#64ffda" stroke-width="2"/>
+  
+  <!-- CM Letters (Moved left and enlarged) -->
+  <text x="25" y="58" font-family="'SF Mono', monospace" font-size="60" font-weight="bold" 
+        fill="#64ffda">C</text>
+  <text x="54" y="68" font-family="'SF Mono', monospace" font-size="60" font-weight="bold" 
+        fill="#64ffda">M</text>
+</svg>
