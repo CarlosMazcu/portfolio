@@ -412,24 +412,48 @@ section:first-of-type {
   position: relative;
 }
 
-/* Contact section */
 #contact {
-  padding: 100px 20px;
+  padding: 100px 50px;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 1000px;
   text-align: center;
 }
 
-#contact h2 {
+/* Aseguramos que el encabezado esté alineado a la izquierda */
+#contact .section-heading {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 10px 0 40px;
+  width: 100%;
+  font-size: clamp(26px, 5vw, 32px);
+  white-space: nowrap;
+  text-align: left;
+  justify-content: flex-start;
+}
+
+#contact .section-heading::after {
+  content: "";
   display: block;
-  color: var(--text-white);
-  font-size: clamp(40px, 5vw, a60px);
-  margin-bottom: 20px;
+  position: relative;
+  width: 300px;
+  height: 1px;
+  margin-left: 20px;
+  background-color: var(--text-secondary);
+}
+
+#contact .section-heading .number {
+  margin-right: 10px;
+  color: var(--accent-color);
+  font-family: var(--font-mono);
+  font-size: clamp(16px, 3vw, 20px);
+  font-weight: 400;
 }
 
 #contact p {
   color: var(--text-secondary);
   margin-bottom: 50px;
+  text-align: center;
 }
 
 .contact-links {
@@ -437,7 +461,6 @@ section:first-of-type {
   justify-content: center;
   margin-top: 50px;
 }
-
 .contact-links a {
   margin: 0 15px;
   padding: 10px;
@@ -531,6 +554,18 @@ footer {
     margin: 0 10px;
     font-size: 12px;
   }
+  #contact {
+    padding: 80px 50px;
+    text-align: center;
+  }
+  
+  #contact .section-heading {
+    justify-content: flex-start;
+  }
+  
+  .contact-links {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -545,6 +580,9 @@ footer {
 
   .skills-list {
     grid-template-columns: 1fr;
+  }
+  #contact {
+    padding: 60px 25px;
   }
 }
 
