@@ -14,6 +14,15 @@
 </head>
 
 <body>
+  <!-- Elementos para menú móvil -->
+  <div class="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="overlay"></div>
+
   <header id="header">
     <nav>
       <a href="#about" class="fade-in delay-1">About</a>
@@ -105,7 +114,8 @@
               <li>Graphics Pipeline</li>
             </ul>
             <div class="project-links">
-              <a href="https://carlosmazcu.github.io/doc-raftel/" target="_blank" title="GitHub Repository">
+              <a href="https://carlosmazcu.github.io/doc-raftel/" target="_blank" title="Documentation"
+                aria-label="Documentation">
                 <i class="fas fa-external-link-alt"></i>
               </a>
             </div>
@@ -129,7 +139,7 @@
             </ul>
             <div class="project-links">
               <a href="https://github.com/CarlosMazcu/mazcunyanbla_folgadoba_L_systems.git" target="_blank"
-                title="GitHub Repository">
+                title="GitHub Repository" aria-label="GitHub Repository">
                 <i class="fab fa-github"></i>
               </a>
             </div>
@@ -151,24 +161,25 @@
               <li>Procedural Generation</li>
             </ul>
             <div class="project-links">
-              <a href="https://github.com/CarlosMazcu/AbstractArt.git" target="_blank" title="GitHub Repository">
+              <a href="https://github.com/CarlosMazcu/AbstractArt.git" target="_blank" title="GitHub Repository"
+                aria-label="GitHub Repository">
                 <i class="fab fa-github"></i>
               </a>
             </div>
           </div>
-          <!--  <div class="project-image">
-
+          <!-- Uncommenté y mejorado el slider para experiencia móvil -->
+          <div class="project-image">
             <div id="abstract-art-slider" class="slider">
-              <button class="prev">&lt;</button>
+              <button class="prev" aria-label="Previous image">&lt;</button>
               <div class="slider-wrapper">
                 <img src="./img/abstractart/mandelbrot_20241223_193400.png" alt="Fractal Mandelbrot">
                 <img src="./img/abstractart/julia_set_20241223_201833.png" alt="Fractal Julia Set">
                 <img src="./img/abstractart/newton_20241224_030555.png" alt="Fractal Newton">
                 <img src="./img/abstractart/mandelbrot_20241224_022718.png" alt="Fractal Mandelbrot Colorido">
               </div>
-              <button class="next">&gt;</button>
+              <button class="next" aria-label="Next image">&gt;</button>
             </div>
-          </div> -->
+          </div>
         </div>
 
         <!-- Featured Project 3: Atari Asteroids -->
@@ -187,7 +198,8 @@
               <li>Collision Detection</li>
             </ul>
             <div class="project-links">
-              <a href="https://github.com/CarlosMazcu/asteroids" target="_blank" title="GitHub Repository">
+              <a href="https://github.com/CarlosMazcu/asteroids" target="_blank" title="GitHub Repository"
+                aria-label="GitHub Repository">
                 <i class="fab fa-github"></i>
               </a>
             </div>
@@ -213,7 +225,8 @@
               <i class="far fa-folder-open"></i>
             </div>
             <div class="project-links">
-              <a href="https://github.com/CarlosMazcu/database_manager" target="_blank" title="GitHub Repository">
+              <a href="https://github.com/CarlosMazcu/database_manager" target="_blank" title="GitHub Repository"
+                aria-label="GitHub Repository">
                 <i class="fab fa-github"></i>
               </a>
             </div>
@@ -236,7 +249,7 @@
             </div>
             <div class="project-links">
               <a href="https://github.com/Marc433/3PVG_IA_24_mazcunyabla_folgadoba.git" target="_blank"
-                title="GitHub Repository">
+                title="GitHub Repository" aria-label="GitHub Repository">
                 <i class="fab fa-github"></i>
               </a>
             </div>
@@ -258,7 +271,8 @@
               <i class="far fa-folder-open"></i>
             </div>
             <div class="project-links">
-              <a href="https://goldsolace9995.itch.io/magic-defense" target="_blank" title="View Game">
+              <a href="https://goldsolace9995.itch.io/magic-defense" target="_blank" title="View Game"
+                aria-label="View Game">
                 <i class="fas fa-external-link-alt"></i>
               </a>
             </div>
@@ -281,7 +295,7 @@
             </div>
             <div class="project-links">
               <a href="https://github.com/CarlosMazcu/2ALG_MA_mazcunyanbla_calatayudbri.git" target="_blank"
-                title="GitHub Repository">
+                title="GitHub Repository" aria-label="GitHub Repository">
                 <i class="fab fa-github"></i>
               </a>
             </div>
@@ -303,7 +317,8 @@
               <i class="far fa-folder-open"></i>
             </div>
             <div class="project-links">
-              <a href="https://github.com/CarlosMazcu/landscape.git" target="_blank" title="GitHub Repository">
+              <a href="https://github.com/CarlosMazcu/landscape.git" target="_blank" title="GitHub Repository"
+                aria-label="GitHub Repository">
                 <i class="fab fa-github"></i>
               </a>
             </div>
@@ -328,7 +343,8 @@
               <i class="far fa-folder-open"></i>
             </div>
             <div class="project-links">
-              <a href="https://github.com/CarlosMazcu/gba_assembler.git" target="_blank" title="GitHub Repository">
+              <a href="https://github.com/CarlosMazcu/gba_assembler.git" target="_blank" title="GitHub Repository"
+                aria-label="GitHub Repository">
                 <i class="fab fa-github"></i>
               </a>
             </div>
@@ -349,9 +365,8 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section - Versión mejorada para móvil -->
     <section id="contact" class="fade-in delay-5">
-
       <h2 class="section-heading"><span class="number">03.</span> Contact</h2>
       <p>I'm currently looking for new opportunities as a programmer. Whether you have a question or just want to
         say hi, I'll do my best to get back to you!</p>
@@ -359,13 +374,13 @@
       <a href="mailto:carlosmazcu@gmail.com" class="contact-button">Get In Touch</a>
 
       <div class="contact-links">
-        <a href="https://github.com/CarlosMazcu" target="_blank" title="GitHub">
+        <a href="https://github.com/CarlosMazcu" target="_blank" title="GitHub" aria-label="GitHub Profile">
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://linkedin.com/in/tuusuario" target="_blank" title="LinkedIn">
+        <a href="https://linkedin.com/in/tuusuario" target="_blank" title="LinkedIn" aria-label="LinkedIn Profile">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="mailto:carlosmazcu@gmail.com" title="Email">
+        <a href="mailto:carlosmazcu@gmail.com" title="Email" aria-label="Send Email">
           <i class="fas fa-envelope"></i>
         </a>
       </div>

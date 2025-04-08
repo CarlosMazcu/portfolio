@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectFilters();
   initScrollAnimations();
   initSliders();
+  initMobileMenu(); // Nueva función para el menú móvil
 });
 
 // Handle header appearance on scroll
@@ -81,8 +82,43 @@ function initNavigation() {
           behavior: "smooth"
         });
       }
+
+      // Si estamos en móvil y el menú está abierto, cerrarlo
+      const nav = document.querySelector('nav');
+      if (nav.classList.contains('open')) {
+        toggleMenu();
+      }
     });
   });
+}
+
+// Mobile menu functionality
+function initMobileMenu() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+  const overlay = document.querySelector('.overlay');
+
+  // Si no existen estos elementos, salir de la función
+  if (!menuToggle || !nav) return;
+
+  // Función para cambiar el estado del menú
+  window.toggleMenu = function () {
+    nav.classList.toggle('open');
+    menuToggle.classList.toggle('active');
+    document.body.classList.toggle('no-scroll');
+
+    if (overlay) {
+      overlay.classList.toggle('visible');
+    }
+  };
+
+  // Añadir evento click al botón de menú
+  menuToggle.addEventListener('click', toggleMenu);
+
+  // Añadir evento click al overlay
+  if (overlay) {
+    overlay.addEventListener('click', toggleMenu);
+  }
 }
 
 // Project filtering functionality
@@ -121,6 +157,15 @@ function initProjectFilters() {
       });
     });
   });
+
+  // Hacer los filtros de proyectos scrollables horizontalmente en móvil
+  const filterContainer = document.getElementById('project-filters');
+  if (filterContainer && window.innerWidth <= 768) {
+    filterContainer.style.overflowX = 'auto';
+    filterContainer.style.paddingBottom = '15px';
+    filterContainer.style.justifyContent = 'flex-start';
+    filterContainer.style.webkitOverflowScrolling = 'touch';
+  }
 }
 
 // Image slider functionality
@@ -138,8 +183,14 @@ function initSliders() {
     let currentIndex = 0;
     const imgCount = images.length;
 
-    // Set initial position
+    // Set initial position and proper width for mobile
     updateSliderPosition(slider, currentIndex);
+
+    // Configure slider for proper display
+    sliderWrapper.style.width = `${imgCount * 100}%`;
+    images.forEach(img => {
+      img.style.width = `${100 / imgCount}%`;
+    });
 
     // Previous button click
     prevBtn.addEventListener('click', () => {
@@ -176,7 +227,46 @@ function initSliders() {
         updateSliderPosition(slider, currentIndex);
       }, 5000);
     });
+
+    // Añadir soporte para interacciones táctiles en móvil
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    slider.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    slider.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, false);
+
+    function handleSwipe() {
+      // Detectar la dirección del swipe
+      if (touchEndX < touchStartX - 50) {
+        // Swipe hacia la izquierda - siguiente imagen
+        currentIndex = (currentIndex + 1) % imgCount;
+        updateSliderPosition(slider, currentIndex);
+      }
+
+      if (touchEndX > touchStartX + 50) {
+        // Swipe hacia la derecha - imagen anterior
+        currentIndex = (currentIndex - 1 + imgCount) % imgCount;
+        updateSliderPosition(slider, currentIndex);
+      }
+    }
   });
+}
+
+// Actualizar la posición del slider
+function updateSliderPosition(slider, index) {
+  const sliderWrapper = slider.querySelector('.slider-wrapper');
+  const images = slider.querySelectorAll('img');
+
+  if (!sliderWrapper || !images.length) return;
+
+  const imgCount = images.length;
+  sliderWrapper.style.transform = `translateX(-${(100 / imgCount) * index}%)`;
 }
 
 // Intersection Observer for scroll animations

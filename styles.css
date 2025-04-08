@@ -624,3 +624,199 @@ footer {
 .delay-5 {
   animation-delay: 0.5s;
 }
+/* Menú hamburguesa para móviles */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 200;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--accent-color);
+  transition: var(--transition);
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 75%;
+    max-width: 300px;
+    background-color: var(--secondary-color);
+    box-shadow: -10px 0px 30px -15px rgba(2, 12, 27, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    transition: var(--transition);
+    padding: 50px;
+    z-index: 100;
+  }
+
+  nav.open {
+    transform: translateX(0);
+  }
+
+  nav a {
+    margin: 15px 0;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 25, 47, 0.7);
+    z-index: 90;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+  }
+
+  .overlay.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Ajustes para secciones principales en móvil */
+  section {
+    padding: 60px 20px;
+  }
+
+  section:first-of-type {
+    padding-top: 100px;
+  }
+
+  .section-heading {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+
+  .section-heading::after {
+    width: 100px;
+  }
+
+  /* Mejoras para proyectos destacados en móvil */
+  .featured-project {
+    margin-bottom: 60px;
+  }
+
+  .project-content {
+    padding: 25px 20px;
+  }
+
+  .project-image {
+    padding: 0 20px 20px 20px;
+  }
+
+  .project-title {
+    font-size: 20px;
+  }
+
+  /* Filtros de proyectos en modo scrollable horizontal */
+  #project-filters {
+    overflow-x: auto;
+    padding-bottom: 15px;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #project-filters::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  #project-filters::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 10px;
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  /* Ajuste a las tarjetas de proyectos */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  /* Contacto más compacto */
+  #contact {
+    padding: 80px 20px;
+  }
+
+  #contact p {
+    margin-bottom: 30px;
+  }
+
+  .contact-button {
+    padding: 1rem 1.5rem;
+  }
+
+  /* Ajustes al slider para mejor experiencia en móvil */
+  .slider {
+    height: 250px;
+  }
+
+  #abstract-art-slider,
+  #abstract-art-slider img {
+    height: 250px;
+  }
+
+  .prev,
+  .next {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .project-tech-list li {
+    margin-right: 10px;
+    font-size: 11px;
+  }
+
+  .project-card-header {
+    margin-bottom: 20px;
+  }
+
+  .folder-icon {
+    font-size: 30px;
+  }
+
+  .project-links i {
+    font-size: 18px;
+  }
+
+  /* Ocultar número en encabezados de sección en pantallas muy pequeñas */
+  .section-heading .number {
+    display: none;
+  }
+}
