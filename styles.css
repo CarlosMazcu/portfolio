@@ -682,207 +682,130 @@ footer {
   z-index: -1;
   pointer-events: none;
 }
-
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: flex;
+  html {
+    font-size: 15px;
+    scroll-padding-top: 120px;
   }
 
-  nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 75%;
-    max-width: 300px;
-    background-color: var(--secondary-color);
-    box-shadow: -10px 0px 30px -15px rgba(2, 12, 27, 0.7);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transform: translateX(100%);
-    transition: var(--transition);
-    padding: 50px;
-    z-index: 100;
-  }
-
-  nav.open {
-    transform: translateX(0);
+  header {
+    padding: 15px 30px;
   }
 
   nav a {
-    margin: 15px 0;
-    font-size: 16px;
-    width: 100%;
-    text-align: center;
-    padding: 10px;
+    margin-left: 20px;
+    font-size: 13px;
   }
 
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(10, 25, 47, 0.7);
-    z-index: 90;
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transition);
-  }
-
-  .overlay.visible {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  /* Ajustes para secciones principales en móvil */
   section {
-    padding: 60px 20px;
+    padding: 80px 30px;
   }
 
-  section:first-of-type {
-    padding-top: 100px;
+  #about {
+    padding-top: 180px;
+    padding-bottom: 40px;
+  }
+  #projects {
+    padding-top: 40px;
+    margin-top: 0;
   }
 
   .section-heading {
     font-size: 24px;
-    margin-bottom: 25px;
   }
 
-  .section-heading::after {
-    width: 100px;
-  }
-
-  /* Mejoras para proyectos destacados en móvil */
-  .featured-project {
-    margin-bottom: 60px;
+  .skills-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 
   .project-content {
-    padding: 25px 20px;
+    padding: 20px;
   }
 
-  .project-image {
-    padding: 0 20px 20px 20px;
+  .project-description {
+    font-size: 15px;
   }
-
-  .project-title {
-    font-size: 20px;
-  }
-
-  /* Filtros de proyectos en modo scrollable horizontal */
-  #project-filters {
-    overflow-x: auto;
-    padding-bottom: 15px;
-    justify-content: flex-start;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  #project-filters::-webkit-scrollbar {
-    height: 5px;
-  }
-
-  #project-filters::-webkit-scrollbar-thumb {
-    background-color: var(--accent-color);
-    border-radius: 10px;
-  }
-
-  .filter-btn {
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
-
-  /* Ajuste a las tarjetas de proyectos */
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
+  .featured-project,
   .project-card {
-    padding: 1.5rem 1.25rem;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    border-radius: 0;
   }
 
-  /* Contacto más compacto */
-  #contact {
-    padding: 80px 20px;
-  }
-
-  #contact p {
-    margin-bottom: 30px;
-  }
-
-  .contact-button {
-    padding: 1rem 1.5rem;
-  }
-
-  /* Ajustes al slider para mejor experiencia en móvil */
-  .slider {
-    height: 250px;
-  }
-
-  #abstract-art-slider,
-  #abstract-art-slider img {
-    height: 250px;
-  }
-
-  .prev,
-  .next {
-    width: 35px;
-    height: 35px;
+  .project-content,
+  .project-card {
+    padding: 20px 15px;
   }
 }
 
-/* Ajustes adicionales para pantallas muy pequeñas */
-/* Mejora global en móviles */
 @media (max-width: 480px) {
-  body {
-    font-size: 15px;
-    line-height: 1.5;
+  html {
+    font-size: 14px;
+    scroll-padding-top: 140px;
   }
+
+  header {
+    padding: 10px 20px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin: 5px 0;
+    font-size: 12px;
+  }
+
   section {
-    padding: 50px 15px;
+    padding: 60px 20px;
   }
+
+  #about {
+    padding-bottom: 30px;
+    padding-top: 200px;
+  }
+  #projects {
+    padding-top: 30px;
+    margin-top: 0;
+  }
+
   .section-heading {
     font-size: 20px;
+    flex-wrap: wrap;
   }
-  .project-title {
-    font-size: 18px;
+
+  .skills-list {
+    grid-template-columns: 1fr;
   }
+
   .project-description {
     font-size: 14px;
   }
+
+  .project-tech-list {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .project-tech-list li {
-    font-size: 11px;
+    margin-bottom: 5px;
   }
-  .contact-button {
-    font-size: 13px;
-    padding: 1rem 1.25rem;
-  }
-  nav a {
-    font-size: 10px;
-    margin: 0 5px;
-  }
-  .skills-list {
-    grid-template-columns: 1fr !important;
-    gap: 10px 0;
-  }
+  .featured-project,
   .project-card {
-    padding: 1rem;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    border-radius: 0;
   }
-  .slider {
-    height: 220px;
-  }
-  .prev,
-  .next {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-  }
-  footer {
-    font-size: 12px;
-  }
-  .section-heading .number {
-    display: none;
+
+  .project-content,
+  .project-card {
+    padding: 20px 10px;
   }
 }
