@@ -7,13 +7,15 @@
   <title>Carlos Mazcuñán | Game Programmer</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
-  <meta name="description"
-    content="Portfolio of Carlos Mazcuñán Blanes, Game Programmer specialized in C++ and engine development">
+  <meta name="description" content="Portfolio of Carlos Mazcuñán Blanes, Game Programmer specialized in C++ and engine development">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <!-- Canvas de fondo animado -->
+  <canvas id="bg-canvas"></canvas>
+
   <!-- Elementos para menú móvil -->
   <div class="menu-toggle">
     <span></span>
@@ -36,39 +38,25 @@
     <section id="about" class="fade-in delay-4">
       <h2 class="section-heading"><span class="number">01.</span> About Me</h2>
       <div class="content">
-        <div class="about-text">
-          <p>
-            Hello! I'm Carlos Mazcuñán Blanes, a game programmer from Spain currently pursuing an <strong>HND in
-              Videogame Programming</strong> at ESAT. I specialize in developing video games and interactive simulations
-            with a strong focus on performance and technical excellence.
-          </p>
-          <p>
-            My background in hospitality honed my teamwork and problem-solving skills, particularly under pressure. As a
-            <strong>Higher Technician in Automotive Engineering</strong>, I gained valuable experience during a 3-month
-            internship with a competitive team, where I learned the importance of precision and meticulous attention to
-            detail in complex systems.
-          </p>
-          <p>
-            My technical skill set includes proficiency in <strong>C, C++, and ARM Assembler</strong> with some Python
-            experience. I'm comfortable working with <strong>Unity and Unreal Engine 5</strong>, and I'm well-versed in
-            version control systems like <strong>Git and Perforce</strong>. I've developed expertise in debugging and
-            optimizing code for real-time applications.
-          </p>
-          <p>
-            During my studies, I've worked on two significant projects. The first was a video game developed
-            collaboratively with artists, programmers, and designers, giving me experience in teamwork across
-            disciplines and implementing game mechanics.
-          </p>
-          <p>
-            The second project involved building a <strong>graphics engine from scratch in C++ using OpenGL</strong>.
-            Working closely with a teammate, I implemented core features including rendering, shading, and texture
-            mapping, deepening my understanding of low-level programming and game engine architecture.
-          </p>
-          <p>
-            I thrive in collaborative environments and have experience working with diverse teams including engineers
-            and designers, which has enhanced my communication skills and adaptability.
-          </p>
-
+        <div class="featured-project">
+          <div class = "about-text project-content">
+            <p>
+              Hello, I'm Carlos Mazcuñán Blanes, a game programmer based in Spain and currently studying for an HND in Videogame Programming at ESAT.
+            </p>
+            <h4 class="highlight-title">Key Skills:</h4>
+            <ul class="highlight-list">
+              <li><span class="highlight-label">Languages:</span> C, C++, ARM Assembler, Python</li>
+              <li><span class="highlight-label">Engines:</span> Unity, Unreal Engine 5</li>
+              <li><span class="highlight-label">Tools:</span> Git, Perforce, code profiling and optimization</li>
+            </ul>
+            <h4 class="highlight-title">Highlighted Projects:</h4>
+            <ul class="highlight-list">
+              <li><span class="highlight-label">Collaborative Game:</span> Implemented gameplay mechanics while working closely with artists and designers.</li>
+              <li><span class="highlight-label">Custom Graphics Engine:</span> Built in C++ with OpenGL, implemented rendering, shading, and texture mapping.</li>
+            </ul>
+            <p>
+              I'm passionate about real-time performance and enjoy collaborating in multidisciplinary teams.
+            </p>
           <div class="skills-list">
             <li>C/C++</li>
             <li>OpenGL</li>
@@ -86,7 +74,6 @@
     <!-- Projects Section -->
     <section id="projects" class="fade-in delay-5">
       <h2 class="section-heading"><span class="number">02.</span> Projects</h2>
-
       <div id="project-filters">
         <button class="filter-btn active" data-category="all">All</button>
         <button class="filter-btn" data-category="c/cpp">C/C++</button>
@@ -94,7 +81,6 @@
         <button class="filter-btn" data-category="unity">Unity3D</button>
         <button class="filter-btn" data-category="assembler">Low Level/Assembler</button>
       </div>
-
       <!-- Featured Projects (Full Width) -->
       <div class="featured-projects">
         <!-- Featured Project 1: Graphics Engine -->
@@ -107,6 +93,7 @@
                 core rendering features, shading systems, and texture mapping to create a foundation for real-time
                 graphics applications.</p>
             </div>
+            <img src="./img/raftel-engine.png" alt="raftel" style="width:100%; border-radius:4px;">
             <ul class="project-tech-list">
               <li>C++</li>
               <li>OpenGL</li>
@@ -131,6 +118,7 @@
                 for creating 2D plants and trees with the ability to export to 3D models, allowing
                 simulation of natural growth patterns for various types of vegetation using a mathematical approach.</p>
             </div>
+            <img src="./img/l-system.gif" alt="L-Systems Animation" style="width:100%; border-radius:4px;">
             <ul class="project-tech-list">
               <li>C++</li>
               <li>L-Systems</li>
@@ -377,7 +365,7 @@
         <a href="https://github.com/CarlosMazcu" target="_blank" title="GitHub" aria-label="GitHub Profile">
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://linkedin.com/in/tuusuario" target="_blank" title="LinkedIn" aria-label="LinkedIn Profile">
+        <a href="https://www.linkedin.com/in/carlos-mazcu-290b53365/" target="_blank" title="LinkedIn" aria-label="LinkedIn Profile">
           <i class="fab fa-linkedin-in"></i>
         </a>
         <a href="mailto:carlosmazcu@gmail.com" title="Email" aria-label="Send Email">
@@ -392,6 +380,7 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="anim/bg-loader.js"></script>
 </body>
 
 </html>
