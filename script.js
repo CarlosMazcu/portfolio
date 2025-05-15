@@ -291,3 +291,36 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(item);
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  initCarousel();
+});
+
+function initCarousel() {
+  const container = document.querySelector('.carousel-container');
+  if (!container || window.innerWidth > 768) return;
+
+  const wrapper = container.querySelector('.carousel-wrapper');
+  const projects = wrapper.querySelectorAll('.featured-project');
+  const btnPrev = container.querySelector('.carousel-btn.prev');
+  const btnNext = container.querySelector('.carousel-btn.next');
+
+  let index = 0;
+
+  function updateCarousel() {
+    const offset = -index * 100;
+    wrapper.style.transform = `translateX(${offset}%)`;
+  }
+
+  btnPrev.addEventListener('click', () => {
+    index = (index > 0) ? index - 1 : projects.length - 1;
+    updateCarousel();
+  });
+
+  btnNext.addEventListener('click', () => {
+    index = (index + 1) % projects.length;
+    updateCarousel();
+  });
+
+  updateCarousel();
+}
