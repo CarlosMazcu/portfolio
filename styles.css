@@ -198,6 +198,25 @@ section:first-of-type {
   line-height: 12px;
 }
 
+.resume-button {
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  padding: 8px 12px;
+  color: var(--accent-color);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.resume-button:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+}
+
+.resume-button i {
+  margin-right: 6px;
+}
 /* Projects section */
 #projects {
   padding: 100px 50px;
@@ -734,7 +753,9 @@ footer {
     margin-right: calc(-50vw + 50%);
     border-radius: 0;
   }
-
+  .resume-text {
+    display: none;
+  }
   .project-content,
   .project-card {
     padding: 20px 15px;
@@ -755,7 +776,10 @@ footer {
     flex-direction: column;
     align-items: flex-start;
   }
-
+  .resume-button {
+    padding: 6px;
+    font-size: 12px;
+  }
   nav a {
     margin: 5px 0;
     font-size: 12px;

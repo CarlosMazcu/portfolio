@@ -296,6 +296,17 @@ document.addEventListener('DOMContentLoaded', () => {
   initCarousel();
 });
 
+const resumeLink = document.querySelector('a[href="extra/carlos_mazcunan_resume.pdf"]');
+resumeLink.addEventListener('click', function(e) {
+  e.preventDefault();
+  const link = document.createElement('a');
+  link.href = 'extra/carlos_mazcunan_resume.pdf';
+  link.download = 'carlos_mazcunan_resume.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});
+
 function initCarousel() {
   const container = document.querySelector('.carousel-container');
   if (!container || window.innerWidth > 768) return;
