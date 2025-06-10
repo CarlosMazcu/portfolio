@@ -7,386 +7,154 @@
   <title>Carlos Mazcuñán | Programmer</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
-  <meta name="description" content="Portfolio of Carlos Mazcuñán Blanes, Programmer specialized in C++ and engine development">
+  <meta name="description"
+    content="Portfolio of Carlos Mazcuñán Blanes, Programmer specialized in C++ and engine development">
+  <script defer src="script.js"></script>
+
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <!-- Canvas de fondo animado -->
   <canvas id="bg-canvas"></canvas>
-
-  <!-- Elementos para menú móvil -->
-  <div class="menu-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <div class="overlay"></div>
-
-  <header id="header">
-    <nav>
-      <a href="#projects" class="fade-in delay-2">Projects</a>
-      <a href="#about" class="fade-in delay-1">About</a>
-      <a href="#contact" class="fade-in delay-3">Contact</a>
-      <a href="extra/carlos_mazcunan_resume.pdf" target="_blank" class="resume-button" download="extra/carlos_mazcunan_resume.pdf">
-        <i class="fas fa-file-download"></i><span class="resume-text"> Resume </span>
-      </a>
-    </nav>
+  <header class="header">
+    <div class="header-left">
+      <h1 class="site-title">Carlos Mazcuñán Blanes | Developer</h1>
+    </div>
+    <div class="header-center">
+      <a href="#" id="header-email" class="email-link">carlosmazcu@gmail.com</a>
+    </div>
+    <div class="header-right">
+      <a class="cv-link" href="extra/carlos_mazcunan_resume.pdf" target="_blank"download>Resume</a>
+    </div>
   </header>
 
-  <main>
 
 
-    <!-- Projects Section -->
-    <section id="projects" class="fade-in delay-5">
-      <h2 class="section-heading"><span class="number">01.</span> Projects</h2>
-      <div id="project-filters">
-        <button class="filter-btn active" data-category="all">All</button>
-        <button class="filter-btn" data-category="c/cpp">C/C++</button>
-        <button class="filter-btn" data-category="unreal">Unreal Engine</button>
-        <button class="filter-btn" data-category="unity">Unity3D</button>
-        <button class="filter-btn" data-category="assembler">Low Level/Assembler</button>
+  <main class="container">
+
+    <section class="projects-section">
+      <div class="section-header">
+        <h2 class="section-heading"><span class="number">01.</span> Projects</h2>
+        <hr class="section-divider" />
       </div>
-      <!-- Featured Projects (Full Width) -->
-      <div class="featured-projects">
-        <!-- Featured Project 1: Graphics Engine -->
-        <div class="featured-project" data-category="c/cpp">
-          <div class="project-content">
-            <p class="project-overline">Featured Project</p>
-            <h3 class="project-title">Raftel Engine - Advanced 3D Graphics Engine</h3>
-            <div class="project-description">
-              <p>A modern graphics engine built from scratch in C++ using OpenGL. This project involved implementing
-                core rendering features, shading systems, and texture mapping to create a foundation for real-time
-                graphics applications.</p>
-            </div>
-            <img src="./img/raftel-engine.png" alt="raftel" style="width:100%; border-radius:4px;">
-            <ul class="project-tech-list">
-              <li>C++</li>
-              <li>OpenGL</li>
-              <li>GLSL</li>
-              <li>Graphics Pipeline</li>
-            </ul>
-            <div class="project-links">
-              <a href="https://carlosmazcu.github.io/doc-raftel/" target="_blank" title="Documentation"
-                aria-label="Documentation">
-                <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Featured Project: L-Systems Vegetal Generation -->
-        <div class="featured-project" data-category="c/cpp">
-          <div class="project-content">
-            <p class="project-overline">Featured Project</p>
-            <h3 class="project-title">PhyloGen - L-Systems Vegetal Generation</h3>
-            <div class="project-description">
-              <p>A procedural vegetation generation system based on L-systems. This project implements algorithms
-                for creating 2D plants and trees with the ability to export to 3D models, allowing
-                simulation of natural growth patterns for various types of vegetation using a mathematical approach.</p>
-            </div>
-            <img src="./img/l-system.gif" alt="L-Systems Animation" style="width:100%; border-radius:4px;">
-            <ul class="project-tech-list">
-              <li>C++</li>
-              <li>L-Systems</li>
-              <li>Procedural Generation</li>
-              <li>3D Modeling</li>
-            </ul>
-            <div class="project-links">
-              <a href="https://github.com/CarlosMazcu/mazcunyanbla_folgadoba_L_systems.git" target="_blank"
-                title="GitHub Repository" aria-label="GitHub Repository">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Featured Project 2: Algorithmic Abstract Art -->
-        <div class="featured-project" data-category="c/cpp">
-          <div class="project-content">
-            <p class="project-overline">Featured Project</p>
-            <h3 class="project-title">Fractal Image Creator</h3>
-            <div class="project-description">
-              <p>A procedural image generator using fractals and Perlin noise.
-                This project explores the intersection of mathematics and visual art through algorithmic techniques.</p>
-            </div>
-            <div class="project-image">
-              <div id="abstract-art-slider" class="slider">
-                <button class="prev" aria-label="Previous image">&lt;</button>
-                <div class="slider-wrapper">
-                  <img src="./img/abstractart/mandelbrot_20241223_193400.png" alt="Fractal Mandelbrot">
-                  <img src="./img/abstractart/julia_set_20241223_201833.png" alt="Fractal Julia Set">
-                  <img src="./img/abstractart/newton_20241224_030555.png" alt="Fractal Newton">
-                  <img src="./img/abstractart/mandelbrot_20241224_022718.png" alt="Fractal Mandelbrot Colorido">
-                </div>
-                <button class="next" aria-label="Next image">&gt;</button>
-              </div>
-            </div>
-            <ul class="project-tech-list">
-              <li>C++</li>
-              <li>Fractals</li>
-              <li>Perlin Noise</li>
-              <li>Procedural Generation</li>
-            </ul>
-            
-            <div class="project-links">
-              <a href="https://github.com/CarlosMazcu/AbstractArt.git" target="_blank" title="GitHub Repository"
-                aria-label="GitHub Repository">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-          
-        </div>
-
-        <!-- Featured Project 3: Atari Asteroids -->
-        <div class="featured-project" data-category="c/cpp">
-          <div class="project-content">
-            <p class="project-overline">Featured Project</p>
-            <h3 class="project-title">Atari Asteroids</h3>
-            <div class="project-description">
-              <p>A reimplementation of the classic Atari Asteroids arcade game using C and vector graphics. This project
-                was my first academic project of larger scale and demonstrates core game development principles.</p>
-            </div>
-              <div class="project-image">
-                <iframe
-                  src="https://www.youtube.com/embed/qMY05K6whAw?si=OJLfcZT6Fmu9vjDl&autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&loop=1"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe>
-              </div>
-            <ul class="project-tech-list">
-              <li>C</li>
-              <li>Vector Graphics</li>
-              <li>Game Architecture</li>
-              <li>Collision Detection</li>
-            </ul>
-            <div class="project-links">
-              <a href="https://github.com/CarlosMazcu/asteroids" target="_blank" title="GitHub Repository"
-                aria-label="GitHub Repository">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-        
-        </div>
-      </div>
-
-      <!-- Other Projects Grid -->
-      <h3 class="other-projects-title">Other Noteworthy Projects</h3>
-      <div class="projects-grid">
-        <!-- Database Manager -->
-        <div class="project-card" data-category="c/cpp">
-          <div class="project-card-header">
-            <div class="folder-icon">
-              <i class="far fa-folder-open"></i>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/CarlosMazcu/database_manager" target="_blank" title="GitHub Repository"
-                aria-label="GitHub Repository">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-          <h3 class="project-title">Database Manager</h3>
-          <p class="project-description">A tool for executing SQL queries and editing database tables with a focus on
-            usability and performance.</p>
-          <ul class="project-tech-list">
-            <li>C++</li>
-            <li>SQL</li>
-            <li>Data Structures</li>
-          </ul>
-        </div>
-
-        <!-- AI Pathfinding -->
-        <div class="project-card" data-category="c/cpp">
-          <div class="project-card-header">
-            <div class="folder-icon">
-              <i class="far fa-folder-open"></i>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Marc433/3PVG_IA_24_mazcunyabla_folgadoba.git" target="_blank"
-                title="GitHub Repository" aria-label="GitHub Repository">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-          <h3 class="project-title">AI Pathfinding</h3>
-          <p class="project-description">Research and implementation of various pathfinding algorithms for game AI
-            navigation systems.</p>
-          <ul class="project-tech-list">
-            <li>C++</li>
-            <li>A* Algorithm</li>
-            <li>Game AI</li>
-          </ul>
-        </div>
-
-        <!-- Android Tower Defense -->
-        <div class="project-card" data-category="unity">
-          <div class="project-card-header">
-            <div class="folder-icon">
-              <i class="far fa-folder-open"></i>
-            </div>
-            <div class="project-links">
-              <a href="https://goldsolace9995.itch.io/magic-defense" target="_blank" title="View Game"
-                aria-label="View Game">
-                <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-          </div>
-          <h3 class="project-title">Magic Defense</h3>
-          <p class="project-description">A tower defense game developed for Android using Unity2D, featuring magical
-            towers and enemy waves.</p>
-          <ul class="project-tech-list">
-            <li>Unity</li>
-            <li>C#</li>
-            <li>Mobile Development</li>
-          </ul>
-        </div>
-
-        <!-- Data Structures API -->
-        <div class="project-card" data-category="c/cpp">
-          <div class="project-card-header">
-            <div class="folder-icon">
-              <i class="far fa-folder-open"></i>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/CarlosMazcu/2ALG_MA_mazcunyanbla_calatayudbri.git" target="_blank"
-                title="GitHub Repository" aria-label="GitHub Repository">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-          <h3 class="project-title">Data Structures API</h3>
-          <p class="project-description">Custom implementation of fundamental data structures with optimized algorithms
-            for game development use cases.</p>
-          <ul class="project-tech-list">
-            <li>C++</li>
-            <li>Algorithms</li>
-            <li>Data Structures</li>
-          </ul>
-        </div>
-
-        <!-- Optimized Landscape Algorithm -->
-        <!-- <div class="project-card" data-category="assembler">
-          <div class="project-card-header">
-            <div class="folder-icon">
-              <i class="far fa-folder-open"></i>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/CarlosMazcu/landscape.git" target="_blank" title="GitHub Repository"
-                aria-label="GitHub Repository">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-          <h3 class="project-title">Optimized Landscape Algorithm</h3>
-          <p class="project-description">Performance optimization of landscape rendering algorithms through low-level
-            programming techniques and benchmarking.</p>
-          <div style="margin-top:15px; margin-bottom:15px; flex-grow:1;">
-            <img src="./img/landscape.png" alt="landscape" style="width:100%; border-radius:4px; object-fit:cover;">
-          </div>
-          <ul class="project-tech-list">
-            <li>Assembler</li>
-            <li>Optimization</li>
-            <li>Performance Profiling</li>
-          </ul>
-        </div> -->
-
-        <!-- GBA Assembler -->
-        <!-- <div class="project-card" data-category="assembler">
-          <div class="project-card-header">
-            <div class="folder-icon">
-              <i class="far fa-folder-open"></i>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/CarlosMazcu/gba_assembler.git" target="_blank" title="GitHub Repository"
-                aria-label="GitHub Repository">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-          <h3 class="project-title">GBA Assembler Projects</h3>
-          <p class="project-description">Collection of algorithms implemented in assembler for Game Boy Advance,
-            including games like Snake and visual effects.</p>
-          <!-- Single image instead of slider for better card layout -->
-        <!--  <div style="margin-top:15px; margin-bottom:15px;">
-            <img src="./img/snake.png" alt="Snake" style="width:100%; border-radius:4px;">
-          </div>
-          <ul class="project-tech-list">
-            <li>ARM Assembler</li>
-            <li>GBA Development</li>
-            <li>Low-level Programming</li>
-          </ul>
-        </div> -->
+      <div class="projects">
+<!--         <a href="project1.html" class="project-tile">
+          <img src="https://source.unsplash.com/random/300x200?code" alt="Proyecto 1" />
+          <h3>Proyecto 1</h3>
+        </a> -->
+        <a href="./projects/raftel.html" class="project-tile">
+          <img src="img/Raftel/raftel.png" alt="Raftel Engine" />
+          <h3>Raftel Graphics Engine</h3>
+        </a>
+        <a href="./projects/PhyloGen.html" class="project-tile">
+          <img src="img/Phylogen.png" alt=PhyloGen" />
+          <h3>PhyloGen</h3>
+        </a>
+        <a href="./projects/fractal.html" class="project-tile">
+          <img src="img/abstractart/FractalImager.png" alt="Fractal Imager" />
+        <h3>Fractal Imager</h3>
+        </a>
+        <a href="./projects/asteroids.html" class="project-tile">
+          <img src="img/Asteroids/Asteroids.png" alt="Atari Asteroids" />
+        <h3>Atari Asteroids</h3>
+        </a>
+<!--         <a href="pathfinding.html" class="project-tile">
+          <img src="img/Pathfinding/pathfinding.png" alt="Pathfinding" />
+        <h3>AI Pathfinding</h3>
+        </a> -->
       </div>
     </section>
-<!-- About Section -->
-<section id="about" class="fade-in delay-4">
-  <h2 class="section-heading"><span class="number">02.</span> About Me</h2>
-  <div class="content">
-    <div class="featured-project">
-      <div class="about-text project-content">
-        <p>
-          Hello, I'm <strong>Carlos Mazcuñán Blanes</strong>, a programmer based in Spain and currently studying for an
-          HND in Videogame Programming at ESAT.
-        </p>
-        <h4 class="highlight-title">Key Skills:</h4>
-        <ul class="highlight-list">
-          <li><span class="highlight-label">Languages:</span> C, C++, ARM Assembler, Python</li>
-          <li><span class="highlight-label">Engines:</span> Unity, Unreal Engine 5</li>
-          <li><span class="highlight-label">Tools:</span> Git, Perforce, code profiling and optimization</li>
-        </ul>
-        <h4 class="highlight-title">Highlighted Projects:</h4>
-        <ul class="highlight-list">
-          <li><span class="highlight-label">Collaborative Game:</span> Implemented gameplay mechanics while working
-            closely with artists and designers.</li>
-          <li><span class="highlight-label">Custom Graphics Engine:</span> Built in C++ with OpenGL, implemented
-            rendering, shading, and texture mapping.</li>
-        </ul>
-        <p>
-          I'm passionate about real-time performance and enjoy collaborating in multidisciplinary teams.
-        </p>
-        <div class="skills-list">
-          <li>C/C++</li>
-          <li>OpenGL</li>
-          <li>Unity</li>
-          <li>Unreal Engine</li>
-          <li>ARM Assembler</li>
-          <li>Python</li>
-          <li>Git/Perforce</li>
-          <li>Game Engine Architecture</li>
+
+
+
+
+    <section id="about" class="fade-in delay-4">
+      <h2 class="section-heading"><span class="number">02.</span> About Me</h2>
+      <hr class="section-divider" />
+
+      <div class="content">
+        <div class="featured-project">
+          <div class="about-text project-content">
+            <p>
+              Hello, I'm <strong>Carlos Mazcuñán Blanes</strong>, a programmer based in Spain and currently studying for
+              an
+              HND in Videogame Programming at ESAT.
+            </p>
+            <h4 class="highlight-title">Key Skills:</h4>
+            <ul class="highlight-list">
+              <li><span class="highlight-label">Languages:</span> C, C++, ARM Assembler, Python</li>
+              <li><span class="highlight-label">Engines:</span> Unity, Unreal Engine 5</li>
+              <li><span class="highlight-label">Tools:</span> Git, Perforce, code profiling and optimization</li>
+            </ul>
+            <h4 class="highlight-title">Highlighted Projects:</h4>
+            <ul class="highlight-list">
+              <li><span class="highlight-label">Collaborative Game:</span> Implemented gameplay mechanics while working
+                closely with artists and designers.</li>
+              <li><span class="highlight-label">Custom Graphics Engine:</span> Built in C++ with OpenGL, implemented
+                rendering, shading, and texture mapping.</li>
+            </ul>
+            <p>
+              I'm passionate about real-time performance and enjoy collaborating in multidisciplinary teams.
+            </p>
+            <ul class="skills-list">
+              <li>C/C++</li>
+              <li>OpenGL</li>
+              <li>Unity</li>
+              <li>Unreal Engine</li>
+              <li>ARM Assembler</li>
+              <li>Python</li>
+              <li>Git/Perforce</li>
+              <li>Game Engine Architecture</li>
+            </ul>
+          </div>
         </div>
+      </div>
+    </section>
+    <section id="contact" class="fade-in delay-5">
+      <div class="section-header">
+        <h2 class="section-heading"><span class="number">03.</span> Contact</h2>
+        <hr class="section-divider" />
+      </div>
+      <div class="contact-text">
+        <p>I'm currently looking for new opportunities as a programmer. Whether you have a question or just want to
+          say hi, I'll do my best to get back to you!</p>
+      </div>
+
+      <div class="contact-center">
+        <a href="mailto:carlosmazcu@gmail.com" class="contact-button">Get In Touch</a>
+        <div class="contact-links">
+          <a href="https://github.com/CarlosMazcu" target="_blank" title="GitHub" aria-label="GitHub Profile">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/carlos-mazcu%C3%B1%C3%A1n-blanes-290b53365/" target="_blank"
+            title="LinkedIn" aria-label="LinkedIn Profile">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div id="contact-modal" class="modal hidden">
+      <div class="modal-content">
+        <span id="modal-close" class="close">&times;</span>
+        <p class="mailto-line"><strong>To:</strong> carlosmazcu@gmail.com</p>
+        <form class="contact-form" action="https://formsubmit.co/carlosmazcu@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Nuevo mensaje desde el portfolio de Carlos" />
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit" class="contact-button">Send Message</button>
+        </form>
+
       </div>
     </div>
-</section>
-    <!-- Contact Section - Versión mejorada para móvil -->
-    <section id="contact" class="fade-in delay-5">
-      <h2 class="section-heading"><span class="number">03.</span> Contact</h2>
-      <p>I'm currently looking for new opportunities as a programmer. Whether you have a question or just want to
-        say hi, I'll do my best to get back to you!</p>
-
-      <a href="mailto:carlosmazcu@gmail.com" class="contact-button">Get In Touch</a>
-
-      <div class="contact-links">
-        <a href="https://github.com/CarlosMazcu" target="_blank" title="GitHub" aria-label="GitHub Profile">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/carlos-mazcu-290b53365/" target="_blank" title="LinkedIn" aria-label="LinkedIn Profile">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="mailto:carlosmazcu@gmail.com" title="Email" aria-label="Send Email">
-          <i class="fas fa-envelope"></i>
-        </a>
-      </div>
-    </section>
   </main>
-
   <footer>
-    <p>Designed & Built by Carlos Mazcuñán Blanes © 2024</p>
+    <p>&copy; 2025 Carlos Mazcuñán Blanes</p>
   </footer>
 
-  <script src="script.js"></script>
   <script src="anim/bg-loader.js"></script>
 </body>
 
