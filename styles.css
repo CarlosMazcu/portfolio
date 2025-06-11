@@ -479,7 +479,7 @@ footer {
 /* Responsive Styles */
 @media (max-width: 1024px) {
   .spacer {
-  height: clamp(2rem, 12vh, 1rem);
+  height: clamp(2rem, 12vh, 4rem);
 }
 
   .container {
@@ -520,13 +520,13 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .projects {
+  .projects {
    
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
   }
   .section-heading {
     font-size: 1.3rem;
