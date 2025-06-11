@@ -22,11 +22,12 @@ html {
   overflow-x: hidden;
   font-family: 'Segoe UI', sans-serif;
   /*   background-color: #0a192f; */
-/*   background-color: #112240; */
-   background-color:#223a5e ; 
+  /*   background-color: #112240; */
+  background-color: #223a5e;
 
   color: #ccd6f6;
 }
+
 main {
   padding-top: 5rem;
 }
@@ -146,7 +147,7 @@ footer {
 
 .section-divider {
   border: none;
-/*   border-top: 2px solid #233554; */
+  /*   border-top: 2px solid #233554; */
   border-top: 2px solid #4a6592;
   margin: 0;
   margin-bottom: 0.5rem;
@@ -156,7 +157,7 @@ footer {
 .projects {
   display: grid;
   /*display: flex;*/
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   /* 3 por fila */
   gap: 2rem;
   flex-wrap: wrap;
@@ -473,45 +474,60 @@ footer {
 .download-section .cv-link:hover {
   background-color: #52e0c4;
 }
-.spacer {
-}
+
+.spacer {}
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
   .spacer {
-  height: clamp(2rem, 12vh, 4rem);
-}
+    height: clamp(2rem, 12vh, 4rem);
+  }
+
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   .container {
     padding: 1rem;
   }
+
   .section-heading {
     font-size: 1.5rem;
   }
+
   .project-tile img {
     width: 100%;
     height: auto;
   }
+
   .project-tile h3 {
     font-size: 1.2rem;
     text-align: center;
   }
+
   .gallery {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
-  .highlight-list li, .skills-list li {
+
+  .highlight-list li,
+  .skills-list li {
     font-size: 0.9rem;
   }
+
   .header {
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 0.5rem;
   }
-  .header-left, .header-center, .header-right {
+
+  .header-left,
+  .header-center,
+  .header-right {
     width: 100%;
     justify-content: center;
   }
+
   .contact-links {
     flex-direction: row;
     justify-content: center;
@@ -521,40 +537,50 @@ footer {
 
 @media (max-width: 768px) {
   .projects {
-   
+
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      display: flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
   }
+
   .section-heading {
     font-size: 1.3rem;
   }
+
   .highlight-title {
     font-size: 1.1rem;
   }
-  .email-link, .cv-link {
+
+  .email-link,
+  .cv-link {
     font-size: 0.9rem;
   }
+
   .skills-list {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     justify-content: center;
   }
+
   .skills-list li {
     font-size: 0.8rem;
     padding: 0.3rem 0.6rem;
   }
+
   .project-content {
     padding: 0 0.5rem;
   }
+
   .contact-button {
     font-size: 0.9rem;
     padding: 0.6rem 1.2rem;
   }
-  .contact-form input, .contact-form textarea {
+
+  .contact-form input,
+  .contact-form textarea {
     font-size: 0.9rem;
   }
 }
