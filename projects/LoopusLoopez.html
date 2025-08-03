@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loopus López | Carlos Mazcuñán</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="description" content="Loopus López, a GMTK 2025 Game Jam project developed in Unreal Engine 5 by Carlos Mazcuñán." />
+  <script defer src="../script.js"></script>
+  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <header class="header">
+    <div class="header-left">
+      <h1 class="site-title">Carlos Mazcuñán Blanes | Developer</h1>
+    </div>
+    <div class="header-center">
+      <a href="#" id="header-email" class="email-link">carlosmazcu@gmail.com</a>
+    </div>
+    <div class="header-right">
+      <a class="cv-link" href="../extra/carlos_mazcunan_resume.pdf" target="_blank">Resume</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="spacer"></div>
+    <section class="project-detail">
+      <div class="section-header">
+        <h2 class="section-heading"><span class="number">01.</span> Loopus López</h2>
+        <hr class="section-divider" />
+      </div>
+      <p class="project-description">
+        <strong>Loopus López</strong> is a video game created in just 4 days for the <a href="https://itch.io/jam/gmtk-2025" target="_blank">GMTK Game Jam 2025</a>, using <strong>Unreal Engine 5</strong>.
+      </p>
+      <p class="project-description">
+        I collaborated with a multidisciplinary team of 4 programmers, 4 artists, 1 game designer, and 1 musician. My main contributions were implementing the <strong>enemy spawn and wave system</strong>, as well as the <strong>upgrade system</strong>.
+      </p>
+
+      <div class="gallery">
+        <img src="../img/LL/LL1.png" alt="loopus1" />
+        <img src="../img/LL/LL2.png" alt="loopus2" />
+        <img src="../img/LL/LL3.png" alt="loopus3" />
+        <img src="../img/LL/LL4.png" alt="loopus4" />
+      </div>
+
+      <div class="download-section">
+        <p class="project-description">You can play Loopus López on itch.io:</p>
+        <a href="https://b00le4n.itch.io/loopusloopez" class="cv-link" target="_blank">Visit itch.io page</a>
+      </div>
+    </section>
+     <section id="about" class="fade-in delay-4">
+      <h2 class="section-heading"><span class="number">02.</span> About Me</h2>
+      <hr class="section-divider" />
+
+      <div class="content">
+        <div class="featured-project">
+          <div class="about-text project-content">
+            <p>
+              Hello, I'm <strong>Carlos Mazcuñán Blanes</strong>, a programmer based in Spain and titled in
+              HND in Videogame Programming at ESAT.
+            </p>
+            <h4 class="highlight-title">Key Skills:</h4>
+            <ul class="highlight-list">
+              <li><span class="highlight-label">Languages:</span> C, C++, ARM Assembler, Python</li>
+              <li><span class="highlight-label">Engines:</span> Unity, Unreal Engine 5</li>
+              <li><span class="highlight-label">Tools:</span> Git, Perforce, code profiling and optimization</li>
+            </ul>
+            <h4 class="highlight-title">Highlighted Projects:</h4>
+            <ul class="highlight-list">
+              <li><span class="highlight-label">Collaborative Game:</span> Implemented gameplay mechanics while working
+                closely with artists and designers.</li>
+              <li><span class="highlight-label">Custom Graphics Engine:</span> Built in C++ with OpenGL, implemented
+                rendering, shading, and texture mapping.</li>
+            </ul>
+            <p>
+              I'm passionate about real-time performance and enjoy collaborating in multidisciplinary teams.
+            </p>
+            <ul class="skills-list">
+              <li>C/C++</li>
+              <li>OpenGL</li>
+              <li>Unity</li>
+              <li>Unreal Engine</li>
+              <li>ARM Assembler</li>
+              <li>Python</li>
+              <li>Git/Perforce</li>
+              <li>Game Engine Architecture</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <section id="contact" class="fade-in delay-5">
+        <div class="section-header">
+          <h2 class="section-heading"><span class="number">03.</span> Contact</h2>
+          <hr class="section-divider" />
+        </div>
+        <div class="contact-text">
+          <p>I'm currently looking for new opportunities as a programmer. Whether you have a question or just want to
+            say hi, I'll do my best to get back to you!</p>
+        </div>
+
+        <div class="contact-center">
+          <a href="mailto:carlosmazcu@gmail.com" class="contact-button">Get In Touch</a>
+          <div class="contact-links">
+            <a href="https://github.com/CarlosMazcu" target="_blank" title="GitHub" aria-label="GitHub Profile">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/carlos-mazcu%C3%B1%C3%A1n-blanes-290b53365/" target="_blank"
+              title="LinkedIn" aria-label="LinkedIn Profile">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div id="contact-modal" class="modal hidden">
+        <div class="modal-content">
+          <span id="modal-close" class="close">&times;</span>
+          <p class="mailto-line"><strong>To:</strong> carlosmazcu@gmail.com</p>
+          <form class="contact-form" action="https://formsubmit.co/carlosmazcu@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="Nuevo mensaje desde el portfolio de Carlos" />
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" class="contact-button">Send Message</button>
+          </form>
+
+        </div>
+      </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Carlos Mazcuñán Blanes</p>
+  </footer>
+
+</body>
+
+</html>
