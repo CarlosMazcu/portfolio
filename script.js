@@ -13,50 +13,72 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function initScrollAnimations() {
-  const header = document.getElementById('header');
+  const header = document.getElementById('header') || document.querySelector('.header');
   if (!header) return;
 
   let ticking = false;
+  let lastY = window.pageYOffset || 0;
 
   function handleHeaderAppearance() {
-    if (window.scrollY > 100) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-    ticking = false;
+    if (window.scrollY > 100) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
   }
 
-  window.addEventListener('scroll', () => {
+  function handleAutoHide() {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (!isMobile) {
+      header.classList.remove('header--hidden');
+      return;
+    }
+    const currentY = window.pageYOffset || 0;
+    const threshold = 10;
+    const headerHeight = header.offsetHeight || 56;
+    if (currentY > lastY + threshold && currentY > headerHeight + 20) {
+      header.classList.add('header--hidden');
+    } else if (currentY < lastY - threshold) {
+      header.classList.remove('header--hidden');
+    }
+    lastY = currentY;
+  }
+
+  function onScroll() {
     if (!ticking) {
       window.requestAnimationFrame(() => {
         handleHeaderAppearance();
+        handleAutoHide();
         ticking = false;
       });
       ticking = true;
     }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => {
+    if (!window.matchMedia('(max-width: 768px)').matches) header.classList.remove('header--hidden');
   });
 
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll("header nav a");
+  // Section highlight (kept, safe if no nav)
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('header nav a');
   function highlightActiveSection() {
-    let currentSection = "";
-    let scrollY = window.pageYOffset;
+    let currentSection = '';
+    const scrollY = window.pageYOffset;
     sections.forEach((section) => {
       const sectionTop = section.offsetTop - 100;
       const sectionHeight = section.offsetHeight;
       if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        currentSection = section.getAttribute("id");
+        currentSection = section.getAttribute('id');
       }
     });
     navLinks.forEach((link) => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === `#${currentSection}`) {
-        link.classList.add("active");
-      }
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${currentSection}`) link.classList.add('active');
     });
   }
-  window.addEventListener("scroll", highlightActiveSection);
+  window.addEventListener('scroll', highlightActiveSection, { passive: true });
+
+  // Initial state
+  handleHeaderAppearance();
   highlightActiveSection();
 }
 
