@@ -10,6 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
   initCarousel();
   initGalleryModal();
   initModalHandlers();
+  initLiteYouTube();
 });
 
 function initScrollAnimations() {
@@ -285,5 +286,26 @@ function initModalHandlers() {
 
   window.addEventListener('keydown', e => {
     if (e.key === 'Escape') modal.classList.add('hidden');
+  });
+}
+
+// Lightweight YouTube embeds: replace placeholders on click
+function initLiteYouTube() {
+  const nodes = document.querySelectorAll('.yt-lite[data-videoid]');
+  if (!nodes.length) return;
+  nodes.forEach(node => {
+    const id = node.getAttribute('data-videoid');
+    // Set preview thumbnail
+    node.style.backgroundImage = `url(https://img.youtube.com/vi/${id}/hqdefault.jpg)`;
+    node.addEventListener('click', () => {
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+      iframe.loading = 'lazy';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      node.textContent = '';
+      node.appendChild(iframe);
+    }, { once: true });
   });
 }

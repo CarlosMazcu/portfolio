@@ -8,10 +8,10 @@ function resizeCanvas() {
 
 resizeCanvas();
 
-const clouds = Array.from({ length: 100 }).map(() => ({
+const clouds = Array.from({ length: 32 }).map(() => ({
   x: Math.random() * canvas.width,
   y: Math.random() * canvas.height,
-  radius: Math.random() * 100 + 50,
+  radius: Math.random() * 70 + 50,
   speedX: Math.random() * 0.3 - 0.15,
   speedY: Math.random() * 0.2 - 0.1,
   alpha: Math.random() * 0.1 + 0.05

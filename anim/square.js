@@ -9,7 +9,7 @@ function resizeCanvas() {
 resizeCanvas();
 
 const squares = [];
-const count = 256;
+const count = 64;
 
 class FloatingSquare {
   constructor() {
@@ -19,7 +19,7 @@ class FloatingSquare {
   reset() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 20 + 10;
+    this.size = Math.random() * 50 + 10;
     this.alpha = Math.random() * 0.5 + 0.3;
     this.speedX = Math.random() * 0.5 - 0.25;
     this.speedY = Math.random() * 0.5 - 0.25;

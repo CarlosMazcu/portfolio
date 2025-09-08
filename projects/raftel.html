@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../styles.css">
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
   <meta name="description" content="Detailed page for Raftel Engine by Carlos Mazcuñán Blanes.">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script defer src="../script.js"></script>
 
@@ -41,16 +42,15 @@ It features an optimized rendering system (Forward and Deferred Rendering), HDR 
       </p><p class="project-description">
 Additionally, it includes a graphical user interface with ImGui, real-time editor, integration with Lua scripting, multithreading support via JobSystem, basic physics with collisions and gravity simulation, and a modular system for future extensions.
       </p>
-      <div class="gallery">
-        <img src="../img/Raftel/deferred.png" alt="Raftel 1">
-        <img src="../img/Raftel/pbr.png" alt="Raftel 2">
-        <img src="../img/Raftel/tiny_desk.png" alt="Raftel 3">
-        <img src="../img/Raftel/raftel-engine.png" alt="Raftel 4">
-        <img src="../img/Raftel/raftel.png" alt="Raftel 5">
-      </div>
+<!--       <div class="gallery">
+        <img loading="lazy" decoding="async" src="../img/Raftel/deferred.png" alt="Raftel 1">
+        <img loading="lazy" decoding="async" src="../img/Raftel/pbr.png" alt="Raftel 2">
+        <img loading="lazy" decoding="async" src="../img/Raftel/tiny_desk.png" alt="Raftel 3">
+        <img loading="lazy" decoding="async" src="../img/Raftel/raftel-engine.png" alt="Raftel 4">
+        <img loading="lazy" decoding="async" src="../img/Raftel/raftel.png" alt="Raftel 5">
+      </div> -->
       <div class="video-section">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/dv5VSabtZvk?si=j0Dg7VKe8KZSUJWN" 
-          title="Raftel Engine Demo" frameborder="0" allowfullscreen></iframe>
+        <div class="yt-lite" data-videoid="dv5VSabtZvk" aria-label="Raftel Engine Demo"></div>
       </div>
       <div class="external-link">
         <a href="https://carlosmazcu.github.io/doc-raftel/" target="_blank" class="cv-link">Visit Official API</a>
@@ -141,6 +141,8 @@ Additionally, it includes a graphical user interface with ImGui, real-time edito
   <footer>
     <p>&copy; 2025 Carlos Mazcuñán Blanes</p>
   </footer>
+  <script src="../anim/particle.js"></script>
+
 </body>
 
 </html>
