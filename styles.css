@@ -170,11 +170,22 @@ footer .footer-note {
   flex-shrink: 0;
 }
 
+.back-button a {
+  display: inline-block;
+  margin: 1rem 0;
+  text-decoration: none;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
 .site-title {
   font-size: 1.2rem;
   font-weight: bold;
 }
-
+.site-title a {
+  text-decoration: none;
+  color: inherit;
+}
 .email-link {
   color: #64ffda;
   font-size: 1rem;
