@@ -178,6 +178,10 @@ footer .footer-note {
   font-weight: 600;
 }
 
+    .project-description strong {
+      color: #64ffda;
+    }
+
 .site-title {
   font-size: 1.2rem;
   font-weight: bold;
@@ -875,7 +879,8 @@ body, html {
 }
 
 .project-tile h3 {
-  padding: 1rem 1rem 1.2rem;
+  margin: 0;
+  padding: 0.65rem 1rem 0.75rem;
   color: #e6f1ff;
   letter-spacing: 0.2px;
 }

@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <meta name="description" content="Detailed page for PhyloGen by Carlos Mazcuñán Blanes.">
   <script defer src="../script.js"></script>
+  <style>
+    .project-description strong {
+      color: #64ffda;
+    }
+  </style>
 </head>
 
 <body>
@@ -35,19 +40,34 @@
         <h2 class="section-heading"><span class="number">01.</span> PhyloGen</h2>
         <hr class="section-divider" />
       </div>
-      <p class="project-description">
-        PhyloGen is a vegetation generator developed as a collaborative project together with <strong>Marc
-          Folgado</strong>. Based on L-Systems, it produces 2D representations using vector graphics, which are later
-        transformed into 3D meshes.
-        <a href="https://github.com/CarlosMazcu/mazcunyanbla_folgadoba_L_systems" target="_blank" title="GitHub" class="github-icon-link" aria-label="GitHub Repository" style="float: right; font-size: 2rem; margin-top: 0.2rem; margin-bottom: 1.5rem;">
-          <i class="fab fa-github"></i>
-        </a>
+            <p class="project-description">
+
+        <strong>PhyloGen</strong> is a procedural botany playground born from my collaboration with
+
+        <strong><a href="https://www.linkedin.com/in/marc-folgado-balb%C3%A1s-786335370/" target="_blank" rel="noopener">Marc Folgado</a></strong>.
+
+        At its core lies an L-System interpreter that grows plants by rewriting symbols into turtles, which then trace
+
+        vector branches, leaves, and blossoms before being lofted into 3D meshes.
+
+        
       </p>
+      
       <p class="project-description">
-        The program offers a wide range of settings to define rules, angles, iterations, and growth parameters, enabling
-        the procedural creation of trees, shrubs, and other botanical structures.
+        
+        The editor exposes dozens of knobs letting you morph a seedling into a dense forest or coral-like abstractions. A live preview updates every
+        
+        tweak, while export profiles bake the geometry into optimized meshes ready for game engines.
+        
       </p>
-      <div class="slider gallery gallery--compact">
+      
+      <a href="https://github.com/CarlosMazcu/mazcunyanbla_folgadoba_L_systems" target="_blank" title="GitHub" class="github-icon-link" aria-label="GitHub Repository" style="float: right; font-size: 2rem; margin-top: 0.2rem; margin-bottom: 1.5rem;">
+
+        <i class="fab fa-github"></i>
+
+      </a>
+      
+<div class="slider gallery gallery--compact">
         <button type="button" class="slider-nav prev" aria-label="Imagen anterior">
           <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
         </button>

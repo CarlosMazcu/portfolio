@@ -37,21 +37,39 @@
         <h2 class="section-heading"><span class="number">01.</span> Raftel Graphics Engine</h2>
         <hr class="section-divider" />
       </div>
-      <p class="project-description">
-        Raftel Engine is an advanced graphics engine developed in C++ and based on modern OpenGL. It was created as an academic project in collaboration with Marc Folgado, applying advanced knowledge in graphics programming, systems architecture, and engine design.
-      </p><p class="project-description">
-It features an optimized rendering system (Forward and Deferred Rendering), HDR lighting, customizable shading, Entity-Component System (ECS), material management, and compatibility with multiple 3D formats.
-      </p><p class="project-description">
-Additionally, it includes a graphical user interface with ImGui, real-time editor, integration with Lua scripting, multithreading support via JobSystem, basic physics with collisions and gravity simulation, and a modular system for future extensions.
+            <p class="project-description">
+
+        <strong>Raftel Engine</strong> is a custom real-time renderer written from scratch in modern <strong>C++</strong> and <strong>OpenGL</strong>. Built alongside
+s
+        <strong><a href="https://www.linkedin.com/in/marc-folgado-balb%C3%A1s-786335370/" target="_blank" rel="noopener">Marc Folgado</a></strong>, the goal was to architect a teaching engine that mirrors the feature set and workflows of contemporary AAA
+
+        tools while remaining lean enough to reason about in the classroom.
+
       </p>
-<!--       <div class="gallery">
-        <img loading="lazy" decoding="async" src="../img/Raftel/deferred.png" alt="Raftel 1">
-        <img loading="lazy" decoding="async" src="../img/Raftel/pbr.png" alt="Raftel 2">
-        <img loading="lazy" decoding="async" src="../img/Raftel/tiny_desk.png" alt="Raftel 3">
-        <img loading="lazy" decoding="async" src="../img/Raftel/raftel-engine.png" alt="Raftel 4">
-        <img loading="lazy" decoding="async" src="../img/Raftel/raftel.png" alt="Raftel 5">
-      </div> -->
-      <div class="video-section">
+
+      <p class="project-description">
+
+        The renderer ships with both forward and deferred pipelines, physically based shading, HDR post-processing, cascaded
+
+        shadow maps, screen-space reflections, bloom, and tone mapping. Assets flow through a material graph and an
+
+        Entity-Component System that supports hierarchical transforms, skeletal animation, and instancing.
+
+      </p>
+
+      <p class="project-description">
+
+        Tooling sits at the heart of the project. An ImGui-powered editor exposes live tweaking of render stages, debug
+
+        visualisation, and profiling hooks. Lua scripting injects gameplay logic, a JobSystem spreads heavy work across
+
+        threads, and a lightweight physics layer handles collisions and gravity. All of this is documented through an API
+
+        site generated from the codebase itself, encouraging other students to iterate on top of it.
+
+      </p>
+
+<div class="video-section">
         <div class="yt-lite" data-videoid="dv5VSabtZvk" aria-label="Raftel Engine Demo"></div>
       </div>
       <div class="external-link">

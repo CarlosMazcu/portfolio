@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <meta name="description" content="Detailed page for PhyloGen by Carlos Mazcuñán Blanes.">
   <script defer src="../script.js"></script>
-    <style>
+      <style>
     .github-icon-link {
       display: inline-block;
       vertical-align: middle;
@@ -55,10 +55,13 @@
         <hr class="section-divider" />
       </div>
       <p class="project-description">
-        This project, developed during my first academic year, is a faithful reimplementation of the classic <strong>Asteroids</strong> arcade game originally created by Atari. It was entirely programmed in <strong>C</strong>, utilizing a proprietary internal graphics library provided by the school. 
+        <strong>Asteroids</strong> was my first deep dive into low-level game programming: a from-scratch recreation of the Atari classic written entirely in <strong>C</strong> on top of the school's custom graphics framework. Every vector sprite, sound cue, and screen transition was rebuilt to keep the original arcade tempo while running comfortably on lab hardware.
       </p>
       <p class="project-description">
-        The goal was to replicate the gameplay and aesthetic of the original, including vector-style graphics, physics-based movement, collision handling, and scoring system, while learning the fundamentals of low-level programming and graphical rendering.
+        I implemented deterministic physics for thrust, inertia, and wrap-around, scripted asteroid wave patterns, and wrote the collision pipeline that keeps the ship, bullets, and debris honest using spatial partitioning plus checks. The UI flow, scoring, and game states (boot, gameplay, high-scores) hang off a compact state machine that makes restarts instant and debugging straightforward.
+      </p>
+      <p class="project-description">
+        Matching the arcade feel forced me to learn good habits early: profiling fixed-step loops, budgeting per-frame allocations, and wiring debug overlays to visualise collision bounds and velocity vectors. Those practices still shape how I approach engine and gameplay work today.
       </p>
       <div class="video-section">
         <div class="yt-lite" data-videoid="qMY05K6whAw" aria-label="Asteroids Game Demo"></div>
