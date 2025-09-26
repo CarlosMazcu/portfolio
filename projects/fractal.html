@@ -20,22 +20,25 @@
       color: #ccd6f6;
       transition: color 0.2s;
     }
+
     .github-icon-link:hover {
       color: #64ffda;
     }
+
     /* Contain the floated icon so following blocks don't wrap around it */
-    .project-description { display: flow-root; }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
-      clear: both; /* ensure full-width below any floats */
+    .project-description {
+      display: flow-root;
     }
-    @media (max-width: 768px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 480px) { .gallery { grid-template-columns: 1fr; } }
+
+    .gallery {
+      clear: both;
+    }
+
     /* On small screens, avoid float pushing layout */
     @media (max-width: 768px) {
-      .github-icon-link { float: none !important; }
+      .github-icon-link {
+        float: none !important;
+      }
     }
   </style>
 </head>
@@ -69,13 +72,23 @@
           <i class="fab fa-github"></i>
         </a>
       </p>
-      <div class="gallery">
-        <img loading="lazy" decoding="async" src="../img/abstractart/julia_set_20241223_201712.png" alt="Ejemplo 1">
-        <img loading="lazy" decoding="async" src="../img/abstractart/mandelbrot_20241223_195027.png" alt="Ejemplo 4">
-        <img loading="lazy" decoding="async" src="../img/abstractart/julia_set_20241223_202241.png" alt="Ejemplo 3">
-        <img loading="lazy" decoding="async" src="../img/abstractart/mandelbrot_20241223_193619.png" alt="Ejemplo 4">
-        <img loading="lazy" decoding="async" src="../img/abstractart/julia_set_20241224_023744.png" alt="Ejemplo 4">
-        <img loading="lazy" decoding="async" src="../img/abstractart/mandelbrot_20241223_193400.png" alt="Ejemplo 4">
+      <div class="slider gallery gallery--compact">
+        <button type="button" class="slider-nav prev" aria-label="Imagen anterior">
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <div class="slider-window">
+          <div class="slider-wrapper">
+            <img loading="lazy" decoding="async" src="../img/abstractart/julia_set_20241223_201712.png" alt="Ejemplo 1">
+            <img loading="lazy" decoding="async" src="../img/abstractart/mandelbrot_20241223_195027.png" alt="Ejemplo 4">
+            <img loading="lazy" decoding="async" src="../img/abstractart/julia_set_20241223_202241.png" alt="Ejemplo 3">
+            <img loading="lazy" decoding="async" src="../img/abstractart/mandelbrot_20241223_193619.png" alt="Ejemplo 4">
+            <img loading="lazy" decoding="async" src="../img/abstractart/julia_set_20241224_023744.png" alt="Ejemplo 4">
+            <img loading="lazy" decoding="async" src="../img/abstractart/mandelbrot_20241223_193400.png" alt="Ejemplo 4">
+          </div>
+        </div>
+        <button type="button" class="slider-nav next" aria-label="Imagen siguiente">
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
       </div>
 
     </section>

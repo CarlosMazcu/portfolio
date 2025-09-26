@@ -12,14 +12,9 @@
   <meta name="description" content="Loopus López, a GMTK 2025 Game Jam project developed in Unreal Engine 5 by Carlos Mazcuñán." />
   <script defer src="../script.js"></script>
   <style>
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
+    .gallery img {
+      border-radius: 8px;
     }
-    .gallery img { width: 100%; height: auto; border-radius: 8px; }
-    @media (max-width: 768px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 480px) { .gallery { grid-template-columns: 1fr; } }
   </style>
 </head>
 
@@ -52,11 +47,21 @@
         I collaborated with a multidisciplinary team of 4 programmers, 4 artists, 1 game designer, and 1 musician. My main contributions were implementing the <strong>enemy spawn and wave system</strong>, as well as the <strong>upgrade system</strong>.
       </p>
 
-      <div class="gallery">
-        <img loading="lazy" decoding="async" src="../img/LL/LL1.png" alt="loopus1" />
-        <img loading="lazy" decoding="async" src="../img/LL/LL2.png" alt="loopus2" />
-        <img loading="lazy" decoding="async" src="../img/LL/LL3.png" alt="loopus3" />
-        <img loading="lazy" decoding="async" src="../img/LL/LL4.png" alt="loopus4" />
+      <div class="slider gallery">
+        <button type="button" class="slider-nav prev" aria-label="Imagen anterior">
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <div class="slider-window">
+          <div class="slider-wrapper">
+            <img loading="lazy" decoding="async" src="../img/LL/LL1.png" alt="loopus1" />
+            <img loading="lazy" decoding="async" src="../img/LL/LL2.png" alt="loopus2" />
+            <img loading="lazy" decoding="async" src="../img/LL/LL3.png" alt="loopus3" />
+            <img loading="lazy" decoding="async" src="../img/LL/LL4.png" alt="loopus4" />
+          </div>
+        </div>
+        <button type="button" class="slider-nav next" aria-label="Imagen siguiente">
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
       </div>
 
       <div class="download-section">

@@ -24,14 +24,6 @@
     .github-icon-link:hover {
       color: #64ffda;
     }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
-    }
-    @media (max-width: 768px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 480px) { .gallery { grid-template-columns: 1fr; } }
   </style>
 </head>
 
@@ -68,13 +60,23 @@
         coordinating across different roles within a production pipeline.
       </p>
 
-      <div class="gallery">
-        <img loading="lazy" decoding="async" src="../img/crowsnest/ics_1.png" alt="ics1">
-        <img loading="lazy" decoding="async" src="../img/crowsnest/ics_2.png" alt="ics2">
-        <img loading="lazy" decoding="async" src="../img/crowsnest/ics_3.png" alt="ics3">
-        <img loading="lazy" decoding="async" src="../img/crowsnest/ics_4.png" alt="ics4">
-        <img loading="lazy" decoding="async" src="../img/crowsnest/ics_5.png" alt="ics5">
-        <img loading="lazy" decoding="async" src="../img/crowsnest/ics_6.png" alt="ics6">
+      <div class="slider gallery">
+        <button type="button" class="slider-nav prev" aria-label="Imagen anterior">
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <div class="slider-window">
+          <div class="slider-wrapper">
+            <img loading="lazy" decoding="async" src="../img/crowsnest/ics_1.png" alt="ics1">
+            <img loading="lazy" decoding="async" src="../img/crowsnest/ics_2.png" alt="ics2">
+            <img loading="lazy" decoding="async" src="../img/crowsnest/ics_3.png" alt="ics3">
+            <img loading="lazy" decoding="async" src="../img/crowsnest/ics_4.png" alt="ics4">
+            <img loading="lazy" decoding="async" src="../img/crowsnest/ics_5.png" alt="ics5">
+            <img loading="lazy" decoding="async" src="../img/crowsnest/ics_6.png" alt="ics6">
+          </div>
+        </div>
+        <button type="button" class="slider-nav next" aria-label="Imagen siguiente">
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
       </div>
       <div class="download-section">
         <p class="project-description">You can download the playable version of Inside The Crow's Nest here:</p>
