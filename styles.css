@@ -87,9 +87,10 @@ html {
     gap: 1rem;
   }
   /* Header fine-tune for very small screens */
-  .header { grid-template-columns: auto 1fr auto; padding: 0.45rem 0.6rem; min-height: 52px; }
+  .header { grid-template-columns: minmax(0, 1fr) auto auto; padding: 0.45rem 0.6rem; min-height: 52px; }
   .site-title { max-width: 22vw; font-size: 0.85rem; }
   .header-center { justify-content: flex-start; }
+  .header-logo img { width: 32px; height: 32px; }
   .email-link { font-size: 0.95rem; }
   .cv-link { font-size: 0.8rem; padding: 0.3rem 0.5rem; min-height: 34px; }
 }
@@ -169,6 +170,21 @@ footer .footer-note {
 .header-right {
   flex-shrink: 0;
 }
+.header-logo {
+  display: none;
+}
+
+.header-logo a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-logo img {
+  width: 38px;
+  height: 38px;
+}
+
 
 .back-button a {
   display: inline-block;
@@ -762,7 +778,7 @@ footer .footer-note {
       position: sticky !important;
       top: 0;
       display: grid !important;
-      grid-template-columns: 1fr min-content; /* email | resume tight */
+      grid-template-columns: minmax(0, 1fr) auto auto; /* email | logo | resume */
       align-items: center;
       gap: 0.5rem;
       padding: 0.5rem 0.5rem 0.5rem 0.75rem; /* tighter right */
@@ -773,9 +789,10 @@ footer .footer-note {
     .header-left { display: none !important; }
     .site-title { display: none !important; }
     .header-center { min-width: 0; display: flex; justify-content: flex-start; }
+    .header-logo { display: flex; justify-self: center; }
     .header-right { justify-self: end; }
 
-    .email-link { display: inline-block; white-space: nowrap; border: none; background: transparent; padding: 0; font-size: 0.95rem; }
+    .email-link { display: inline-block; white-space: nowrap; border: none; background: transparent; padding: 0; font-size: 0.95rem; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
     .header-right .cv-link { justify-self: end; place-self: center end; margin-right: 0; }
     .cv-link { font-size: 0.85rem; padding: 0.35rem 0.55rem; min-height: 36px; border-radius: 8px; }
 
@@ -986,9 +1003,12 @@ footer {
 
 /* Final mobile header overrides to ensure layout and visibility */
 @media (max-width: 768px) {
-  .header { display: grid !important; grid-template-columns: 1fr min-content; }
+  .header { display: grid !important; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; column-gap: 0.75rem; }
   .header-left { display: none !important; }
-  .header .email-link { background: transparent !important; border: 0 !important; padding: 0 !important; box-shadow: none !important; }
+  .header-center { min-width: 0; justify-self: start; }
+  .header-logo { display: flex; justify-self: center; }
+  .header-right { justify-self: end; }
+  .header .email-link { background: transparent !important; border: 0 !important; padding: 0 !important; box-shadow: none !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inline-block; max-width: 100%; }
   .header .cv-link { justify-self: end; }
 }
 
