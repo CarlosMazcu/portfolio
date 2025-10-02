@@ -1,4 +1,4 @@
-# 🌐 Portfolio - Carlos Mazcuñán
+# 🌐 Portfolio - Carlos Mazcunan
 
 Welcome to my personal portfolio!  
 Here you’ll find a selection of my projects and experience as a **C++ programmer and video game developer**.  
