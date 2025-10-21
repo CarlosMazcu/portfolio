@@ -75,17 +75,15 @@ html {
 
 @media (max-width: 768px) {
   main { padding-top: 6rem; }
-  .projects { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.25rem; }
+  .projects { gap: 1.25rem; }
 }
 
 @media (max-width: 480px) {
   .projects-section {
     padding: 1rem;
   }
-  .projects {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
+  .projects { gap: 1rem; }
+  .project-tile { flex: 1 1 100%; max-width: 100%; }
   /* Header fine-tune for very small screens */
   .header { grid-template-columns: minmax(0, 1fr) auto auto; padding: 0.45rem 0.6rem; min-height: 52px; }
   .site-title { max-width: 22vw; font-size: 0.85rem; }
@@ -263,11 +261,12 @@ footer .footer-note {
 }
 
   .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Use flex so incomplete rows stay centered on wide screens */
+    display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
-    justify-items: center;
+    align-items: stretch;
   }
 
 
@@ -277,8 +276,8 @@ footer .footer-note {
     text-align: center;
     text-decoration: none;
     color: inherit;
-    width: 100%;
-    max-width: 350px;
+    flex: 0 1 260px;
+    max-width: 280px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
