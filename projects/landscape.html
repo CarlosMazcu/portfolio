@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perspective Landscape (DoEffect) | Carlos Mazcuñán</title>
+    <meta name="description"
+        content="Animated perspective point-cloud landscape (DoEffect) optimized in C/C++ with SDL 1.2. Core loop reduced to ~0.03 ms." />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script defer src="../script.js"></script>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <h1 class="site-title"><a href="../index.html">Carlos Mazcuñán Blanes | Developer</a></h1>
+        </div>
+        <div class="header-center">
+            <a href="#" id="header-email" class="email-link">carlosmazcu@gmail.com</a>
+        </div>
+        <div class="header-logo">
+            <a href="../index.html" aria-label="Go to home">
+                <img src="../img/favicon.svg" alt="Carlos Mazcuñán logo" />
+            </a>
+        </div>
+        <div class="header-right">
+            <a class="cv-link" href="../extra/carlos_mazcunan_resume.pdf" target="_blank">Resume</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="project-detail">
+            <!-- Title -->
+            <div class="section-header">
+                <h2 class="section-heading"><span class="number">01.</span> Perspective Landscape (Code Profiling)</h2>
+                <hr class="section-divider" />
+            </div>
+
+            <!-- Summary -->
+            <p class="project-description">
+                Animated <strong>perspective point-cloud landscape</strong> implemented in C and rendered with
+                <strong>SDL 1.2</strong> on Linux.
+                I profiled the core routine (<em>DoEffect</em>) and optimized memory access and arithmetic in the hot
+                loop,
+                reducing the landscape computation time to approximately <strong>0.03 ms</strong> on the target
+                hardware.
+            </p>
+
+            <!-- Gallery -->
+            <div class="slider gallery gallery--compact">
+                <button type="button" class="slider-nav prev" aria-label="Previous image">
+                    <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                </button>
+                <div class="slider-window">
+                    <div class="slider-wrapper">
+                        <!-- Paths are relative to /projects -->
+                        <img loading="lazy" decoding="async" src="../img/landscape/landscape.gif"
+                            alt="Perspective landscape (animated GIF)">
+                        <img loading="lazy" decoding="async" src="../img/landscape/landscape.png"
+                            alt="Perspective landscape (still)">
+                        <img loading="lazy" decoding="async" src="../img/landscape/landscape-code.png"
+                            alt="Perspective landscape (code)">
+                    </div>
+                </div>
+                <button type="button" class="slider-nav next" aria-label="Next image">
+                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <!-- Repo Button -->
+            <div class="contact-center" style="margin-top: 22px;">
+                <!-- TODO: replace # with your repository URL -->
+                <a href="https://github.com/CarlosMazcu/landscape" class="contact-button" target="_blank"
+                    rel="noopener">View Repository</a>
+            </div>
+        </section>
+
+        <!-- About (same as other pages) -->
+        <section id="about" class="fade-in delay-4">
+            <h2 class="section-heading"><span class="number">02.</span> About Me</h2>
+            <hr class="section-divider" />
+            <div class="content">
+                <div class="featured-project">
+                    <div class="about-text project-content">
+                        <p>
+                            Hello, I'm <strong>Carlos Mazcuñán Blanes</strong>, a programmer based in Spain and titled
+                            in
+                            HND in Videogame Programming at ESAT.
+                        </p>
+                        <h4 class="highlight-title">Key Skills:</h4>
+                        <ul class="highlight-list">
+                            <li><span class="highlight-label">Languages:</span> C, C++, ARM Assembler, Python</li>
+                            <li><span class="highlight-label">Engines:</span> Unity, Unreal Engine 5</li>
+                            <li><span class="highlight-label">Tools:</span> Git, Perforce, code profiling and
+                                optimization</li>
+                        </ul>
+                        <h4 class="highlight-title">Highlighted Projects:</h4>
+                        <ul class="highlight-list">
+                            <li><span class="highlight-label">Collaborative Game:</span> Implemented gameplay mechanics
+                                while working closely with artists and designers.</li>
+                            <li><span class="highlight-label">Custom Graphics Engine:</span> Built in C++ with OpenGL,
+                                implemented rendering, shading, and texture mapping.</li>
+                        </ul>
+                        <p>I'm passionate about real-time performance and enjoy collaborating in multidisciplinary
+                            teams.</p>
+                        <ul class="skills-list">
+                            <li>C/C++</li>
+                            <li>Unreal Engine</li>
+                            <li>OpenGL</li>
+                            <li>Unity</li>
+                            <li>ARM Assembler</li>
+                            <li>Python</li>
+                            <li>Git</li>
+                            <li>Perforce</li>
+                            <li>Game Engine Architecture</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact (same as other pages) -->
+        <section id="contact" class="fade-in delay-5">
+            <div class="section-header">
+                <h2 class="section-heading"><span class="number">03.</span> Contact</h2>
+                <hr class="section-divider" />
+            </div>
+            <div class="contact-text">
+                <p>I'm currently looking for new opportunities as a programmer. Whether you have a question or just want
+                    to say hi, I'll do my best to get back to you!</p>
+            </div>
+            <div class="contact-center">
+                <a href="mailto:carlosmazcu@gmail.com" class="contact-button">Get In Touch</a>
+                <div class="contact-links">
+                    <a href="https://github.com/CarlosMazcu" target="_blank" title="GitHub"
+                        aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/carlos-mazcunan-blanes-290b53365/" target="_blank"
+                        title="LinkedIn" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Carlos Mazcuñán Blanes - All rights reserved</p>
+        <p class="footer-note">Built with <i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i
+                class="fab fa-js"></i></p>
+    </footer>
+
+    <script src="../anim/particle.js"></script>
+</body>
+
+</html>
