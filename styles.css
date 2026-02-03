@@ -497,6 +497,53 @@ footer .footer-note {
   box-sizing: border-box;
 }
 
+.project-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.project-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.project-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(100, 255, 218, 0.3);
+  color: var(--text-primary);
+  text-decoration: none;
+  background: rgba(10, 25, 47, 0.55);
+  box-shadow: 0 8px 18px rgba(2, 12, 27, 0.35);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-nav-link:hover,
+.project-nav-link:focus-visible {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  background: rgba(100, 255, 218, 0.18);
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(2, 12, 27, 0.5);
+}
+
+@media (max-width: 480px) {
+  .project-nav-link {
+    width: 36px;
+    height: 36px;
+  }
+}
+
 .project-description {
   font-size: 1.1rem;
   color: var(--text-primary);
