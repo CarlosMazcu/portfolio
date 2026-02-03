@@ -550,6 +550,138 @@ footer .footer-note {
   margin-bottom: 2rem;
 }
 
+.credits-section {
+  margin-top: 1.25rem;
+  margin-bottom: 1.5rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: 12px;
+  background: rgba(10, 25, 47, 0.45);
+  border: 1px solid rgba(100, 255, 218, 0.08);
+  clear: both;
+}
+
+.credits-section--compact {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.credits-section--compact .credits-names {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.credits-section--compact .credits-names a {
+  display: inline-flex;
+}
+
+.credits-section--inline {
+  margin: 0;
+  padding: 0.65rem 0.95rem;
+}
+
+.project-links-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.project-links-row .github-icon-link {
+  float: none;
+  margin: 0;
+}
+
+.credits-title {
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
+  color: var(--accent-color);
+}
+
+.credits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem 1.5rem;
+}
+
+.credits-columns {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.credits-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.credits-group {
+  display: block;
+}
+
+.credits-group--left {
+  grid-column: 1;
+}
+
+.credits-group--right {
+  grid-column: 2;
+}
+
+.credits-role {
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 0.35rem;
+}
+
+.credits-names {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.6rem;
+}
+
+.credits-names a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(100, 255, 218, 0.35);
+  padding-bottom: 2px;
+}
+
+.credits-names a:hover,
+.credits-names a:focus-visible {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+.dotted-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(100, 255, 218, 0.35);
+  padding-bottom: 2px;
+}
+
+.dotted-link:hover,
+.dotted-link:focus-visible {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+@media (max-width: 640px) {
+  .credits-grid {
+    grid-template-columns: 1fr;
+  }
+  .credits-columns {
+    flex-direction: column;
+  }
+  .credits-group--left,
+  .credits-group--right {
+    grid-column: auto;
+  }
+}
+
 .gallery {
   position: relative;
   margin-bottom: 2rem;
