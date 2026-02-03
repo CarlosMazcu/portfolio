@@ -574,6 +574,23 @@ footer .footer-note {
   display: inline-flex;
 }
 
+.credits-section--center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: fit-content;
+}
+
+.credits-section--center .credits-names {
+  justify-content: center;
+}
+
+.credits-section--compact.credits-section--row .credits-names {
+  flex-direction: row;
+  align-items: center;
+}
+
 .credits-section--inline {
   margin: 0;
   padding: 0.65rem 0.95rem;
@@ -586,6 +603,10 @@ footer .footer-note {
   gap: 1rem;
   flex-wrap: wrap;
   margin-bottom: 1.25rem;
+}
+
+.project-links-row--tight {
+  margin-bottom: 0.75rem;
 }
 
 .project-links-row .github-icon-link {
@@ -781,6 +802,11 @@ footer .footer-note {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
+}
+
+.external-link--tight {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .external-link .cv-link {
