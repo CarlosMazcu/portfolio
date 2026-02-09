@@ -1,37 +1,72 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>PhyloGen | Carlos Mazcuñán</title>
+  <meta name="description" content="Procedural botany tool powered by L-Systems, live preview controls, and export-ready geometry workflows for game production.">
+  <meta name="author" content="Carlos Mazcuñán Blanes">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://carlosmazcu.github.io/portfolio/projects/PhyloGen.html">
+
+  <meta property="og:title" content="PhyloGen | Carlos Mazcuñán">
+  <meta property="og:description" content="Procedural botany tool powered by L-Systems, live preview controls, and export-ready geometry workflows for game production.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://carlosmazcu.github.io/portfolio/projects/PhyloGen.html">
+  <meta property="og:site_name" content="Carlos Mazcuñán | Portfolio">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://carlosmazcu.github.io/portfolio/img/PhyloGen/screenshot_lsystem.png">
+  <meta property="og:image:alt" content="PhyloGen project preview">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PhyloGen | Carlos Mazcuñán">
+  <meta name="twitter:description" content="Procedural botany tool powered by L-Systems, live preview controls, and export-ready geometry workflows for game production.">
+  <meta name="twitter:image" content="https://carlosmazcu.github.io/portfolio/img/PhyloGen/screenshot_lsystem.png">
+
   <link rel="stylesheet" href="../styles.css">
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <meta name="description" content="Detailed page for PhyloGen by Carlos Mazcuñán Blanes.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <script defer src="../script.js"></script>
-  </head>
+</head>
 
 <body>
   <canvas id="bg-canvas"></canvas>
-  <header id="header" class="header">
-    <div class="header-left">
-      <h1 class="site-title">
-        <a href="../index.html">Carlos Mazcuñán Blanes | Developer</a>
-      </h1>
-    </div>
-    <div class="header-center">
-      <a href="#" id="header-email" class="email-link">carlosmazcu@gmail.com</a>
-    </div>
-    <div class="header-logo">
-      <a href="../index.html" aria-label="Ir al inicio">
-        <img src="../img/favicon.svg" alt="Logo de Carlos Mazcunan" />
-      </a>
-    </div>
-    <div class="header-right">
-      <a class="cv-link" href="../extra/carlos_mazcunan_resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-    </div>
+    <header id="header" class="header">
+    <a class="header-brand" href="../index.html" aria-label="Carlos Mazcuñán home">
+      <span class="brand-name brand-name--full">Carlos Mazcuñán Blanes</span>
+      <span class="brand-name brand-name--compact">Carlos Mazcuñán</span>
+      <span class="brand-name brand-name--mono">CM</span>
+      <span class="brand-role">Gameplay &amp; Graphics Programmer</span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav">
+      <span class="menu-toggle-bar" aria-hidden="true"></span>
+      <span class="menu-toggle-bar" aria-hidden="true"></span>
+      <span class="menu-toggle-bar" aria-hidden="true"></span>
+    </button>
+
+    <nav id="primary-nav" class="header-nav" aria-label="Primary navigation">
+      <a class="nav-link" href="../index.html#projects">Projects</a>
+      <a class="nav-link" href="../index.html#about">About</a>
+      <a class="nav-link" href="../index.html#contact">Contact</a>
+
+      <div class="header-socials" aria-label="Social links">
+        <a href="https://github.com/CarlosMazcu" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/carlos-mazcu%C3%B1%C3%A1n-blanes-290b53365/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+        </a>
+        <a href="https://carlosmazcu.itch.io/" target="_blank" rel="noopener noreferrer" aria-label="Itch.io">
+          <i class="fab fa-itch-io" aria-hidden="true"></i>
+        </a>
+      </div>
+    </nav>
   </header>
 
   <main class="container">
@@ -39,11 +74,11 @@
     <div class="section-header">
   <div class="project-header-row">
 <h2 class="section-heading"><span class="number">01.</span> PhyloGen</h2>
-    <nav class="project-nav" aria-label="Navegacion entre proyectos">
-      <a class="project-nav-link prev" href="raftel.html" aria-label="Proyecto anterior">
+    <nav class="project-nav" aria-label="Project navigation">
+      <a class="project-nav-link prev" href="raftel.html" aria-label="Previous project">
         <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
       </a>
-      <a class="project-nav-link next" href="LoopusLoopez.html" aria-label="Proyecto siguiente">
+      <a class="project-nav-link next" href="LoopusLoopez.html" aria-label="Next project">
         <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
       </a>
     </nav>  </div>
@@ -80,18 +115,30 @@
   </a>
 </div>
 <div class="slider gallery gallery--compact">
-        <button type="button" class="slider-nav prev" aria-label="Imagen anterior">
+        <button type="button" class="slider-nav prev" aria-label="Previous image">
           <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
         </button>
         <div class="slider-window">
           <div class="slider-wrapper">
-            <img loading="lazy" decoding="async" src="../img/PhyloGen/screenshot_lsystem.png" alt="Ejemplo 1">
-            <img loading="lazy" decoding="async" src="../img/PhyloGen/screenshot_lsystem3.png" alt="Ejemplo 3">
-            <img loading="lazy" decoding="async" src="../img/PhyloGen/screenshot_lsystem4.png" alt="Ejemplo 4">
-            <img loading="lazy" decoding="async" src="../img/PhyloGen/lsys3.png" alt="Ejemplo 5">
+            <picture>
+              <source srcset="../img/PhyloGen/screenshot_lsystem.webp" type="image/webp">
+              <img loading="lazy" decoding="async" src="../img/PhyloGen/screenshot_lsystem.png" alt="Ejemplo 1">
+            </picture>
+            <picture>
+              <source srcset="../img/PhyloGen/screenshot_lsystem3.webp" type="image/webp">
+              <img loading="lazy" decoding="async" src="../img/PhyloGen/screenshot_lsystem3.png" alt="Ejemplo 3">
+            </picture>
+            <picture>
+              <source srcset="../img/PhyloGen/screenshot_lsystem4.webp" type="image/webp">
+              <img loading="lazy" decoding="async" src="../img/PhyloGen/screenshot_lsystem4.png" alt="Ejemplo 4">
+            </picture>
+            <picture>
+              <source srcset="../img/PhyloGen/lsys3.webp" type="image/webp">
+              <img loading="lazy" decoding="async" src="../img/PhyloGen/lsys3.png" alt="Ejemplo 5">
+            </picture>
           </div>
         </div>
-        <button type="button" class="slider-nav next" aria-label="Imagen siguiente">
+        <button type="button" class="slider-nav next" aria-label="Next image">
           <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
         </button>
       </div>
@@ -151,59 +198,133 @@
           </section>
 
     
-            <section id="contact" class="fade-in delay-5">
-<div class="section-header">
-<h2 class="section-heading"><span class="number">03.</span> Contact</h2>
-  <hr class="section-divider" />
-</div>
-        <div class="contact-text">
-          <p>I'm currently looking for new opportunities as a programmer. Whether you have a question or just want to
-            say hi, I'll do my best to get back to you!</p>
-        </div>
+                <section id="contact" class="contact-section fade-in delay-5">
+      <div class="contact-left">
+        <h2>Let's Work Together</h2>
+        <p class="contact-description">
+          I'm currently open to new opportunities as a programmer. Whether you need gameplay systems, graphics features, or technical consultation, I'd love to hear from you.
+        </p>
 
-        <div class="contact-center">
-          <a href="mailto:carlosmazcu@gmail.com" class="contact-button">Get In Touch</a>
-          <div class="contact-links">
-            <a href="https://github.com/CarlosMazcu" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub Profile">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/carlos-mazcu%C3%B1%C3%A1n-blanes-290b53365/" target="_blank" rel="noopener noreferrer"
-              title="LinkedIn" aria-label="LinkedIn Profile">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-          <a href="https://carlosmazcu.itch.io/" target="_blank" rel="noopener noreferrer" title="itch.io" aria-label="itch.io Profile">
-            <i class="fab fa-itch-io"></i>
+        <div class="contact-info">
+          <h3>Get in touch</h3>
+
+          <a href="mailto:carlosmazcu@gmail.com" class="contact-link">
+            <span class="contact-icon" aria-hidden="true">📧</span>
+            <div>
+              <span class="contact-label">Email</span>
+              <span class="contact-value">carlosmazcu@gmail.com</span>
+            </div>
           </a>
-          </div>
-        </div>
-      </section>
 
-      <div id="contact-modal" class="modal hidden">
-        <div class="modal-content">
-          <span id="modal-close" class="close">&times;</span>
-          <p class="mailto-line"><strong>To:</strong> carlosmazcu@gmail.com</p>
-          <form class="contact-form" action="https://formsubmit.co/carlosmazcu@gmail.com" method="POST">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_subject" value="Nuevo mensaje desde el portfolio de Carlos" />
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input type="email" name="email" placeholder="Your Email" required />
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit" class="contact-button">Send Message</button>
-          </form>
+          <a href="https://www.linkedin.com/in/carlos-mazcu%C3%B1%C3%A1n-blanes-290b53365/" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-icon" aria-hidden="true">💼</span>
+            <div>
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value">Carlos Mazcuñán</span>
+            </div>
+          </a>
 
+          <a href="https://github.com/CarlosMazcu" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-icon" aria-hidden="true">💻</span>
+            <div>
+              <span class="contact-label">GitHub</span>
+              <span class="contact-value">@carlosmazcu</span>
+            </div>
+          </a>
+
+          <a href="https://carlosmazcu.itch.io/" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-icon" aria-hidden="true">🎮</span>
+            <div>
+              <span class="contact-label">Itch.io</span>
+              <span class="contact-value">carlosmazcu</span>
+            </div>
+          </a>
         </div>
       </div>
-  </main>
+
+      <div class="contact-right">
+        <form class="contact-form contact-form--inline" data-mailto="carlosmazcu@gmail.com">
+          <div class="form-group">
+            <label for="contact-name">Name</label>
+            <input id="contact-name" type="text" name="name" placeholder="Your Name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-email">Email</label>
+            <input id="contact-email" type="email" name="email" placeholder="your@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" placeholder="Tell me about your project..." required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+        <p class="contact-form-status" aria-live="polite"></p>
+      </div>
+    </section>
+</main>
 
   <footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <h3>Carlos Mazcuñán</h3>
+      <p>Gameplay & Graphics Programmer</p>
+      <p>Building performant systems in C++ and Unreal Engine.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#about">About Me</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="../extra/carlos_mazcunan_resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4>Connect</h4>
+      <div class="social-links">
+        <a href="https://github.com/CarlosMazcu" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fab fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/carlos-mazcu%C3%B1%C3%A1n-blanes-290b53365/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://carlosmazcu.itch.io/" target="_blank" rel="noopener noreferrer" aria-label="Itch.io">
+          <i class="fab fa-itch-io" aria-hidden="true"></i>
+          <span>Itch.io</span>
+        </a>
+        <a href="mailto:carlosmazcu@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          <span>Email</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
     <p>&copy; 2026 Carlos Mazcuñán Blanes - All rights reserved</p>
-    <p class="footer-note">Built with <i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i></p>
-  </footer>
+    <p>Last updated: February 2026</p>
+  </div>
+</footer>
   <script src="../anim/particle.js"></script>
 
 </body>
 
 </html>
+
+
+
+
+
+
+
 
 
 
