@@ -1,49 +1,40 @@
-# 🌐 Portfolio - Carlos Mazcunan
+# 🌐 Carlos Mazcuñán | Gameplay & Graphics Programmer
 
-Welcome to my personal portfolio!  
-Here you’ll find a selection of my projects and experience as a **C++ programmer and video game developer**.  
+Professional portfolio focused on gameplay systems, rendering, and engine-level programming.
 
-👉 **Live demo**: [carlosmazcu.github.io/portfolio](https://carlosmazcu.github.io/portfolio/)
+Live site: [https://carlosmazcu.github.io/portfolio/](https://carlosmazcu.github.io/portfolio/)
 
----
+## 🧑‍💻 About
+This repository contains the source code for my personal portfolio website.  
+It highlights selected projects built with C++, OpenGL, Unreal Engine, and related tooling.
 
-## 🧑‍💻 About Me
-I’m **Carlos Mazcuñán Blanes**, a programmer with an **HND in Video Game Programming (ESAT)**.  
-I’m passionate about **C++ programming**, **graphics engine architecture**, and **real-time game development**.  
+## 🛠️ Tech Stack
+- 🧱 HTML5
+- 🎨 CSS3
+- ⚙️ Vanilla JavaScript (no framework)
+- ✨ Font Awesome (icons)
+- 🔤 Google Fonts
+- 🚀 GitHub Pages (deployment)
 
-- 🌍 Based in Spain  
-- 🎮 Experience with **Unreal Engine 5** and **Unity**  
-- 🖥️ Worked with **OpenGL** for custom graphics programming  
-- 🔧 Skilled in **Git**, **Perforce**, and code profiling/optimization  
-- 🚀 Love working in multidisciplinary teams and tackling performance challenges  
+## ⭐ Featured Projects
+- [Inside The Crow's Nest](projects/crowsnest.html) - Unreal Engine 5 cooperative adventure prototype.
+- [Raftel Graphics Engine](projects/raftel.html) - C++/OpenGL renderer with forward/deferred pipelines and PBR.
 
----
+## 📂 Additional Projects
+- [PhyloGen](projects/PhyloGen.html)
+- [Loopus López](projects/LoopusLoopez.html)
+- [Ahuacatle and the Chromatic Temple](projects/ahuacatle.html)
+- [Pathfinding Sandbox](projects/pathfinding.html)
+- [Fractal Imager](projects/fractal.html)
+- [Atari Asteroids](projects/asteroids.html)
+- [Perspective Landscape](projects/landscape.html)
 
-## 🔑 Skills
-- **Languages:** C, C++, ARM Assembler, Python  
-- **Engines:** Unity, Unreal Engine 5  
-- **Technologies:** OpenGL, Game Engine Architecture  
-- **Tools:** Git, Perforce, performance profiling & optimization  
 
----
-
-## 📂 Featured Projects
-- 🎮 **Inside The Crow's Nest** – Collaborative game project, gameplay mechanics implementation.  
-- ⚙️ **Raftel Graphics Engine** – Custom graphics engine in C++ & OpenGL (rendering, shading, texture mapping).  
-- 🧬 **PhyloGen** – Data visualization application with graphical interface.  
-- 🌀 **Fractal Imager** – Real-time fractal generation and visualization.  
-- 👾 **Atari Asteroids (Clone)** – Recreation of the classic arcade experience.  
-
----
+## ☁️ Deployment
+The site is deployed with GitHub Pages from this repository.
 
 ## 📫 Contact
-- 📧 **Email:** [carlosmazcu@gmail.com](mailto:carlosmazcu@gmail.com)  
-- 💼 **LinkedIn:** [linkedin.com/in/carlos-mazcuñán-blanes-290b53365](https://www.linkedin.com/in/carlos-mazcu%C3%B1%C3%A1n-blanes-290b53365/)  
-- 🐙 **GitHub:** [github.com/CarlosMazcu](https://github.com/CarlosMazcu)  
-
----
-
-## ⚡ Note
-This portfolio is built with **HTML, CSS, and JavaScript**, and deployed on **GitHub Pages**.  
-> _“Built with ❤️ and plenty of C++ coffee-powered nights.”_
-
+- 📧 Email: [carlosmazcu@gmail.com](mailto:carlosmazcu@gmail.com)
+- 💼 LinkedIn: [Carlos Mazcuñán Blanes](https://www.linkedin.com/in/carlos-mazcu%C3%B1%C3%A1n-blanes-290b53365/)
+- 🐙 GitHub: [CarlosMazcu](https://github.com/CarlosMazcu)
+- 🎮 Itch.io: [carlosmazcu](https://carlosmazcu.itch.io/)
