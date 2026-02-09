@@ -1,197 +1,215 @@
-﻿<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Language" content="es">
-  <title>Carlos Mazcuñán | Programmer</title>
-  <meta name="description"
-    content="Portfolio of Carlos Mazcuñán Blanes, Programmer specialized in C++ and engine development">
-  <meta name="keywords"
-    content="C++, OpenGL, Game Development, Unreal Engine, Unity, Graphics Programming, Portfolio, Carlos Mazcuñán">
-  <meta name="author" content="Carlos Mazcuñánn Blanes">
+  <meta http-equiv="Content-Language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carlos Mazcunán | Gameplay & Graphics Programmer</title>
+  <meta name="description" content="Professional portfolio of Carlos Mazcuñán Blanes: gameplay programming, C++, rendering, and game development tools.">
+  <meta name="keywords" content="C++, Unreal Engine, OpenGL, Gameplay Programming, Graphics Programming, Portfolio, Carlos Mazcuñán">
+  <meta name="author" content="Carlos Mazcuñán Blanes">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://carlosmazcu.github.io/portfolio/">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <meta property="og:title" content="Portfolio - Carlos Mazcunan">
-  <meta property="og:description" content="Portfolio C++ Programming and Videogame development.">
+
+  <meta property="og:title" content="Carlos Mazcuñán | Gameplay & Graphics Programmer">
+  <meta property="og:description" content="Game programming portfolio focused on C++ and real-time rendering.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://carlosmazcu.github.io/portfolio/">
-  <meta property="og:site_name" content="Carlos Mazcunánn | Portfolio">
-  <meta property="og:locale" content="es_ES">
-  
+  <meta property="og:site_name" content="Carlos Mazcuñán | Portfolio">
+  <meta property="og:locale" content="en_US">
   <meta property="og:image" content="https://carlosmazcu.github.io/portfolio/img/og-image.png">
-  <meta property="og:image:secure_url" content="https://carlosmazcu.github.io/portfolio/img/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:alt" content="Preview del portfolio de Carlos Mazcuñán">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="Preview of Carlos Mazcuñán's portfolio">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Portfolio - Carlos Mazcunan">
-  <meta name="twitter:description" content="Portfolio C++ Programming and Videogame development.">
-  <meta name="twitter:image" content="https://carlosmazcu.github.io/og-image.png">
+  <meta name="twitter:title" content="Carlos Mazcuñán | Gameplay & Graphics Programmer">
+  <meta name="twitter:description" content="Game programming portfolio focused on C++ and real-time rendering.">
+  <meta name="twitter:image" content="https://carlosmazcu.github.io/portfolio/img/og-image.png">
 
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="script.js"></script>
-  <script defer data-domain="carlosmazcu.github.io/portfolio" src="https://plausible.io/js/script.file-downloads.outbound-links.tagged-events.js"></script>
-<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
-<script data-goatcounter="https://carlosmazcu.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <script defer src="script.js"></script>
+  <script defer data-domain="carlosmazcu.github.io/portfolio" src="https://plausible.io/js/script.file-downloads.outbound-links.tagged-events.js"></script>
+  <script>
+    window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
+  </script>
+  <script data-goatcounter="https://carlosmazcu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 
 <body>
   <canvas id="bg-canvas"></canvas>
+
   <header id="header" class="header">
     <div class="header-left">
       <h1 class="site-title">
-        <a href="./index.html">Carlos Mazcuñán Blanes | Developer</a>
+        <a href="index.html">Carlos Mazcuñán Blanes | Developer</a>
       </h1>
     </div>
     <div class="header-center">
       <a href="#" id="header-email" class="email-link">carlosmazcu@gmail.com</a>
     </div>
     <div class="header-logo">
-      <a href="./index.html" aria-label="Ir al inicio">
-        <img src="img/favicon.svg" alt="Logo de Carlos Mazcunan" />
+      <a href="index.html" aria-label="Go to home">
+        <img src="img/favicon.svg" alt="Carlos Mazcuñán logo">
       </a>
     </div>
     <div class="header-right">
-      <a class="cv-link" href="extra/carlos_mazcunan_resume.pdf" target="_blank" download>Resume</a>
+      <a class="cv-link" href="extra/carlos_mazcunan_resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
     </div>
   </header>
 
-
-
   <main class="container">
-<!--     <div class="spacer"></div> -->
-    <section class="projects-section">
+    <section class="projects-section fade-in" aria-labelledby="projects-title">
       <div class="section-header">
-        <h2 class="section-heading"><span class="number">01.</span> Projects</h2>
-        <hr class="section-divider" />
+        <h2 id="projects-title" class="section-heading"><span class="number">01.</span> Projects</h2>
+        <hr class="section-divider">
       </div>
-      <div class="projects">
- 
-        <a href="./projects/crowsnest.html" class="project-tile">
-          <img src="img/crowsnest/ics_cover.png" alt="Inside The Crow's Nest"/>
-          <h3>Inside The Crow's Nest</h3>
-        </a>
-        <a href="./projects/raftel.html" class="project-tile">
-          <img src="img/Raftel/raftel.png" alt="Raftel Engine"/>
-          <h3>Raftel Graphics Engine</h3>
-        </a>
-        <a href="./projects/PhyloGen.html" class="project-tile">
-          <img src="img/Phylogen.png" alt="PhyloGen"/>
-          <h3>PhyloGen</h3>
-        </a>
-        <a href="./projects/LoopusLoopez.html" class="project-tile">
-          <img src="img/LL/LL_Cover.png" alt="Loopus Loopez"/>
-          <h3>Loopus López</h3>
-        </a>
-        <a href="./projects/ahuacatle.html" class="project-tile">
-          <img src="img/Ahuacatle/Icono_caratula.png" alt="Ahuacatle in the Chromatic Temple"/>
-          <h3>Ahuacatle</h3>
-        </a>
 
-        <a href="./projects/pathfinding.html" class="project-tile">
-          <img src="img/Pathfinding/pathfinding.png" alt="Pathfinding Sandbox"/>
-          <h3>Pathfinding Sandbox</h3>
-        </a>
+      <div class="projects-group projects-group--featured">
+        <div class="section-header section-header--sub">
+          <h3 class="section-subheading">Featured Projects</h3>
+          <p class="section-caption">Selected work with high technical depth and production-level scope.</p>
+          <hr class="section-divider">
+        </div>
 
-        <a href="./projects/fractal.html" class="project-tile">
-          <img src="img/abstractart/FractalImager.png" alt="Fractal Imager"/>
-          <h3>Fractal Imager</h3>
-        </a>
-        <a href="./projects/asteroids.html" class="project-tile">
-          <img src="img/Asteroids/Asteroids.png" alt="Atari Asteroids"/>
-          <h3>Atari Asteroids</h3>
-        </a>
-        <a href="./projects/landscape.html" class="project-tile">
-          <img src="img/landscape/landscape.gif" alt="Perspective Landscape (Code Profiling)"/>
-          <h3>Perspective Landscape (Code Profiling)</h3>
-        </a>
+        <div class="projects projects--featured" aria-label="Featured projects">
+          <a href="projects/crowsnest.html" class="project-tile project-tile--featured">
+            <img src="img/crowsnest/ics_cover.png" alt="Inside The Crow's Nest">
+            <div class="project-tile-content">
+              <p class="project-kicker">Unreal Engine 5</p>
+              <h3>Inside The Crow's Nest</h3>
+              <p class="project-summary">Cooperative adventure prototype focused on interaction systems, state machines, and gameplay iteration in a 15-person team.</p>
+            </div>
+          </a>
+          <a href="projects/raftel.html" class="project-tile project-tile--featured">
+            <img src="img/Raftel/raftel.png" alt="Raftel Engine">
+            <div class="project-tile-content">
+              <p class="project-kicker">C++ / OpenGL</p>
+              <h3>Raftel Graphics Engine</h3>
+              <p class="project-summary">Custom real-time renderer with forward/deferred pipelines, PBR, tooling, and performance-oriented engine architecture.</p>
+            </div>
+          </a>
+        </div>
+      </div>
 
+      <div class="projects-group">
+        <div class="section-header section-header--sub">
+          <h3 class="section-subheading">All Projects</h3>
+          <p class="section-caption">Additional technical projects, prototypes, and game jam work.</p>
+          <hr class="section-divider">
+        </div>
+
+        <div class="projects projects--catalog">
+          <a href="projects/PhyloGen.html" class="project-tile">
+            <img src="img/Phylogen.png" alt="PhyloGen">
+            <h3>PhyloGen</h3>
+          </a>
+          <a href="projects/LoopusLoopez.html" class="project-tile">
+            <img src="img/LL/LL_Cover.png" alt="Loopus López">
+            <h3>Loopus López</h3>
+          </a>
+          <a href="projects/ahuacatle.html" class="project-tile">
+            <img src="img/Ahuacatle/Icono_caratula.png" alt="Ahuacatle and the Chromatic Temple">
+            <h3>Ahuacatle and the Chromatic Temple</h3>
+          </a>
+          <a href="projects/pathfinding.html" class="project-tile">
+            <img src="img/Pathfinding/pathfinding.png" alt="Pathfinding Sandbox">
+            <h3>Pathfinding Sandbox</h3>
+          </a>
+          <a href="projects/fractal.html" class="project-tile">
+            <img src="img/abstractart/FractalImager.png" alt="Fractal Imager">
+            <h3>Fractal Imager</h3>
+          </a>
+          <a href="projects/asteroids.html" class="project-tile">
+            <img src="img/Asteroids/Asteroids.png" alt="Atari Asteroids">
+            <h3>Atari Asteroids</h3>
+          </a>
+          <a href="projects/landscape.html" class="project-tile">
+            <img src="img/landscape/landscape.gif" alt="Perspective Landscape">
+            <h3>Perspective Landscape (Code Profiling)</h3>
+          </a>
+        </div>
       </div>
     </section>
 
-
-
-
     <section id="about" class="fade-in delay-4">
-      <h2 class="section-heading"><span class="number">02.</span> About Me</h2>
-      <hr class="section-divider" />
+      <div class="section-header">
+        <h2 class="section-heading"><span class="number">02.</span> About Me</h2>
+        <hr class="section-divider">
+      </div>
 
       <div class="content">
         <div class="featured-project">
           <div class="about-text project-content">
-            <p>
-              Hello, I'm <strong>Carlos Mazcuñán Blanes</strong>, a programmer based in Spain and titled in
-              HND in Videogame Programming at ESAT.
-            </p>
-            <h4 class="highlight-title">Key Skills:</h4>
+            <p>Hello, I'm <strong>Carlos Mazcuñán Blanes</strong>, a game-oriented programmer with an <strong>HND in Videogame Programming (ESAT)</strong>.</p>
+            <h3 class="highlight-title">Core Skills</h3>
             <ul class="highlight-list">
-              <li><span class="highlight-label">Programming Languages:</span> C, C++, ARM Assembler, Python</li>
-              <li><span class="highlight-label">Graphics:</span> OpenGL, GLSL (shaders)</li>
-              <li><span class="highlight-label">Engines:</span> Unity, Unreal Engine 5</li>
-              <li><span class="highlight-label">Tools:</span> Git, Perforce, code profiling and optimization</li>
+              <li><span class="highlight-label">Languages:</span> C, C++, ARM Assembler, Python</li>
+              <li><span class="highlight-label">Graphics:</span> OpenGL, GLSL, PBR, forward and deferred pipelines</li>
+              <li><span class="highlight-label">Engines:</span> Unreal Engine 5, Unity</li>
+              <li><span class="highlight-label">Tools:</span> Git, Perforce, profiling, and optimization</li>
             </ul>
-            <h4 class="highlight-title">Highlighted Projects:</h4>
-            <ul class="highlight-list">
-              <li><span class="highlight-label">Collaborative Game:</span> Implemented gameplay mechanics while working
-                closely with artists and designers.</li>
-              <li><span class="highlight-label">Custom Graphics Engine:</span> Built in C++ with OpenGL, implemented
-                rendering, shading, and texture mapping.</li>
-            </ul>
-            <p>
-              I'm passionate about real-time performance and enjoy collaborating in multidisciplinary teams.
-            </p>
+            <h3 class="highlight-title">Profile</h3>
+            <p>I'm especially interested in building maintainable gameplay systems, rendering features, and tooling for multidisciplinary teams.</p>
             <ul class="skills-list">
               <li>C/C++</li>
               <li>Unreal Engine</li>
               <li>OpenGL</li>
               <li>Unity</li>
-              <li>ARM Assembler</li>
               <li>Python</li>
               <li>Git</li>
               <li>Perforce</li>
-              <li>Game Engine Architecture</li>
-              <li>HTML</li>
-              <li>CSS</li>
+              <li>Engine Architecture</li>
+              <li>Profiling</li>
+              <li>Technical Design</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
+
+    <section class="summary-section fade-in" aria-labelledby="summary-title">
+      <div class="section-header">
+        <h2 id="summary-title" class="section-heading"><span class="number">03.</span> Professional Summary</h2>
+        <hr class="section-divider">
+      </div>
+      <p class="summary-lead">Gameplay and graphics programmer focused on performant, maintainable systems for real-time applications.</p>
+      <p class="summary-copy">I work mainly with C++, Unreal Engine, and OpenGL, building gameplay features, rendering pipelines, and internal tooling that help teams ship faster with cleaner code.</p>
+      <ul class="summary-points" aria-label="Professional highlights">
+        <li>Strong focus on engine architecture, profiling, and optimization.</li>
+        <li>Production experience in multidisciplinary teams across academic and game jam projects.</li>
+        <li>Comfortable owning features end-to-end, from technical design to iteration and polish.</li>
+      </ul>
+    </section>
+
     <section id="contact" class="fade-in delay-5">
       <div class="section-header">
-        <h2 class="section-heading"><span class="number">03.</span> Contact</h2>
-        <hr class="section-divider" />
+        <h2 class="section-heading"><span class="number">04.</span> Contact</h2>
+        <hr class="section-divider">
       </div>
       <div class="contact-text">
-        <p>I'm currently looking for new opportunities as a programmer. Whether you have a question or just want to
-          say hi, I'll do my best to get back to you!</p>
+        <p>I'm currently open to new opportunities as a programmer. If you'd like to discuss a project or collaboration, feel free to reach out.</p>
       </div>
 
       <div class="contact-center">
         <a href="mailto:carlosmazcu@gmail.com" class="contact-button">Get In Touch</a>
         <div class="contact-links">
-          <a href="https://github.com/CarlosMazcu" target="_blank" title="GitHub" aria-label="GitHub Profile">
+          <a href="https://github.com/CarlosMazcu" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub Profile">
             <i class="fab fa-github"></i>
           </a>
-          <a href="https://www.linkedin.com/in/carlos-mazcu%C3%B1%C3%A1n-blanes-290b53365/" target="_blank"
-            title="LinkedIn" aria-label="LinkedIn Profile">
+          <a href="https://www.linkedin.com/in/carlos-mazcu%C3%B1%C3%A1n-blanes-290b53365/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn Profile">
             <i class="fab fa-linkedin-in"></i>
           </a>
-          <a href="https://carlosmazcu.itch.io/" target="_blank" title="itch.io" aria-label="itch.io Profile">
+          <a href="https://carlosmazcu.itch.io/" target="_blank" rel="noopener noreferrer" title="itch.io" aria-label="itch.io Profile">
             <i class="fab fa-itch-io"></i>
           </a>
         </div>
@@ -204,18 +222,18 @@
         <p class="mailto-line"><strong>To:</strong> carlosmazcu@gmail.com</p>
         <form class="contact-form" action="https://formsubmit.co/carlosmazcu@gmail.com" method="POST">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_subject" value="Nuevo mensaje desde el portfolio de Carlos" />
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Your Email" required />
+          <input type="hidden" name="_subject" value="New message from Carlos portfolio">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
           <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
           <button type="submit" class="contact-button">Send Message</button>
         </form>
-
       </div>
     </div>
   </main>
+
   <footer>
-    <p>&copy; 2025 Carlos Mazcuñán Blanes - All rights reserved</p>
+    <p>&copy; 2026 Carlos Mazcuñán Blanes - All rights reserved</p>
     <p class="footer-note">Built with <i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i></p>
   </footer>
 
@@ -223,4 +241,6 @@
 </body>
 
 </html>
+
+
 

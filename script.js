@@ -161,6 +161,7 @@ function initSliders() {
     const images = slider.querySelectorAll('img');
     const prevBtn = slider.querySelector('.prev');
     const nextBtn = slider.querySelector('.next');
+    initGalleryState(slider, images, prevBtn, nextBtn);
     if (!wrapper || !images.length || !prevBtn || !nextBtn) return;
 
     let currentIndex = 0;
@@ -267,26 +268,128 @@ function initGalleryModal() {
 
 function initModalHandlers() {
   const modal = document.getElementById('contact-modal');
-  const openModal = document.querySelector('.contact-button');
   const closeModal = document.getElementById('modal-close');
-  const emailIcon = document.querySelector('a[href^="mailto"]');
+  const emailLinks = document.querySelectorAll('a[href^="mailto"]');
   const headerEmail = document.getElementById('header-email');
+  const fallbackMailto = 'mailto:carlosmazcu@gmail.com';
 
-  if (!modal) return;
+  if (!modal) {
+    if (headerEmail && headerEmail.getAttribute('href') === '#') {
+      headerEmail.setAttribute('href', fallbackMailto);
+    }
+    return;
+  }
 
   function showModal(e) {
     e.preventDefault();
     modal.classList.remove('hidden');
   }
 
-  openModal?.addEventListener('click', showModal);
-  emailIcon?.addEventListener('click', showModal);
+  emailLinks.forEach(link => link.addEventListener('click', showModal));
   headerEmail?.addEventListener('click', showModal);
   closeModal?.addEventListener('click', () => modal.classList.add('hidden'));
+  modal.addEventListener('click', e => {
+    if (e.target === modal) modal.classList.add('hidden');
+  });
 
   window.addEventListener('keydown', e => {
     if (e.key === 'Escape') modal.classList.add('hidden');
   });
+}
+
+function initGalleryState(slider, images, prevBtn, nextBtn) {
+  const sliderWindow = slider.querySelector('.slider-window') || slider;
+  if (!sliderWindow) return;
+
+  if (!images.length) {
+    slider.classList.add('gallery-empty');
+    prevBtn?.setAttribute('hidden', '');
+    nextBtn?.setAttribute('hidden', '');
+    if (!sliderWindow.querySelector('.gallery-empty-message')) {
+      const message = document.createElement('div');
+      message.className = 'gallery-empty-message';
+      message.textContent = 'No media available.';
+      sliderWindow.appendChild(message);
+    }
+    return;
+  }
+
+  slider.classList.add('gallery-loading');
+  ensureGalleryLoadingOverlay(sliderWindow);
+
+  let pending = images.length;
+  const markReady = () => {
+    pending -= 1;
+    if (pending <= 0) {
+      slider.classList.remove('gallery-loading');
+      slider.classList.add('gallery-loaded');
+      sliderWindow.querySelector('.gallery-loading-overlay')?.remove();
+    }
+  };
+
+  images.forEach((img, index) => {
+    const finish = () => {
+      if (img.dataset.galleryReady === '1') return;
+      img.dataset.galleryReady = '1';
+      markReady();
+    };
+
+    const fail = () => {
+      if (img.dataset.galleryFallback === '1') {
+        finish();
+        return;
+      }
+      img.dataset.galleryFallback = '1';
+      img.src = createGalleryPlaceholder(`Image ${index + 1} unavailable`);
+      img.alt = `${img.alt || 'Gallery image'} unavailable`;
+      finish();
+    };
+
+    if (img.complete) {
+      if (img.naturalWidth > 0) finish();
+      else fail();
+      return;
+    }
+
+    img.addEventListener('load', finish, { once: true });
+    img.addEventListener('error', fail, { once: true });
+  });
+}
+
+function ensureGalleryLoadingOverlay(sliderWindow) {
+  if (sliderWindow.querySelector('.gallery-loading-overlay')) return;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'gallery-loading-overlay';
+
+  const skeleton = document.createElement('div');
+  skeleton.className = 'gallery-skeleton';
+
+  const text = document.createElement('p');
+  text.className = 'gallery-loading-text';
+  text.textContent = 'Loading media...';
+
+  overlay.appendChild(skeleton);
+  overlay.appendChild(text);
+  sliderWindow.appendChild(overlay);
+}
+
+function createGalleryPlaceholder(label) {
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#111b2e"/>
+          <stop offset="100%" stop-color="#0c1322"/>
+        </linearGradient>
+      </defs>
+      <rect width="1280" height="720" fill="url(#bg)"/>
+      <rect x="260" y="250" width="760" height="220" rx="14" fill="#13213a" stroke="#6f89ad" stroke-opacity="0.45"/>
+      <text x="640" y="355" text-anchor="middle" fill="#c2d0e4" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="600">Image unavailable</text>
+      <text x="640" y="405" text-anchor="middle" fill="#9db1cf" font-family="Segoe UI, Arial, sans-serif" font-size="24">${label}</text>
+    </svg>
+  `;
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
 }
 
 // Lightweight YouTube embeds: replace placeholders on click
