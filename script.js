@@ -3,6 +3,7 @@
 // Wait for the full DOM to load once
 window.addEventListener('DOMContentLoaded', () => {
   initNavigation();
+  initHeroActions();
   initProjectFilters();
   initLazyProjectImages();
   initProjectCardReveal();
@@ -98,6 +99,27 @@ function initNavigation() {
       if (document.body.classList.contains('nav-open') && menuToggle) {
         menuToggle.click();
       }
+    });
+  });
+}
+
+function initHeroActions() {
+  const viewProjectsLink = document.querySelector('.hero-actions a[href="#projects"]');
+  const projectsSection = document.getElementById('projects');
+  const header = document.getElementById('header') || document.querySelector('.header');
+
+  if (!viewProjectsLink || !projectsSection) return;
+
+  viewProjectsLink.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const headerOffset = (header?.offsetHeight || 0) + 18;
+    const targetTop = projectsSection.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    window.scrollTo({
+      top: targetTop,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth'
     });
   });
 }
