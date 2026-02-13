@@ -2,6 +2,7 @@
 
 // Wait for the full DOM to load once
 window.addEventListener('DOMContentLoaded', () => {
+  initLanguageSwitcher();
   initNavigation();
   initHeroActions();
   initProjectFilters();
@@ -15,6 +16,115 @@ window.addEventListener('DOMContentLoaded', () => {
   initModalHandlers();
   initLiteYouTube();
 });
+
+function initLanguageSwitcher() {
+  const nav = document.getElementById('primary-nav') || document.querySelector('.header-nav');
+  const header = document.getElementById('header') || document.querySelector('.header');
+  if (!nav || !header || nav.querySelector('.language-switcher')) return;
+
+  const menuToggle = header?.querySelector('.menu-toggle');
+  const hasHeaderLevelSwitcher = Array.from(header.children).some((node) => node.classList?.contains('language-switcher'));
+  if (hasHeaderLevelSwitcher) return;
+
+  const { enHref, esHref, isEs } = getLanguageLinks(window.location.pathname);
+  const wrapper = document.createElement('div');
+  wrapper.className = 'language-switcher';
+  wrapper.setAttribute('aria-label', 'Language switcher');
+  wrapper.classList.add(isEs ? 'is-es' : 'is-en');
+
+  const en = document.createElement('a');
+  en.href = enHref;
+  en.textContent = 'EN';
+  en.setAttribute('hreflang', 'en');
+  if (!isEs) en.setAttribute('aria-current', 'page');
+
+  const es = document.createElement('a');
+  es.href = esHref;
+  es.textContent = 'ES';
+  es.setAttribute('hreflang', 'es');
+  if (isEs) es.setAttribute('aria-current', 'page');
+
+  wrapper.appendChild(en);
+  wrapper.appendChild(es);
+
+  const mediaQuery = window.matchMedia('(max-width: 900px)');
+
+  const mountDesktop = () => {
+    const firstNavLink = nav.querySelector('.nav-link');
+    if (firstNavLink) {
+      nav.insertBefore(wrapper, firstNavLink);
+      return;
+    }
+    const socials = nav.querySelector('.header-socials');
+    if (socials) {
+      nav.insertBefore(wrapper, socials);
+      return;
+    }
+    nav.appendChild(wrapper);
+  };
+
+  const mountMobile = () => {
+    if (!menuToggle) {
+      mountDesktop();
+      return;
+    }
+    header.insertBefore(wrapper, menuToggle);
+  };
+
+  const syncPlacement = () => {
+    if (mediaQuery.matches) {
+      mountMobile();
+      return;
+    }
+    mountDesktop();
+  };
+
+  syncPlacement();
+  if (typeof mediaQuery.addEventListener === 'function') {
+    mediaQuery.addEventListener('change', syncPlacement);
+  } else if (typeof mediaQuery.addListener === 'function') {
+    mediaQuery.addListener(syncPlacement);
+  }
+}
+
+function getLanguageLinks(pathname) {
+  const normalized = (pathname || '').replace(/\\/g, '/');
+  const isEs = normalized.includes('/es/');
+  const isProject = normalized.includes('/projects/');
+  const segments = normalized.split('/').filter(Boolean);
+  const last = segments[segments.length - 1] || '';
+  const fileName = last.includes('.html') ? last : 'index.html';
+
+  if (isProject && isEs) {
+    return {
+      enHref: `../../projects/${fileName}`,
+      esHref: fileName,
+      isEs: true
+    };
+  }
+
+  if (isProject && !isEs) {
+    return {
+      enHref: fileName,
+      esHref: `../es/projects/${fileName}`,
+      isEs: false
+    };
+  }
+
+  if (!isProject && isEs) {
+    return {
+      enHref: '../index.html',
+      esHref: 'index.html',
+      isEs: true
+    };
+  }
+
+  return {
+    enHref: 'index.html',
+    esHref: 'es/index.html',
+    isEs: false
+  };
+}
 
 function initScrollAnimations() {
   const header = document.getElementById('header') || document.querySelector('.header');
@@ -137,6 +247,33 @@ function initMobileMenu() {
   }
 
   const mobileQuery = window.matchMedia('(max-width: 900px)');
+  let lockScrollY = 0;
+
+  const lockBodyScroll = () => {
+    lockScrollY = window.scrollY || window.pageYOffset || 0;
+    const scrollbarWidth = Math.max(0, window.innerWidth - document.documentElement.clientWidth);
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${lockScrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+  };
+
+  const unlockBodyScroll = () => {
+    const top = document.body.style.top;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.body.style.paddingRight = '';
+
+    const restoreY = top ? Math.abs(parseInt(top, 10)) : lockScrollY;
+    window.scrollTo(0, Number.isFinite(restoreY) ? restoreY : 0);
+  };
 
   const getFocusableElements = () =>
     Array.from(
@@ -146,9 +283,13 @@ function initMobileMenu() {
   const isOpen = () => nav.classList.contains('is-open');
 
   const closeMenu = ({ restoreFocus = true } = {}) => {
+    const wasOpen = isOpen();
     nav.classList.remove('is-open');
     overlay.classList.remove('is-visible');
     document.body.classList.remove('nav-open', 'no-scroll');
+    if (wasOpen) {
+      unlockBodyScroll();
+    }
     menuToggle.setAttribute('aria-expanded', 'false');
     menuToggle.setAttribute('aria-label', 'Open navigation menu');
     if (restoreFocus) {
@@ -161,6 +302,7 @@ function initMobileMenu() {
     nav.classList.add('is-open');
     overlay.classList.add('is-visible');
     document.body.classList.add('nav-open', 'no-scroll');
+    lockBodyScroll();
     menuToggle.setAttribute('aria-expanded', 'true');
     menuToggle.setAttribute('aria-label', 'Close navigation menu');
     const [firstLink] = getFocusableElements();
@@ -354,7 +496,7 @@ function initProjectCardReveal() {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
       const index = Number(entry.target.dataset.revealIndex || 0);
-      const delay = Math.min(index * 60, 240);
+      const delay = Math.min(index * 28, 112);
       setTimeout(() => {
         entry.target.classList.add('is-visible');
       }, delay);

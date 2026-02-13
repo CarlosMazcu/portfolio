@@ -241,7 +241,6 @@ main.container {
   white-space: nowrap;
 }
 
-.cv-link,
 .contact-button,
 button.contact-button {
   border: 0;
@@ -259,6 +258,24 @@ button.contact-button {
   box-shadow: 0 8px 18px rgba(63, 120, 170, 0.32);
   cursor: pointer;
   transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+}
+
+.cv-link {
+  border: 1px solid rgba(79, 143, 199, 0.72);
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: 999px;
+  padding: 0.56rem 1.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #d7eaff;
+  background: rgba(9, 14, 24, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(79, 143, 199, 0.24);
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), filter var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
 }
 
 .header-nav {
@@ -313,6 +330,75 @@ button.contact-button {
   margin-left: 0.45rem;
   padding-left: 0.85rem;
   border-left: 1px solid rgba(148, 163, 184, 0.28);
+}
+
+.language-switcher {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  width: 82px;
+  height: 36px;
+  padding: 0;
+  margin: 0 0.55rem 0 0;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.32);
+  background: rgba(9, 14, 24, 0.46);
+  box-shadow: inset 0 0 0 1px rgba(8, 12, 20, 0.35);
+  overflow: hidden;
+}
+
+.language-switcher::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(50% - 3px);
+  height: calc(100% - 4px);
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+  box-shadow: 0 6px 14px rgba(63, 120, 170, 0.34);
+  transition: transform 0.25s ease-in-out;
+}
+
+.language-switcher.is-es::before {
+  transform: translateX(calc(100% + 2px));
+}
+
+.language-switcher a {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  color: rgba(230, 237, 248, 0.58);
+  text-decoration: none;
+  border: 0;
+  background: transparent;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.language-switcher a:hover,
+.language-switcher a:focus-visible {
+  color: #dbeafe;
+  border: 0;
+  background: transparent;
+  transform: none;
+  box-shadow: none;
+}
+
+.language-switcher a[aria-current="page"] {
+  color: #ffffff;
+}
+
+.language-switcher a:not([aria-current="page"]) {
+  color: rgba(230, 237, 248, 0.62);
 }
 
 .header-socials a {
@@ -388,19 +474,31 @@ body.nav-open .menu-toggle .menu-toggle-bar:nth-child(3) {
   pointer-events: auto;
 }
 
-.cv-link:hover,
-.cv-link:focus-visible,
 .contact-button:hover,
 .contact-button:focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 12px 24px rgba(63, 120, 170, 0.42);
-  filter: brightness(1.07);
+  box-shadow: none;
+  filter: brightness(1.04);
 }
 
-.cv-link:active,
 .contact-button:active {
   transform: translateY(0);
   filter: brightness(0.97);
+}
+
+.cv-link:hover,
+.cv-link:focus-visible {
+  color: #f4f9ff;
+  border-color: rgba(143, 194, 239, 0.9);
+  background: rgba(79, 143, 199, 0.18);
+  transform: translateY(-1px);
+  box-shadow: inset 0 0 0 1px rgba(143, 194, 239, 0.3);
+  filter: none;
+}
+
+.cv-link:active {
+  transform: translateY(0);
+  filter: brightness(0.98);
 }
 
 .project-nav-link:active {
@@ -560,8 +658,8 @@ body.nav-open .menu-toggle .menu-toggle-bar:nth-child(3) {
 .hero-button--primary:focus-visible {
   background: linear-gradient(180deg, #5e9fd7, #4a86bb);
   border-color: rgba(164, 209, 248, 0.46);
-  box-shadow: 0 16px 30px rgba(63, 120, 170, 0.5);
-  filter: brightness(1.05);
+  box-shadow: none;
+  filter: brightness(1.03);
 }
 
 .hero-button--secondary:hover,
@@ -569,7 +667,7 @@ body.nav-open .menu-toggle .menu-toggle-bar:nth-child(3) {
   color: var(--text-primary);
   border-color: rgba(143, 194, 239, 0.95);
   background: rgba(79, 143, 199, 0.18);
-  box-shadow: inset 0 0 0 1px rgba(79, 143, 199, 0.25), 0 8px 20px rgba(29, 78, 120, 0.24);
+  box-shadow: inset 0 0 0 1px rgba(79, 143, 199, 0.25);
 }
 
 .hero-button--primary:active,
@@ -580,23 +678,20 @@ body.nav-open .menu-toggle .menu-toggle-bar:nth-child(3) {
 
 button,
 .btn,
-.cv-link,
 .contact-button {
   transition: all 0.3s ease-in-out;
 }
 
 button:hover,
 .btn:hover,
-.cv-link:hover,
 .contact-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
-  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: none;
+  filter: brightness(1.04);
 }
 
 button:active,
 .btn:active,
-.cv-link:active,
 .contact-button:active {
   transform: translateY(0);
 }
@@ -726,8 +821,8 @@ main.container > section {
 
 .fade-in-card {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out, border-color var(--transition), box-shadow var(--transition);
+  transform: translateY(18px);
+  transition: opacity 0.32s ease-out, transform 0.32s ease-out, border-color var(--transition), box-shadow var(--transition);
 }
 
 .fade-in-card.is-visible {
@@ -1280,19 +1375,36 @@ main li a:not(nav a):not(.btn):focus-visible {
 
 #contact.contact-section {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
-  padding: 4rem 2rem;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 420px);
+  grid-template-areas:
+    "intro ."
+    "links right";
+  gap: clamp(1.75rem, 3vw, 3.2rem);
+  row-gap: 1.1rem;
+  padding: clamp(1.75rem, 3.5vw, 3rem) clamp(1rem, 2.4vw, 2rem);
   max-width: 1400px;
   margin: 0 auto;
   align-items: stretch;
 }
 
+#contact.contact-section--with-title {
+  grid-template-areas:
+    "title title"
+    "intro ."
+    "links right";
+}
+
+.contact-section-header {
+  grid-area: title;
+  margin-bottom: 0.25rem;
+}
+
 .contact-left {
+  grid-area: intro;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 100%;
+  height: auto;
 }
 
 .contact-left h2 {
@@ -1302,18 +1414,27 @@ main li a:not(nav a):not(.btn):focus-visible {
 }
 
 .contact-description {
-  margin: 0 0 2.5rem;
+  margin: 0 0 1.75rem;
   font-size: 1.1rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
 }
 
 .contact-info {
+  grid-area: links;
   width: 100%;
-  margin-top: auto;
+  margin-top: 0;
+  height: 100%;
 }
 
-.contact-info h3 {
+.contact-links-stack {
+  display: grid;
+  grid-auto-rows: 1fr;
+  gap: 0.75rem;
+  height: 100%;
+}
+
+.contact-left h3 {
   font-size: 1.2rem;
   margin: 0 0 1.25rem;
   color: rgba(255, 255, 255, 0.6);
@@ -1327,7 +1448,7 @@ main li a:not(nav a):not(.btn):focus-visible {
   align-items: center;
   gap: 1rem;
   padding: 0.75rem 1rem;
-  margin-bottom: 0.75rem;
+  min-height: 84px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.02);
@@ -1373,8 +1494,54 @@ main li a:not(nav a):not(.btn):focus-visible {
 }
 
 .contact-right {
+  grid-area: right;
   width: 100%;
   height: 100%;
+}
+
+.contact-right--linkedin {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.contact-linkedin-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(13, 20, 34, 0.94), rgba(12, 18, 31, 0.88));
+  box-shadow: var(--shadow-sm);
+  padding: 1rem;
+}
+
+.contact-linkedin-kicker {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.contact-linkedin-badge {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.contact-linkedin-badge .LI-profile-badge {
+  max-width: 100%;
+}
+
+.contact-linkedin-badge .LI-profile-badge > a.badge-base__link.LI-simple-link {
+  display: none !important;
 }
 
 .contact-form.contact-form--inline {
@@ -1444,8 +1611,8 @@ main li a:not(nav a):not(.btn):focus-visible {
 .submit-btn:hover,
 .submit-btn:focus-visible {
   background: #2563eb;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+  transform: translateY(-1px);
+  box-shadow: none;
 }
 
 .submit-btn:active {
@@ -1735,10 +1902,31 @@ body.nav-open {
     width: 100%;
     margin-top: auto;
     margin-left: 0;
+    padding-top: 0.75rem;
     padding-left: 0;
     border-left: 0;
     gap: 0.75rem;
     justify-content: flex-start;
+  }
+
+  .header > .language-switcher {
+    margin-left: auto;
+    margin-right: 0.12rem;
+    flex: 0 0 auto;
+  }
+
+  .header > .language-switcher + .menu-toggle {
+    margin-left: 0;
+  }
+
+  .header-nav .language-switcher {
+    width: 82px;
+    height: 36px;
+    margin-top: auto;
+    margin-left: 0;
+    margin-right: 0;
+    order: 99;
+    justify-content: center;
   }
 
   .header-socials a {
@@ -1791,7 +1979,20 @@ body.nav-open {
 @media (max-width: 968px) {
   #contact.contact-section {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "intro"
+      "links"
+      "right";
     gap: 3rem;
+    align-items: start;
+  }
+
+  #contact.contact-section--with-title {
+    grid-template-areas:
+      "title"
+      "intro"
+      "links"
+      "right";
   }
 
   .contact-left h2 {
@@ -1800,10 +2001,40 @@ body.nav-open {
 
   .contact-link {
     padding: 1rem;
+    min-height: 0;
   }
 
   .contact-form.contact-form--inline {
     padding: 1.5rem;
+  }
+
+  .contact-right--linkedin {
+    justify-content: center;
+    height: auto;
+  }
+
+  .contact-linkedin-card {
+    width: min(100%, 390px);
+    max-width: 100%;
+    margin-inline: auto;
+    height: auto;
+  }
+
+  .contact-linkedin-badge {
+    justify-content: center;
+    align-items: center;
+    flex: initial;
+    overflow-x: hidden;
+  }
+
+  .contact-linkedin-badge .LI-profile-badge {
+    margin-inline: auto;
+  }
+
+  .contact-left,
+  .contact-info,
+  .contact-links-stack {
+    height: auto;
   }
 }
 
