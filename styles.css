@@ -2354,7 +2354,11 @@ body.nav-open {
     font-size: 0.92rem;
   }
 
-  #about p,
+  #about p {
+    font-size: 1.03rem;
+    max-width: none;
+  }
+
   .contact-text p {
     font-size: 1.03rem;
     max-width: 86ch;
