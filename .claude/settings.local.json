@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -i \"package\\\\|config\\\\|build\\\\|webpack\\\\|vite\" /c/Users/carlo/OneDrive/Documentos/portfolio/*.json)"
+    ]
+  }
+}

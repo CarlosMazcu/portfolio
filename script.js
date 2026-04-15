@@ -15,6 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
   initGalleryModal();
   initModalHandlers();
   initLiteYouTube();
+  initClipReveal(); // CLIP-PATH REVEAL — revert: remove this line + function below + CSS block
 });
 
 function initLanguageSwitcher() {
@@ -776,3 +777,42 @@ function initLiteYouTube() {
     }, { once: true });
   });
 }
+
+// === CLIP-PATH REVEAL — revert: remove this function + initClipReveal() call above + CSS block in styles.css ===
+function initClipReveal() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
+
+  const sectionHeaders = document.querySelectorAll('.section-header');
+  if (!sectionHeaders.length) return;
+
+  sectionHeaders.forEach(header => {
+    const heading = header.querySelector('.section-heading, .section-subheading');
+    const caption = header.querySelector('.section-caption');
+    const divider = header.querySelector('.section-divider');
+
+    if (heading) heading.classList.add('clip-reveal');
+    if (caption) caption.classList.add('clip-reveal');
+    if (divider) divider.classList.add('divider-grow');
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const header = entry.target;
+
+      const heading = header.querySelector('.section-heading, .section-subheading');
+      const caption = header.querySelector('.section-caption');
+      const divider = header.querySelector('.section-divider');
+
+      if (heading) heading.classList.add('is-visible');
+      if (caption) setTimeout(() => caption.classList.add('is-visible'), 120);
+      if (divider) setTimeout(() => divider.classList.add('is-visible'), caption ? 220 : 100);
+
+      observer.unobserve(header);
+    });
+  }, { threshold: 0.25 });
+
+  sectionHeaders.forEach(header => observer.observe(header));
+}
+// === END CLIP-PATH REVEAL ===
