@@ -17,17 +17,17 @@ It highlights selected projects built with C++, OpenGL, Unreal Engine, and relat
 - 🚀 GitHub Pages (deployment)
 
 ## ⭐ Featured Projects
-- [Inside The Crow's Nest](projects/crowsnest.html) - Unreal Engine 5 cooperative adventure prototype.
-- [Raftel Graphics Engine](projects/raftel.html) - C++/OpenGL renderer with forward/deferred pipelines and PBR.
+- [Inside The Crow's Nest](https://carlosmazcu.github.io/portfolio/projects/crowsnest.html) - Unreal Engine 5 cooperative adventure prototype.
+- [Raftel Graphics Engine](https://carlosmazcu.github.io/portfolio/projects/raftel.html) - C++/OpenGL renderer with forward/deferred pipelines and PBR.
 
 ## 📂 Additional Projects
-- [PhyloGen](projects/PhyloGen.html)
-- [Loopus López](projects/LoopusLoopez.html)
-- [Ahuacatle and the Chromatic Temple](projects/ahuacatle.html)
-- [Pathfinding Sandbox](projects/pathfinding.html)
-- [Fractal Imager](projects/fractal.html)
-- [Atari Asteroids](projects/asteroids.html)
-- [Perspective Landscape](projects/landscape.html)
+- [PhyloGen](https://carlosmazcu.github.io/portfolio/projects/PhyloGen.html)
+- [Loopus López](https://carlosmazcu.github.io/portfolio/projects/LoopusLoopez.html)
+- [Ahuacatle and the Chromatic Temple](https://carlosmazcu.github.io/portfolio/projects/ahuacatle.html)
+- [Pathfinding Sandbox](https://carlosmazcu.github.io/portfolio/projects/pathfinding.html)
+- [Fractal Imager](https://carlosmazcu.github.io/portfolio/projects/fractal.html)
+- [Atari Asteroids](https://carlosmazcu.github.io/portfolio/projects/asteroids.html)
+- [Perspective Landscape](https://carlosmazcu.github.io/portfolio/projects/landscape.html)
 
 
 ## ☁️ Deployment
