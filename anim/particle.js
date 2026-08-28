@@ -12,7 +12,9 @@
   let rafId = 0;
   let running = false;
   let startTime = 0;
+  let lastRenderTime = 0;
   let webglState = null;
+  const frameInterval = 1000 / 30;
 
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
@@ -52,9 +54,9 @@
 
   function resizeCanvas() {
     const isMobile = mobileQuery.matches;
-    const dprCap = isMobile ? 1.2 : 1.5;
+    const dprCap = isMobile ? 1 : 1.25;
     const dpr = Math.min(window.devicePixelRatio || 1, dprCap);
-    const renderScale = isMobile ? 0.94 : 1;
+    const renderScale = isMobile ? 0.85 : 1;
     const width = Math.max(320, Math.floor(window.innerWidth * dpr * renderScale));
     const height = Math.max(240, Math.floor(window.innerHeight * dpr * renderScale));
 
@@ -369,7 +371,10 @@
   }
 
   function webglFrame(now) {
-    renderWebGL(now);
+    if (now - lastRenderTime >= frameInterval) {
+      lastRenderTime = now;
+      renderWebGL(now);
+    }
     if (!running) return;
     rafId = window.requestAnimationFrame(webglFrame);
   }
@@ -383,6 +388,7 @@
   function stopWebGLLoop() {
     if (!running) return;
     running = false;
+    lastRenderTime = 0;
     if (rafId) window.cancelAnimationFrame(rafId);
     rafId = 0;
   }
@@ -517,8 +523,12 @@
       connect();
     }
 
-    function tick2D() {
-      draw2D();
+    let lastFallbackTime = 0;
+    function tick2D(now) {
+      if ((now || 0) - lastFallbackTime >= frameInterval) {
+        lastFallbackTime = now || 0;
+        draw2D();
+      }
       if (!fallbackRunning) return;
       fallbackRaf = requestAnimationFrame(tick2D);
     }

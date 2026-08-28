@@ -36,16 +36,16 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css?v=20260209">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'; this.onload=null;">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css?v=20260828">
 
-  <script defer src="script.js?v=20260209"></script>
+  <script defer src="script.js?v=20260828"></script>
   <script defer data-domain="carlosmazcu.github.io/portfolio" src="https://plausible.io/js/script.file-downloads.outbound-links.tagged-events.js"></script>
   <script>
     window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
   </script>
-  <script data-goatcounter="https://carlosmazcu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 </head>
 
 <body class="home">
@@ -86,9 +86,7 @@
 
   <main class="container">
     <section class="hero-section" aria-labelledby="hero-title">
-      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="img/og-image.png" aria-hidden="true">
-        <source src="img/trailer2.webm" type="video/webm">
-      </video>
+      <video class="hero-video" muted loop playsinline preload="none" aria-hidden="true" data-hero-src="img/trailer2.webm"></video>
       <div class="hero-content">
         <p class="hero-kicker hero-anim hero-anim--0">Carlos Mazcuñán</p>
         <h1 id="hero-title" class="hero-main-title hero-anim hero-anim--1">I build the systems<br>behind the game.</h1>

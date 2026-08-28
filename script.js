@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
   initLanguageSwitcher();
   initNavigation();
   initHeroActions();
+  initHeroVideo();
   initProjectFilters();
   initLazyProjectImages();
   initProjectCardReveal();
@@ -15,8 +16,87 @@ window.addEventListener('DOMContentLoaded', () => {
   initGalleryModal();
   initModalHandlers();
   initLiteYouTube();
+  initLinkedInBadge();
   initClipReveal(); // CLIP-PATH REVEAL — revert: remove this line + function below + CSS block
 });
+
+// Defer the hero video: skip on reduced-motion / data-saver / slow links,
+// otherwise load it only once the hero is in view and the browser is idle.
+function initHeroVideo() {
+  const video = document.querySelector('.hero-video[data-hero-src]');
+  if (!video) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const conn = navigator.connection || navigator.webkitConnection || navigator.mozConnection;
+  if (conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ''))) return;
+
+  let loaded = false;
+  const load = () => {
+    if (loaded) return;
+    loaded = true;
+    const source = document.createElement('source');
+    source.src = video.dataset.heroSrc;
+    source.type = 'video/webm';
+    video.appendChild(source);
+    video.load();
+    const played = video.play();
+    if (played && typeof played.catch === 'function') played.catch(() => {});
+  };
+
+  const schedule = () => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(load, { timeout: 2500 });
+    } else {
+      setTimeout(load, 300);
+    }
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    schedule();
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      obs.disconnect();
+      schedule();
+    });
+  }, { rootMargin: '200px' });
+  observer.observe(video);
+}
+
+// Defer the LinkedIn badge third-party script until its card nears the viewport.
+function initLinkedInBadge() {
+  const badge = document.querySelector('.contact-linkedin-badge, .LI-profile-badge');
+  if (!badge) return;
+
+  let loaded = false;
+  const load = () => {
+    if (loaded) return;
+    loaded = true;
+    const script = document.createElement('script');
+    script.src = 'https://platform.linkedin.com/badges/js/profile.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    load();
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      obs.disconnect();
+      load();
+    });
+  }, { rootMargin: '500px' });
+  observer.observe(badge);
+}
 
 function initLanguageSwitcher() {
   const nav = document.getElementById('primary-nav') || document.querySelector('.header-nav');
