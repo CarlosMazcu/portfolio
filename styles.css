@@ -550,6 +550,37 @@ h1 {
 .gallery figure video { width: 100%; background: var(--surface); }
 .gallery figcaption { margin-top: 10px; }
 
+/* Timecode burn-in on looping clips */
+.tc-host { position: relative; }
+.tc {
+  position: absolute;
+  right: 0;
+  bottom: 1px;
+  padding: 3px 8px 4px;
+  background: var(--bg);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.tc-now { color: var(--text); }
+.tc-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+.no-js .tc,
+.no-js .tc-bar { display: none; }
+
 /* Click-to-load YouTube */
 .yt {
   position: relative;

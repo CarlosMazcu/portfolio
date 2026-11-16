@@ -86,6 +86,49 @@
     reduceMotion.addEventListener?.('change', (e) => { if (e.matches) pauseAll(); });
   }
 
+  /* ---------- Timecode burn-in + progress line on looping clips ---------- */
+  function initTimecode() {
+    const two = (n) => String(n).padStart(2, '0');
+    const fmt = (t) => {
+      if (!Number.isFinite(t)) return '--:--.--';
+      const s = Math.max(0, t);
+      return `${two(Math.floor(s / 60))}:${two(Math.floor(s % 60))}.${two(Math.floor((s % 1) * 100))}`;
+    };
+
+    document.querySelectorAll('video[data-loop]').forEach((video) => {
+      let host = video.parentElement;
+      if (!host.classList.contains('media')) {
+        host = document.createElement('div');
+        host.className = 'tc-host';
+        video.before(host);
+        host.appendChild(video);
+      }
+      const tc = document.createElement('span');
+      tc.className = 'tc';
+      tc.setAttribute('aria-hidden', 'true');
+      tc.innerHTML = '<span class="tc-now"></span> / <span class="tc-dur"></span>';
+      const bar = document.createElement('span');
+      bar.className = 'tc-bar';
+      bar.setAttribute('aria-hidden', 'true');
+      host.append(tc, bar);
+
+      const now = tc.firstChild;
+      const dur = tc.lastChild;
+      let raf = 0;
+      const draw = () => {
+        const d = video.duration;
+        now.textContent = fmt(video.currentTime);
+        dur.textContent = fmt(d);
+        bar.style.transform = `scaleX(${d ? video.currentTime / d : 0})`;
+      };
+      const loop = () => { draw(); raf = requestAnimationFrame(loop); };
+      video.addEventListener('play', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(loop); });
+      video.addEventListener('pause', () => { cancelAnimationFrame(raf); draw(); });
+      video.addEventListener('loadedmetadata', draw);
+      draw();
+    });
+  }
+
   /* ---------- Floating preview on "other projects" rows ---------- */
   function initPeek() {
     const rows = Array.from(document.querySelectorAll('.row[data-thumb]'));
@@ -156,8 +199,15 @@
   function initYouTube() {
     document.querySelectorAll('.yt[data-id]').forEach((button) => {
       button.addEventListener('click', () => {
+        // YouTube refuses embeds without a Referer (error 153). Pages opened from
+        // disk send none, so there we hand off to youtube.com instead.
+        if (!/^https?:$/.test(window.location.protocol)) {
+          window.open(`https://www.youtube.com/watch?v=${button.dataset.id}`, '_blank', 'noopener');
+          return;
+        }
         const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube-nocookie.com/embed/${button.dataset.id}?autoplay=1&rel=0&playsinline=1`;
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        iframe.src = `https://www.youtube-nocookie.com/embed/${button.dataset.id}?autoplay=1&rel=0&playsinline=1&origin=${encodeURIComponent(window.location.origin)}`;
         iframe.title = button.getAttribute('aria-label') || 'Video';
         iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
         iframe.allowFullscreen = true;
@@ -166,7 +216,7 @@
         wrapper.appendChild(iframe);
         button.replaceWith(wrapper);
         iframe.focus();
-      }, { once: true });
+      });
     });
   }
 
@@ -368,6 +418,7 @@
   root.classList.remove('no-js');
   initTheme();
   initActiveNav();
+  initTimecode();
   initVideos();
   initPeek();
   initCopy();
