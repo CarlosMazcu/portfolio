@@ -1,4 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#0B0B0C"/>
-  <text x="32" y="42" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="27" font-weight="600" letter-spacing="-1.5" fill="#EDEDED">CM</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><style>path{fill:#111111}@media (prefers-color-scheme:dark){path{fill:#EDEDED}}</style><path d="M7 7h12v4H11v10h8v4H7z"/><rect x="21" y="14" width="4" height="4" fill="#FF5A1F"/></svg>
