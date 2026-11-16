@@ -70,6 +70,12 @@ body {
 }
 
 h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; }
+
+/* Typographic polish: no orphans, balanced headings, aligned figures */
+h1, h2, h3, .pager-title { text-wrap: balance; }
+p, li, dd, figcaption { text-wrap: pretty; }
+.facts, .credits, .mono, .label { font-variant-numeric: tabular-nums; }
+html { hanging-punctuation: first; }
 ul, ol { padding: 0; list-style: none; }
 img, video, svg { display: block; max-width: 100%; }
 img, video { height: auto; }
@@ -143,6 +149,7 @@ a:hover { text-decoration-line: underline; }
   top: 0;
   z-index: 20;
   background: var(--bg);
+  view-transition-name: site-header;
 }
 .site-header .wrap {
   display: flex;
@@ -666,6 +673,87 @@ h1 {
   .nav { width: 100%; gap: 20px; }
   .nav-tools { margin-left: auto; padding-left: 16px; }
   html { scroll-padding-top: 112px; }
+}
+
+/* ---------- Page transitions (home ⇄ project) ----------
+   Shared elements carry a view-transition-name set inline by the generator
+   (media-<slug>, title-<slug>); everything else just cross-fades. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  ::view-transition-group(*) {
+    animation-duration: 380ms;
+    animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) { animation-duration: 200ms; }
+}
+
+/* ---------- Print: the home page becomes a one-page CV ---------- */
+@media print {
+  :root,
+  :root[data-theme] {
+    --bg: #FFFFFF;
+    --surface: #F2F2F2;
+    --line: #DDDDDD;
+    --text: #000000;
+    --muted: #555555;
+    --section-gap: 20px;
+    color-scheme: light;
+  }
+  @page { size: A4; margin: 12mm 14mm; }
+  body { font-size: 9.5pt; line-height: 1.45; }
+
+  .skip-link, .nav, .peek, .dbg, .dbg-boxes, .copy, .media, .gallery, .yt,
+  .pager, .pager-hint, .text-link, .back, .arrow { display: none !important; }
+
+  .site-header { position: static; }
+  .site-header .wrap { min-height: 0; padding: 0 0 4px; }
+  .wrap { max-width: none; padding: 0; }
+
+  .hero, .detail { padding-top: 4px; }
+  .role { margin-bottom: 10px; }
+  h1 { font-size: 20pt; }
+  .hero-sub { margin-top: 6px; font-size: 10pt; max-width: none; }
+  .inline-links { margin-top: 8px; font-size: 10pt; }
+  .skills { margin-top: 6px; gap: 0; font-size: 8pt; line-height: 1.5; }
+  .label { margin-bottom: 6px; }
+
+  .feature + .feature { margin-top: 8px; }
+  .feature-head { margin-top: 0; }
+  .feature-desc { margin-top: 2px; }
+  .feature-head h3 { font-size: 12pt; }
+  .row { padding: 2px 0; }
+  .row-name, .row-desc { font-size: 9pt; }
+  .lead { font-size: 9.5pt; line-height: 1.45; }
+  .about-body { margin-top: 6px; font-size: 9pt; }
+  .contact-title { font-size: 12pt; }
+  .contact-sub { margin-top: 4px; max-width: none; }
+  .email-line { margin-top: 4px; }
+  .email { font-size: 11pt; }
+
+  .facts, .prose, .detail-links, .credits { margin-top: 14px !important; }
+  .facts { padding-top: 10px; }
+  .facts dd, .credits dd { font-size: 9.5pt; }
+  .credits div { padding: 4px 0; }
+  .prose .label.contrib { margin-top: 14px; }
+  .prose .lead + p, .prose p + p { margin-top: 8px; }
+
+  .feature, .row, .facts > div, .credits div { break-inside: avoid; }
+  h2, h3 { break-after: avoid; }
+
+  a { color: inherit; text-decoration: none; }
+  .detail-links a[href^="http"]::after,
+  .row[href^="http"] .row-name::after {
+    content: "  " attr(href);
+    font-family: var(--mono);
+    font-size: 8pt;
+    font-weight: 400;
+    color: var(--muted);
+  }
+
+  .site-footer { margin-top: 20px; }
+  .site-footer .wrap > div { padding: 8px 0 0; }
+  .site-footer .wrap > div::after { content: "carlosmazcu.github.io/portfolio"; }
 }
 
 /* ---------- Motion preferences ---------- */
