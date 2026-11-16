@@ -405,6 +405,123 @@ h1 {
   color: var(--muted);
 }
 
+/* ---------- Debug overlay (press ` / º) ---------- */
+.debug-toggle {
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color var(--t);
+}
+.debug-toggle:hover,
+.debug-toggle[aria-pressed="true"] { color: var(--text); }
+.debug-toggle kbd {
+  display: inline-block;
+  min-width: 18px;
+  margin-right: 6px;
+  padding: 0 4px;
+  border: 1px solid var(--line);
+  font: inherit;
+  text-align: center;
+  transition: border-color var(--t), color var(--t);
+}
+.debug-toggle:hover kbd,
+.debug-toggle[aria-pressed="true"] kbd { border-color: var(--accent); color: var(--accent); }
+.no-js .debug-toggle { display: none; }
+
+.dbg,
+.dbg-boxes {
+  --dbg: var(--accent);
+  --dbg-soft: color-mix(in srgb, var(--accent) 9%, transparent);
+  --dbg-faint: color-mix(in srgb, var(--accent) 7%, transparent);
+  pointer-events: none;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.4;
+  text-transform: lowercase;
+}
+.dbg { position: fixed; inset: 0; z-index: 100; }
+.dbg-boxes { position: absolute; top: 0; left: 0; width: 100%; z-index: 99; }
+
+/* 8px grid */
+.dbg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to bottom, var(--dbg-faint) 1px, transparent 1px),
+    linear-gradient(to right, var(--dbg-faint) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+/* Content column */
+.dbg-col {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid var(--dbg);
+  border-right: 1px solid var(--dbg);
+}
+.dbg-col .dbg-tag { position: absolute; bottom: 8px; left: 8px; }
+
+.dbg-tag {
+  display: inline-block;
+  padding: 1px 5px;
+  background: var(--dbg);
+  color: #0B0B0C;
+  white-space: nowrap;
+}
+.dbg-tag b { font-weight: 400; opacity: .7; }
+
+/* Layout blocks and their margins */
+.dbg-box {
+  position: absolute;
+  outline: 1px dashed var(--dbg);
+  outline-offset: -1px;
+}
+.dbg-box > .dbg-tag { position: absolute; top: 0; left: 0; }
+.dbg-gap {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dbg-soft);
+  color: var(--dbg);
+}
+.dbg-gap span::before { content: "↕ "; }
+
+/* Element under the cursor */
+.dbg-hover {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  outline: 1px solid var(--dbg);
+  background: var(--dbg-faint);
+}
+.dbg-hover .dbg-tag { position: absolute; bottom: 100%; left: -1px; }
+
+/* HUD */
+.dbg-hud {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  margin: 0;
+  padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-top: 1px solid var(--dbg);
+  color: var(--text);
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: pre;
+}
+.dbg-hud::first-line { color: var(--dbg); }
+@media (max-width: 520px) {
+  .dbg-hud { left: 16px; right: 16px; bottom: 16px; font-size: 11px; }
+  .dbg-col .dbg-tag { display: none; }
+}
+
 /* ==========================================================================
    Project detail pages
    ========================================================================== */
