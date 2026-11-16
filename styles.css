@@ -405,6 +405,32 @@ h1 {
   color: var(--muted);
 }
 
+/* ---------- 404 ---------- */
+.nf-texture {
+  width: 96px;
+  height: 96px;
+  margin-bottom: 48px;
+}
+.nf-a { fill: var(--surface); }
+.nf-b { fill: var(--accent); }
+.nf-log {
+  margin: 48px 0 0;
+  padding: 2px 0 2px 16px;
+  border-left: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--muted);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.nf-log b,
+.nf-log i { font-weight: 400; font-style: normal; }
+.nf-log b { color: var(--accent); }
+.nf-log i,
+.nf-path { color: var(--text); }
+.nf-links { margin-top: 48px; }
+
 /* ---------- Debug overlay (press ` / º) ---------- */
 .dbg,
 .dbg-boxes {
