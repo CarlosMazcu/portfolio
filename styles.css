@@ -255,13 +255,42 @@ h1 {
   color: var(--muted);
 }
 
+/* Split hero: copy on the left, the showreel on the right */
+.hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 48px;
+  align-items: end;
+}
+.hero-split h1 { font-size: clamp(36px, 5vw, 50px); }
+.hero-split h1 br { display: none; }
+
+.reel { margin: 0; }
+.reel .media { aspect-ratio: 4 / 5; }
+.reel figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  margin-top: 12px;
+}
+.reel-label::after { content: " —"; }
+.reel-name { color: var(--text); transition: color var(--t); }
+.reel-name:hover { color: var(--accent); text-decoration: none; }
+.reel-tag { flex-basis: 100%; }
+
+@media (max-width: 760px) {
+  .hero-split { grid-template-columns: 1fr; }
+  .reel .media { aspect-ratio: 1 / 1; }
+}
+
 /* Status line: place · live local time · availability */
 .status {
   display: flex;
   flex-wrap: wrap;
   margin-top: 32px;
 }
-.status > span:not([hidden]) ~ span:not([hidden])::before {
+.status > span { white-space: nowrap; }
+.status > span:not(:last-child):not([hidden])::after {
   content: "·";
   margin: 0 10px;
   color: var(--muted);
@@ -724,6 +753,8 @@ h1 {
   .wrap { max-width: none; padding: 0; }
 
   .hero, .detail { padding-top: 4px; }
+  .hero-split { display: block; }
+  .reel { display: none !important; }
   .role { margin-bottom: 10px; }
   h1 { font-size: 20pt; }
   .hero-sub { margin-top: 6px; font-size: 10pt; max-width: none; }

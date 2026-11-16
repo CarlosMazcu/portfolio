@@ -86,6 +86,34 @@
     reduceMotion.addEventListener?.('change', (e) => { if (e.matches) pauseAll(); });
   }
 
+  /* ---------- Showreel: caption + link follow the cut on screen ---------- */
+  function initReel() {
+    const fig = document.querySelector('.reel[data-reel]');
+    if (!fig) return;
+    let chapters;
+    try { chapters = JSON.parse(fig.dataset.reel); } catch { return; }
+    const video = fig.querySelector('video');
+    const media = fig.querySelector('.media');
+    const name = fig.querySelector('.reel-name');
+    const tag = fig.querySelector('.reel-tag');
+    if (!video || !name || !tag) return;
+    let current = 0;
+    const sync = () => {
+      const t = video.currentTime;
+      let i = 0;
+      chapters.forEach((c, k) => { if (t >= c.t) i = k; });
+      if (i === current) return;
+      current = i;
+      const c = chapters[i];
+      name.textContent = c.name;
+      name.href = c.href;
+      tag.textContent = c.tag;
+      if (media) media.href = c.href;
+    };
+    video.addEventListener('timeupdate', sync);
+    video.addEventListener('seeked', sync);
+  }
+
   /* ---------- Status line: live local time ---------- */
   function initStatus() {
     const el = document.querySelector('.status[data-tz] .status-time');
@@ -395,6 +423,7 @@
   initActiveNav();
   initVideos();
   initStatus();
+  initReel();
   initPeek();
   initCopy();
   initYouTube();
