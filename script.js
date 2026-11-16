@@ -86,6 +86,24 @@
     reduceMotion.addEventListener?.('change', (e) => { if (e.matches) pauseAll(); });
   }
 
+  /* ---------- Status line: live local time ---------- */
+  function initStatus() {
+    const el = document.querySelector('.status[data-tz] .status-time');
+    if (!el || !window.Intl) return;
+    let format;
+    try {
+      format = new Intl.DateTimeFormat('en-GB', {
+        timeZone: el.parentElement.dataset.tz, hour: '2-digit', minute: '2-digit', hour12: false,
+      });
+    } catch { return; }
+    const tick = () => {
+      el.textContent = `${format.format(new Date())} ${el.dataset.suffix || ''}`.trim();
+      setTimeout(tick, 60000 - (Date.now() % 60000));
+    };
+    tick();
+    el.hidden = false;
+  }
+
   /* ---------- Floating preview on "other projects" rows ---------- */
   function initPeek() {
     const rows = Array.from(document.querySelectorAll('.row[data-thumb]'));
@@ -376,6 +394,7 @@
   initTheme();
   initActiveNav();
   initVideos();
+  initStatus();
   initPeek();
   initCopy();
   initYouTube();

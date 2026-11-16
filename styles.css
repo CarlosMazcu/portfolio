@@ -255,6 +255,19 @@ h1 {
   color: var(--muted);
 }
 
+/* Status line: place · live local time · availability */
+.status {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.status > span:not([hidden]) ~ span:not([hidden])::before {
+  content: "·";
+  margin: 0 10px;
+  color: var(--muted);
+}
+.status-time { color: var(--text); }
+
 /* ---------- Selected work ---------- */
 .feature + .feature { margin-top: 96px; }
 
@@ -697,11 +710,11 @@ h1 {
     --line: #DDDDDD;
     --text: #000000;
     --muted: #555555;
-    --section-gap: 20px;
+    --section-gap: 16px;
     color-scheme: light;
   }
-  @page { size: A4; margin: 12mm 14mm; }
-  body { font-size: 9.5pt; line-height: 1.45; }
+  @page { size: A4; margin: 10mm 14mm; }
+  body { font-size: 9.5pt; line-height: 1.4; }
 
   .skip-link, .nav, .peek, .dbg, .dbg-boxes, .copy, .media, .gallery, .yt,
   .pager, .pager-hint, .text-link, .back, .arrow { display: none !important; }
@@ -715,6 +728,8 @@ h1 {
   h1 { font-size: 20pt; }
   .hero-sub { margin-top: 6px; font-size: 10pt; max-width: none; }
   .inline-links { margin-top: 8px; font-size: 10pt; }
+  .status { margin-top: 4px; font-size: 8pt; }
+  .status-time { display: none !important; }
   .skills { margin-top: 6px; gap: 0; font-size: 8pt; line-height: 1.5; }
   .label { margin-bottom: 6px; }
 
