@@ -406,29 +406,6 @@ h1 {
 }
 
 /* ---------- Debug overlay (press ` / º) ---------- */
-.debug-toggle {
-  padding: 0;
-  background: none;
-  border: 0;
-  cursor: pointer;
-  transition: color var(--t);
-}
-.debug-toggle:hover,
-.debug-toggle[aria-pressed="true"] { color: var(--text); }
-.debug-toggle kbd {
-  display: inline-block;
-  min-width: 18px;
-  margin-right: 6px;
-  padding: 0 4px;
-  border: 1px solid var(--line);
-  font: inherit;
-  text-align: center;
-  transition: border-color var(--t), color var(--t);
-}
-.debug-toggle:hover kbd,
-.debug-toggle[aria-pressed="true"] kbd { border-color: var(--accent); color: var(--accent); }
-.no-js .debug-toggle { display: none; }
-
 .dbg,
 .dbg-boxes {
   --dbg: var(--accent);

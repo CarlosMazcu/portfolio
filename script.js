@@ -186,7 +186,6 @@
 
   /* ---------- Debug overlay: the console key (` / º), like in an engine ---------- */
   function initDebug() {
-    const toggles = Array.from(document.querySelectorAll('[data-debug]'));
     const BOX_SELECTOR = '.site-header, .hero, .section, .feature, .site-footer, .detail article > *';
     const session = {
       get() { try { return sessionStorage.getItem('debug') === '1'; } catch { return false; } },
@@ -330,7 +329,6 @@
       if (value === on) return;
       on = value;
       session.set(on);
-      toggles.forEach((t) => t.setAttribute('aria-pressed', String(on)));
       if (on) {
         if (!layer) build();
         document.body.append(boxes, layer);
@@ -353,7 +351,6 @@
       }
     };
 
-    toggles.forEach((t) => t.addEventListener('click', () => set(!on)));
     document.addEventListener('keydown', (event) => {
       if (event.altKey || event.ctrlKey || event.metaKey) return;
       const el = document.activeElement;
