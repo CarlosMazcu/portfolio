@@ -1,359 +1,108 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="es" class="no-js">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Language" content="es">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Motor Gráfico Raftel | Carlos Mazcuñán</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Motor Gráfico Raftel — Carlos Mazcuñán</title>
   <meta name="description" content="Motor gráfico colaborativo en C++ y OpenGL con pipelines forward/deferred, PBR, tooling y una arquitectura orientada al rendimiento.">
   <meta name="author" content="Carlos Mazcuñán Blanes">
-  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)">
   <link rel="canonical" href="https://carlosmazcu.github.io/portfolio/es/projects/raftel.html">
-
-
-
   <link rel="alternate" hreflang="en" href="https://carlosmazcu.github.io/portfolio/projects/raftel.html">
   <link rel="alternate" hreflang="es" href="https://carlosmazcu.github.io/portfolio/es/projects/raftel.html">
   <link rel="alternate" hreflang="x-default" href="https://carlosmazcu.github.io/portfolio/projects/raftel.html">
 
-<meta property="og:title" content="Motor Gráfico Raftel | Carlos Mazcuñán">
-  <meta property="og:description" content="Motor gráfico colaborativo en C++ y OpenGL con pipelines forward/deferred, PBR, tooling y una arquitectura orientada al rendimiento.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://carlosmazcu.github.io/portfolio/es/projects/raftel.html">
-  <meta property="og:site_name" content="Carlos Mazcuñán | Portfolio">
+  <meta property="og:site_name" content="Carlos Mazcuñán">
   <meta property="og:locale" content="es_ES">
-  <meta property="og:image" content="https://carlosmazcu.github.io/portfolio/img/Raftel/raftel.png">
-  <meta property="og:image:alt" content="Vista previa del proyecto Motor Gráfico Raftel">
-
+  <meta property="og:title" content="Motor Gráfico Raftel — Carlos Mazcuñán">
+  <meta property="og:description" content="Motor gráfico colaborativo en C++ y OpenGL con pipelines forward/deferred, PBR, tooling y una arquitectura orientada al rendimiento.">
+  <meta property="og:url" content="https://carlosmazcu.github.io/portfolio/es/projects/raftel.html">
+  <meta property="og:image" content="https://carlosmazcu.github.io/portfolio/img/Raftel/raftel-engine.png">
+  <meta property="og:image:alt" content="Motor Gráfico Raftel">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Motor Gráfico Raftel | Carlos Mazcuñán">
-  <meta name="twitter:description" content="Motor gráfico colaborativo en C++ y OpenGL con pipelines forward/deferred, PBR, tooling y una arquitectura orientada al rendimiento.">
-  <meta name="twitter:image" content="https://carlosmazcu.github.io/portfolio/img/Raftel/raftel.png">
 
-  <link rel="stylesheet" href="../../styles.css?v=20260828">
   <link rel="icon" type="image/svg+xml" href="../../img/favicon.svg">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'; this.onload=null;">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
-
-  <script defer src="../../script.js?v=20260828"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap">
+  <link rel="stylesheet" href="../../styles.css?v=20261116">
+  <script>(function(d){d.classList.remove('no-js');var t;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}d.dataset.theme=t})(document.documentElement);</script>
+  <script defer src="../../script.js?v=20261116"></script>
 </head>
-
 <body>
-  <canvas id="bg-canvas"></canvas>
-    <header id="header" class="header">
-    <a class="header-brand" href="../index.html" aria-label="Carlos Mazcuñán home">
-      <span class="brand-name brand-name--full">Carlos Mazcuñán Blanes</span>
-      <span class="brand-name brand-name--compact">Carlos Mazcuñán</span>
-      <span class="brand-name brand-name--mono">CM</span>
-      <span class="brand-role">Programador de Gameplay y Gráficos</span>
-    </a>
-
-    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav">
-      <span class="menu-toggle-bar" aria-hidden="true"></span>
-      <span class="menu-toggle-bar" aria-hidden="true"></span>
-      <span class="menu-toggle-bar" aria-hidden="true"></span>
-    </button>
-
-    <nav id="primary-nav" class="header-nav" aria-label="Primary navigation">
-      <a class="nav-link" href="../index.html#projects">Proyectos</a>
-      <a class="nav-link" href="../index.html#about">Sobre mí</a>
-      <a class="nav-link" href="../index.html#contact">Contacto</a>
-
-      <div class="header-socials" aria-label="Social links">
-        <a href="https://github.com/CarlosMazcu" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <i class="fab fa-github" aria-hidden="true"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/carlos-mazcu%C3%B1%C3%A1n-blanes-290b53365/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-        </a>
-        <a href="https://carlosmazcu.itch.io/" target="_blank" rel="noopener noreferrer" aria-label="Itch.io">
-          <i class="fab fa-itch-io" aria-hidden="true"></i>
-        </a>
-      </div>
-    </nav>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Carlos Mazcuñán</a>
+      <nav class="nav" aria-label="Principal">
+        <a href="../index.html#work">Proyectos</a>
+        <a href="../index.html#about">Sobre mí</a>
+        <a href="../index.html#contact">Contacto</a>
+        <span class="nav-tools">
+          <a href="../../projects/raftel.html" hreflang="en" lang="en" aria-label="View in English">EN</a>
+          <button class="theme-toggle" type="button" data-label-light="Cambiar a tema claro" data-label-dark="Cambiar a tema oscuro" aria-label="Cambiar a tema claro"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.5 12h-2M21.5 12h-2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg></button>
+        </span>
+      </nav>
+    </div>
   </header>
 
-  <main class="container">
+  <main id="main" class="wrap detail">
+    <article>
+      <p class="mono back"><a href="../index.html#work">← todos los proyectos</a></p>
+      <h1>Motor Gráfico Raftel</h1>
+      <dl class="facts"><div><dt class="mono">rol</dt><dd>Coautor, motor y render</dd></div><div><dt class="mono">stack</dt><dd>C++ · OpenGL · ImGui · Lua</dd></div><div><dt class="mono">equipo</dt><dd>2 programadores</dd></div></dl>
 
-    <section class="project-detail">
-    <div class="section-header">
-  <div class="project-header-row">
-<h2 class="section-heading"><span class="number">01.</span> Motor Gráfico Raftel</h2>
-    <nav class="project-nav" aria-label="Navegación de proyectos">
-      <a class="project-nav-link prev" href="crowsnest.html" aria-label="Proyecto anterior">
-        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
-      </a>
-      <a class="project-nav-link next" href="PhyloGen.html" aria-label="Proyecto siguiente">
-        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-      </a>
-    </nav>  </div>
-  <hr class="section-divider" />
-</div>
-            <p class="project-description">
-
-        <strong>Raftel Engine</strong> es un motor gráfico en tiempo real desarrollado de forma colaborativa desde cero en
-        <strong>C++</strong> moderno y <strong>OpenGL</strong>. El objetivo fue diseñar un motor docente que replicara
-        funcionalidades y flujos de trabajo propios de entornos AAA actuales, manteniendo una base lo bastante ligera para
-        poder analizarla y ampliarla en el aula.
-
-      </p>
-
-      <p class="project-description">
-
-        El render incluye pipelines <em>forward</em> y <em>deferred</em>, sombreado físicamente basado, postprocesado HDR,
-        <em>cascaded shadow maps</em>, <em>screen-space reflections</em>, <em>bloom</em> y <em>tone mapping</em>. Los assets
-        se integran mediante un grafo de materiales y un sistema ECS con soporte para transformaciones jerárquicas e <em>instancing</em>.
-
-      </p>
-
-      <p class="project-description">
-
-        El tooling fue una pieza central del proyecto. Un editor basado en ImGui permite ajustar etapas de render en
-        caliente, visualizar información de depuración y usar hooks de profiling. Lua se utiliza para inyectar lógica de
-        gameplay, un JobSystem reparte trabajo pesado entre hilos y una capa ligera de físicas gestiona colisiones y
-        gravedad. Todo ello se documenta mediante una API generada desde el propio código para facilitar que otros alumnos
-        puedan iterar sobre el motor.
-
-      </p>
-
-      <div class="project-links-row project-links-row--tight">
-        <div class="credits-section credits-section--inline">
-          <h3 class="credits-title">Autores</h3>
-          <div class="credits-names">
-            <a href="https://www.linkedin.com/in/carlos-mazcunan-blanes/" target="_blank" rel="noopener noreferrer">Carlos Mazcuñán,</a>
-            <a href="https://www.linkedin.com/in/marc-folgado-balb%C3%A1s-786335370/" target="_blank" rel="noopener noreferrer">Marc Folgado</a>
-          </div>
-        </div>
+      <div class="media detail-hero">
+        <video data-loop muted loop playsinline preload="auto" width="1280" height="720" poster="../../img/Raftel/raftel_clip_poster.webp" aria-label="Motor Gráfico Raftel"><source src="../../img/Raftel/raftel_clip.webm" type="video/webm"><source src="../../img/Raftel/raftel_clip.mp4" type="video/mp4"></video>
       </div>
 
-      <div class="external-link external-link--tight">
-        <a href="https://carlosmazcu.github.io/doc-raftel/" target="_blank" rel="noopener noreferrer" class="cv-link">Ver API oficial</a>
-      </div>
-      <div class="slider gallery gallery--crop-smallest">
-        <button type="button" class="slider-nav prev" aria-label="Imagen anterior">
-          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-        </button>
-        <div class="slider-window">
-          <div class="slider-wrapper">
-            <picture>
-              <source srcset="../../img/Raftel/raftel-engine.webp" type="image/webp">
-              <img loading="lazy" decoding="async" src="../../img/Raftel/raftel-engine.png" alt="Raftel Engine screenshot 2">
-            </picture>
-            <picture>
-              <source srcset="../../img/Raftel/deferred.webp" type="image/webp">
-              <img loading="lazy" decoding="async" src="../../img/Raftel/deferred.png" alt="Raftel deferred rendering">
-            </picture>
-            <picture>
-              <source srcset="../../img/Raftel/raftel.webp" type="image/webp">
-              <img loading="lazy" decoding="async" src="../../img/Raftel/raftel.png" alt="Raftel Engine screenshot 1">
-            </picture>
-            <picture>
-              <source srcset="../../img/Raftel/pbr.webp" type="image/webp">
-              <img loading="lazy" decoding="async" src="../../img/Raftel/pbr.png" alt="Raftel PBR lighting">
-            </picture>
-            <picture>
-              <source srcset="../../img/Raftel/tiny_desk.webp" type="image/webp">
-              <img loading="lazy" decoding="async" src="../../img/Raftel/tiny_desk.png" alt="Raftel scene demo">
-            </picture>
-          </div>
-        </div>
-        <button type="button" class="slider-nav next" aria-label="Siguiente imagen">
-          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-        </button>
-      </div>
-      <div class="video-section">
-        <div class="yt-lite" data-videoid="dv5VSabtZvk" aria-label="Demo de Raftel"></div>
-      </div>
-    </section>
-         <section id="about" class="fade-in delay-4">
-      <div class="section-header">
-        <h2 class="section-heading"><span class="number">02.</span> Sobre mí</h2>
-        <hr class="section-divider">
+      <div class="prose">
+        <p class="lead"><strong>Raftel Engine</strong> es un motor gráfico en tiempo real desarrollado de forma colaborativa desde cero en <strong>C++</strong> moderno y <strong>OpenGL</strong>. El objetivo fue diseñar un motor docente que replicara funcionalidades y flujos de trabajo propios de entornos AAA actuales, manteniendo una base lo bastante ligera para poder analizarla y ampliarla en el aula.</p>
+        <p>El render incluye pipelines <em>forward</em> y <em>deferred</em>, sombreado físicamente basado, postprocesado HDR, <em>cascaded shadow maps</em>, <em>screen-space reflections</em>, <em>bloom</em> y <em>tone mapping</em>. Los assets se integran mediante un grafo de materiales y un sistema ECS con soporte para transformaciones jerárquicas e <em>instancing</em>.</p>
+        <p>El tooling fue una pieza central del proyecto. Un editor basado en ImGui permite ajustar etapas de render en caliente, visualizar información de depuración y usar hooks de profiling. Lua se utiliza para inyectar lógica de gameplay, un JobSystem reparte trabajo pesado entre hilos y una capa ligera de físicas gestiona colisiones y gravedad. Todo ello se documenta mediante una API generada desde el propio código para facilitar que otros alumnos puedan iterar sobre el motor.</p>
       </div>
 
-      <div class="content">
-        <div class="featured-project">
-          <div class="about-text project-content">
-            <p>Soy <strong>Carlos Mazcuñán Blanes</strong>, programador de videojuegos graduado con un <strong>HND en Programación de Videojuegos (ESAT)</strong>. Lo que realmente me mueve es ese momento en el que un problema técnico que parecía imposible empieza a tener sentido cuando encuentras esa solución elegante que hace que todo encaje.</p>
-            
-            <h3 class="highlight-title">Competencias clave</h3>
-            <ul class="core-skills-grid" aria-label="Core skills">
-              <li class="core-skill-badge"><i class="fa-solid fa-code" aria-hidden="true"></i><span>C / C++</span></li>
-              <li class="core-skill-badge"><i class="fa-solid fa-gamepad" aria-hidden="true"></i><span>Gameplay Systems</span></li>
-              <li class="core-skill-badge"><i class="fa-solid fa-cube" aria-hidden="true"></i><span>Unreal Engine 5</span></li>
-              <li class="core-skill-badge"><i class="fa-solid fa-display" aria-hidden="true"></i><span>OpenGL / GLSL</span></li>
-              <li class="core-skill-badge"><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span>Rendering Pipelines</span></li>
-              <li class="core-skill-badge"><i class="fa-brands fa-unity" aria-hidden="true"></i><span>Unity</span></li>
-              <li class="core-skill-badge"><i class="fa-solid fa-code-branch" aria-hidden="true"></i><span>Git &amp; Perforce</span></li>
-              <li class="core-skill-badge"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i><span>Profiling &amp; Optimization</span></li>
-            </ul>
-            
-            <h3 class="highlight-title">Cómo trabajo</h3>
-            <p class="about-profile">Me especializo en <strong>gameplay y gráficos</strong>, construyendo sistemas robustos y eficientes en C++, Unreal Engine y OpenGL. Desde pipelines de render hasta herramientas internas, me gusta llevar las funcionalidades desde el diseño técnico hasta el pulido final.</p>
-            
-            <p class="about-profile">Pero el código es solo una parte. Mis compañeros suelen decir que soy el que mantiene el buen rollo en el equipo, creo que comunicarse bien y adaptarse a diferentes formas de trabajar es tan importante como escribir código limpio. Me siento cómodo trabajando bajo presión, y disfruto ese ambiente donde todos remamos juntos para sacar un proyecto adelante.</p>
-            
-            <p class="about-profile">Fuera del trabajo también programo. Siempre estoy trasteando con algún side project o aprendiendo alguna tecnología nueva por pura curiosidad. Fuera del horario laboral sigo programando por gusto, ya sea en proyectos personales o aprendiendo cosas nuevas.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+      <p class="detail-links"><a href="https://carlosmazcu.github.io/doc-raftel/" target="_blank" rel="noopener noreferrer">Ver API oficial ↗</a></p>
 
-    
-              <section id="contact" class="contact-section fade-in delay-5">
-      <div class="contact-left">
-        <h2>Trabajemos juntos</h2>
-        <p class="contact-description">
-          Actualmente estoy abierto a nuevas oportunidades como programador. Si necesitas sistemas de gameplay, funcionalidades gráficas o consultoría técnica, estaré encantado de hablar contigo.
-        </p>
-        <h3>Contacto</h3>
-      </div>
+      <section class="gallery" aria-label="galería">
+        <figure>
+          <button class="yt" type="button" data-id="dv5VSabtZvk" aria-label="Motor Gráfico Raftel — ver demo">
+            <img src="https://i.ytimg.com/vi/dv5VSabtZvk/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async">
+            <span class="yt-play" aria-hidden="true">▶ ver demo</span>
+          </button>
+          <figcaption class="mono">vídeo · youtube</figcaption>
+        </figure>
+        <figure><picture><source srcset="../../img/Raftel/raftel-engine.webp" type="image/webp"><img src="../../img/Raftel/raftel-engine.png" alt="Raftel Engine — captura 1" width="1903" height="1011" loading="lazy" decoding="async"></picture></figure>
+        <figure><picture><source srcset="../../img/Raftel/deferred.webp" type="image/webp"><img src="../../img/Raftel/deferred.png" alt="Raftel Engine — captura 2" width="1207" height="947" loading="lazy" decoding="async"></picture></figure>
+        <figure><picture><source srcset="../../img/Raftel/raftel.webp" type="image/webp"><img src="../../img/Raftel/raftel.png" alt="Raftel Engine — captura 3" width="1242" height="800" loading="lazy" decoding="async"></picture></figure>
+        <figure><picture><source srcset="../../img/Raftel/pbr.webp" type="image/webp"><img src="../../img/Raftel/pbr.png" alt="Raftel Engine — captura 4" width="1517" height="875" loading="lazy" decoding="async"></picture></figure>
+        <figure><picture><source srcset="../../img/Raftel/tiny_desk.webp" type="image/webp"><img src="../../img/Raftel/tiny_desk.png" alt="Raftel Engine — captura 5" width="1444" height="906" loading="lazy" decoding="async"></picture></figure>
+      </section>
 
-      <div class="contact-info">
-        <div class="contact-links-stack">
-          <a href="mailto:carlosmazcu@gmail.com" class="contact-link">
-            <span class="contact-icon" aria-hidden="true">📧</span>
-            <div>
-              <span class="contact-label">Email</span>
-              <span class="contact-value">carlosmazcu@gmail.com</span>
-            </div>
-          </a>
+      <section aria-labelledby="credits-title">
+        <h2 id="credits-title" class="visually-hidden">créditos</h2>
+        <dl class="credits">
+          <div><dt class="mono">Autores</dt><dd><a href="https://www.linkedin.com/in/carlos-mazcunan-blanes/" target="_blank" rel="noopener noreferrer">Carlos Mazcuñán</a>, <a href="https://www.linkedin.com/in/marc-folgado-balb%C3%A1s-786335370/" target="_blank" rel="noopener noreferrer">Marc Folgado</a></dd></div>
+        </dl>
+      </section>
 
-          <!--
-          <a href="https://www.linkedin.com/in/carlos-mazcu%C3%B1%C3%A1n-blanes-290b53365/" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span class="contact-icon" aria-hidden="true">💼</span>
-            <div>
-              <span class="contact-label">LinkedIn</span>
-              <span class="contact-value">Carlos Mazcuñán</span>
-            </div>
-          </a>
-          -->
+      <nav class="pager" aria-label="Proyectos">
+        <a class="prev" href="crowsnest.html" rel="prev"><span class="mono">← anterior</span><span class="pager-title">Inside The Crow's Nest</span></a>
+        <a class="next" href="PhyloGen.html" rel="next"><span class="mono">siguiente →</span><span class="pager-title">PhyloGen</span></a>
+      </nav>
+      <p class="mono pager-hint">consejo: usa ← → para pasar de un proyecto a otro</p>
+    </article>
+  </main>
 
-          <a href="https://github.com/CarlosMazcu" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span class="contact-icon" aria-hidden="true">💻</span>
-            <div>
-              <span class="contact-label">GitHub</span>
-              <span class="contact-value">@carlosmazcu</span>
-            </div>
-          </a>
-
-          <a href="https://carlosmazcu.itch.io/" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span class="contact-icon" aria-hidden="true">🎮</span>
-            <div>
-              <span class="contact-label">Itch.io</span>
-              <span class="contact-value">carlosmazcu</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="contact-right contact-right--linkedin">
-        <!--
-        <form class="contact-form contact-form--inline" data-mailto="carlosmazcu@gmail.com">
-          <div class="form-group">
-            <label for="contact-name">Nombre</label>
-            <input id="contact-name" type="text" name="name" placeholder="Your Nombre" required>
-          </div>
-
-          <div class="form-group">
-            <label for="contact-email">Email</label>
-            <input id="contact-email" type="email" name="email" placeholder="your@email.com" required>
-          </div>
-
-          <div class="form-group">
-            <label for="contact-message">Mensaje</label>
-            <textarea id="contact-message" name="message" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
-          </div>
-
-          <button type="submit" class="submit-btn">Send Mensaje</button>
-        </form>
-        <p class="contact-form-status" aria-live="polite"></p>
-        -->
-
-        <div class="contact-linkedin-card">
-          <p class="contact-linkedin-kicker">LinkedIn</p>
-          <div class="contact-linkedin-badge" aria-label="LinkedIn profile card">
-            <div class="badge-base LI-profile-badge" data-locale="es_ES" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="carlos-mazcunan-blanes" data-version="v1">
-              <a class="badge-base__link LI-simple-link" href="https://es.linkedin.com/in/carlos-mazcunan-blanes?trk=profile-badge">Carlos Mazcuñán Blanes</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-</main>
-  <footer>
-  <div class="footer-content">
-    <div class="footer-brand">
-      <h3>Carlos Mazcuñán</h3>
-      <p>Gameplay & Graphics Programmer</p>
-      <p>Building performant systems in C++ and Unreal Engine.</p>
-    </div>
-
-    <div class="footer-links">
-      <h4>Enlaces rápidos</h4>
-      <ul>
-        <li><a href="../index.html#projects">Proyectos</a></li>
-        <li><a href="../index.html#about">Sobre mí</a></li>
-        <li><a href="../index.html#skills">Skills</a></li>
-        <li><a href="../index.html#contact">Contacto</a></li>
-        <li><a href="../../extra/carlos_mazcunan_resume.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-social">
-      <h4>Conecta</h4>
-      <div class="social-links">
-        <a href="https://github.com/CarlosMazcu" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <i class="fab fa-github" aria-hidden="true"></i>
-          <span>GitHub</span>
-        </a>
-        <a href="https://www.linkedin.com/in/carlos-mazcu%C3%B1%C3%A1n-blanes-290b53365/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-          <span>LinkedIn</span>
-        </a>
-        <a href="https://carlosmazcu.itch.io/" target="_blank" rel="noopener noreferrer" aria-label="Itch.io">
-          <i class="fab fa-itch-io" aria-hidden="true"></i>
-          <span>Itch.io</span>
-        </a>
-        <a href="mailto:carlosmazcu@gmail.com" aria-label="Email">
-          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-          <span>Email</span>
-        </a>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <p>© 2026 Carlos Mazcuñán</p>
+        <p>Última actualización: noviembre de 2026</p>
       </div>
     </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2026 Carlos Mazcuñán Blanes - Todos los derechos reservados</p>
-    <p>Última actualización: febrero de 2026</p>
-  </div>
-</footer>
-  <script src="../../anim/particle.js"></script>
-
+  </footer>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

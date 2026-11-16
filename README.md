@@ -12,8 +12,7 @@ It highlights selected projects built with C++, OpenGL, Unreal Engine, and relat
 - 🧱 HTML5
 - 🎨 CSS3
 - ⚙️ Vanilla JavaScript (no framework)
-- ✨ Font Awesome (icons)
-- 🔤 Google Fonts
+- 🔤 Google Fonts (Inter, JetBrains Mono)
 - 🚀 GitHub Pages (deployment)
 
 ## ⭐ Featured Projects
